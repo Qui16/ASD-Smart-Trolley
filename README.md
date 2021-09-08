@@ -1,2 +1,0 @@
-# ASD-Smart Trolley
- 
