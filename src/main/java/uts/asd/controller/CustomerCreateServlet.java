@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/*
+
 package uts.asd.controller;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,8 +20,17 @@ import javax.servlet.http.HttpSession;
  *
  * @author quyda
  */
-/*public class CustomerCreateServlet extends httpServlet {
+public class CustomerCreateServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+            HttpSession session = request.getSession();
+        
+        
+    }
     
     
-}
-*/
+    }
+    
+
+
