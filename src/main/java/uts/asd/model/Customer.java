@@ -12,8 +12,9 @@ import java.io.Serializable;
 public class Customer implements Serializable {
     private int customerID;
     private String customerEmail, customerPassword,customerFName, customerPhoneNum, customerAddress,customerDOB;
+    private boolean isStaff, isAdmin;
 
-    public Customer(int customerID, String customerEmail, String customerPassword, String customerFName, String customerPhoneNum, String customerAddress, String customerDOB) {
+    public Customer(int customerID, String customerEmail, String customerPassword, String customerFName, String customerPhoneNum, String customerAddress, String customerDOB, boolean isStaff, boolean isAdmin) {
         this.customerID = customerID;
         this.customerEmail = customerEmail;
         this.customerPassword = customerPassword;
@@ -21,6 +22,8 @@ public class Customer implements Serializable {
         this.customerPhoneNum = customerPhoneNum;
         this.customerAddress = customerAddress;
         this.customerDOB = customerDOB;
+        this.isStaff = isStaff;
+        this.isAdmin = isAdmin;
     }
    public Customer(String customerEmail, String customerPassword, String customerFName, String customerPhoneNum, String customerAddress, String customerDOB) {
         this.customerEmail = customerEmail;
@@ -85,6 +88,21 @@ public class Customer implements Serializable {
     public void setCustomerDOB(String customerDOB) {
         this.customerDOB = customerDOB;
     }
-  
+    
+    public boolean isStaff() {
+        return isStaff;
+    }
+
+    public void setIsStaff(boolean isStaff) {
+        this.isStaff = isStaff;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
+    }
     
 }
