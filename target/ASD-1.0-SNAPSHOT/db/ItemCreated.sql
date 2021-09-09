@@ -16,8 +16,6 @@ CREATE TABLE Items (
 "Item ReceivedDate" date ,
 "Item Region" varchar(255),
 "Item Description" varchar(255),
-"Item Photo" nvarchar(100),
-"Photo Data" varbinary(max),
 primary key ("Item ID")
 
 );
