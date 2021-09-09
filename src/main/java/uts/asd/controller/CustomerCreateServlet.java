@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import uts.asd.model.Customer;
 // import uts.asd.model.dao.DBManager;
 
 /**
@@ -25,8 +26,14 @@ public class CustomerCreateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             HttpSession session = request.getSession();
-        
-        
+            String customer_email=request.getParameter("customer_email");
+            String customer_name=request.getParameter("customer_name");
+            String customer_password=request.getParameter("customer_password");
+            
+            session.setAttribute("customer_email",customer_email);
+            session.setAttribute("customer_name",customer_name);
+            session.setAttribute("customer_password",customer_password);
+            request.getRequestDispatcher("CustomerAccount.jsp").forward(request,response);
     }
     
     

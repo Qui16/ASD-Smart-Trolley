@@ -17,9 +17,9 @@
         <h1>Sign Up</h1>
         <form action="CustomerAccount.jsp" method="post">
             <table class="table"> 
-                <tr><td>Name:</td><td><input type="text" name="name"></td></tr>
-                <tr><td>Email:</td><td><input type="text" name="email"></td></tr>
-                <tr><td>Password:</td><td><input type="password" name="password"></td></tr>               
+                <tr><td>Name:</td><td><input type="text" name="customer_name"></td></tr>
+                <tr><td>Email:</td><td><input type="text" name="customer_email"></td></tr>
+                <tr><td>Password:</td><td><input type="password" name="customer_password"></td></tr>               
                 <tr><td><input class="button" name="login" type="submit" value="Sign In"></td></tr> 
             </table>
         </form>
