@@ -9,7 +9,7 @@
  */
 
 CREATE TABLE Items (
-"Item ID" int not null GENERATED ALWAYS AS IDENTITY (START WITH 1000,  INCREMENT BY 1),
+"Item ID" int not null ,
 "Item Name" varchar(255) not null,
 "Item Price" float not null,
 "Item Quantity" int not null,
