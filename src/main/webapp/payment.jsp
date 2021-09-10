@@ -12,7 +12,8 @@
         <title>Payment Page</title>
     </head>
     <body>
-        <form action="PaymentSuccess.jsp" method="post">
+        
+        <form action="ConfirmPayment.jsp" method="post">
             <table class="table table-responsive">
                 
                 <tr><td>Amount :500$</td></tr>
@@ -27,7 +28,11 @@
                         </select>                                   
                     </td>
                     <td>
-                        <input class="date" type="date" name="datePaid"/>  
+                        
+                        <script language="javascript">
+                            document.write(new Date().toLocaleDateString());
+                            var x = new Date().toLocaleDateString()
+                        </script>
                     </td>
                 </tr>
                 <tr><td>Card Number</td><td><input  type="text" name="cardNumber" required=""/></td></tr>
