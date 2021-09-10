@@ -1,6 +1,8 @@
 uts\asd\controller\CustomerCreateServlet.class
-uts\asd\controller\PaymentServlet.class
-uts\asd\controller\ItemServlet.class
+uts\asd\model\ScanCart.class
 uts\asd\model\Product.class
 uts\asd\model\Cart.class
 uts\asd\model\Customer.class
+uts\asd\controller\PaymentServlet.class
+uts\asd\model\Item.class
+uts\asd\controller\ItemServlet.class
