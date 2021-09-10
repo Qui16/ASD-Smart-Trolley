@@ -1,0 +1,124 @@
+<%-- 
+    Document   : item management
+    Created on : 10/09/2021, 5:28:34 AM
+    Author     : Jack Hennessy
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.asd.model.*"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./css/style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <title>Item management</title>
+    </head>
+    <%
+      String existErr = (String) session.getAttribute("existErr");
+    %>
+
+    <header>
+            <jsp:include page="./navBar.jsp" flush="true"/>
+    </header>
+
+    <body>
+        <div class="title">
+            <h1>Item management</h1>
+        </div>
+
+        <div class="container">
+            <!-- main content div -->
+            <div class="row align-items-start">
+                <div class="col-4">
+
+
+                    <h2>Add product</h2>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput4" class="form-label">Price</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput4" placeholder="Enter product price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Region</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Enter product region">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label">Received date</label>
+                        <input type="date" class="form-control" id="exampleFormControlInput3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+                <div class="col-4">
+                    <h2>Remove product</h2>
+                    <div class="input-group mb-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Select product</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="productList">
+                        <h2>Product list</h2>
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    <b>Product ID</b>
+                                </th>
+                                <th>
+                                    <b>Product Name</b>
+                                </th>
+                                <th>
+                                    <b>Price</b>
+                                </th>     
+                                <th>
+                                    <b>Quantity</b>
+                                </th>
+                                <th>
+                                    <b>Received date</b>
+                                </th>
+                                <th>
+                                    <b>Region</b>
+                                </th>
+                                <th>
+                                    <b>Item description</b>
+                                </th>
+                            </tr>
+                            <c:forEach var="item" items="${items}">
+                                <tr>
+                                    <td><c:out value="${items.id}" /></td>
+                                    <td><c:out value="${items.name}" /></td>
+                                    <td><c:out value="${items.price}" /></td>
+                                    <td><c:out value="$${items.quantity}" /></td>
+                                    <td><c:out value="${items.date}" /></td>
+                                    <td><c:out value="${items.region}" /></td>
+                                    <td><c:out value="${items.description}" /></td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
+                </div>
+                
+	        </div>
+
+        </div>
+       
+    </body>
+</html>
