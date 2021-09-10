@@ -1,6 +1,6 @@
-uts/asd/controller/ItemServlet.class
-uts/asd/model/Cart.class
-uts/asd/controller/CustomerCreateServlet.class
-uts/asd/model/Customer.class
-uts/asd/controller/PaymentServlet.class
-uts/asd/model/Product.class
+uts\asd\controller\CustomerCreateServlet.class
+uts\asd\controller\PaymentServlet.class
+uts\asd\controller\ItemServlet.class
+uts\asd\model\Product.class
+uts\asd\model\Cart.class
+uts\asd\model\Customer.class

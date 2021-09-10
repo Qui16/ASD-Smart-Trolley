@@ -43,7 +43,7 @@
                         } else {
                       %>
                       <li><a href="./shoppingCart.jsp">Cart</a></li>  
-                      <li><a href="./registration.jsp">Register</a></li>
+                      <li><a href="./RegisterScreen.jsp">Register</a></li>
                       <li><a href="./login.jsp">Login</a></li>
                       <%
                           }
