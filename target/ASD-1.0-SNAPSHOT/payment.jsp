@@ -34,7 +34,7 @@
                             var x = new Date().toLocaleDateString();
                             document.getElementById("datePaid").innerhtml = x;
                         </script>
-                        <input type="date" type="date" name="datePaid" id="x" />
+                        
                     </td>
                 </tr>
                 <tr><td>Card Number</td><td><input  type="text" name="cardNumber" required=""/></td></tr>
