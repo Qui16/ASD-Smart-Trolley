@@ -8,8 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="css/register.css">
+        <title>Customer Register </title>
     </head>
    
     
