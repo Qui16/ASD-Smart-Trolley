@@ -17,5 +17,4 @@ CREATE TABLE Items (
 "Item Region" varchar(255),
 "Item Description" varchar(255),
 primary key ("Item ID")
-
 );

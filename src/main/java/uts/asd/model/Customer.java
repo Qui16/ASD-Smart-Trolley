@@ -11,10 +11,10 @@ import java.io.Serializable;
  */
 public class Customer implements Serializable {
     private int customerID;
-    private String customerEmail, customerPassword,customerFName, customerPhoneNum, customerAddress,customerDOB;
+    private String customerEmail, customerPassword,customerFName,customerLName,customerPhoneNum, customerAddress,customerDOB;
     private boolean isStaff, isAdmin;
 
-    public Customer(int customerID, String customerEmail, String customerPassword, String customerFName, String customerPhoneNum, String customerAddress, String customerDOB, boolean isStaff, boolean isAdmin) {
+    public Customer(int customerID, String customerEmail, String customerPassword, String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB, boolean isStaff, boolean isAdmin) {
         this.customerID = customerID;
         this.customerEmail = customerEmail;
         this.customerPassword = customerPassword;
@@ -25,6 +25,25 @@ public class Customer implements Serializable {
         this.isStaff = isStaff;
         this.isAdmin = isAdmin;
     }
+    public Customer(int customerID, String customerEmail, String customerPassword, String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
+        this.customerID = customerID;
+        this.customerEmail = customerEmail;
+        this.customerPassword = customerPassword;
+        this.customerFName = customerFName;
+        this.customerPhoneNum = customerPhoneNum;
+        this.customerAddress = customerAddress;
+        this.customerDOB = customerDOB;
+    }
+    
+    public Customer(int customerID, String customerEmail,String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
+        this.customerID = customerID;
+        this.customerEmail = customerEmail;
+        this.customerFName = customerFName;
+        this.customerPhoneNum = customerPhoneNum;
+        this.customerAddress = customerAddress;
+        this.customerDOB = customerDOB;
+    }
+    
    public Customer(String customerEmail, String customerPassword, String customerFName, String customerPhoneNum, String customerAddress, String customerDOB) {
         this.customerEmail = customerEmail;
         this.customerPassword = customerPassword;
@@ -47,6 +66,10 @@ public class Customer implements Serializable {
 
     public String getCustomerFName() {
         return customerFName;
+    }
+     
+    public String getCustomerLName() {
+        return customerLName;
     }
 
     public String getCustomerPhoneNum() {
@@ -76,7 +99,10 @@ public class Customer implements Serializable {
     public void setCustomerFName(String customerFName) {
         this.customerFName = customerFName;
     }
-
+    
+     public void setCustomerLName(String customerLName) {
+        this.customerLName = customerLName;
+    }
     public void setCustomerPhoneNum(String customerPhoneNum) {
         this.customerPhoneNum = customerPhoneNum;
     }

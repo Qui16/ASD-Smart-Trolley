@@ -9,10 +9,10 @@ import java.sql.Connection;
  *
  * @author quyda
  */
-public abstract class DB1 {
-    protected String URL="jdbc:derby://localhost:1527/";
-    protected String db="Customer"; 
-    protected String dbuser="quy";
+public abstract class DB {
+    protected String URL="jdbc:derby://localhost:1527/ASD";
+    protected String db="ASD"; 
+    protected String dbuser="asd";
     protected String dbpass="123";
     protected String driver="org.apache.derby.jdbc.ClientDriver";
     protected Connection conn;
