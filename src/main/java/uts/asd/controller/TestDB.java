@@ -39,6 +39,7 @@ public class TestDB {
 
     private void testCreate() throws SQLException {
         System.out.println("Adding customer to the database: ");
+        String email=read("Email");
         manager.addCustomer(read("Email"),read("Password"),read("First Name"),read("Last Name"),read("Phone Num"),read("Address"),read("DOB"));
         System.out.println("Customer added successfully ");
     }
@@ -76,7 +77,9 @@ public class TestDB {
 
     private void menu() throws SQLException {
         char c;
+        read("test1");
         help();
+        System.out.print("test2");
         while ((c = read("Command [c/r/u/d/x]").charAt(0)) != 'x') {
             switch (c) {
                 case 'c':

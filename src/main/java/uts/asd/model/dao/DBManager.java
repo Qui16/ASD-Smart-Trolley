@@ -23,7 +23,7 @@ public class DBManager {
     
     public Customer FindCustomerViaID(int customerID) throws SQLException{
     //setup the select sql query string     
-    String fetch="select * from QUY.\"CUSTOMER\" where  \"Customer ID\"="+customerID;
+    String fetch="select * from ASD.\"CUSTOMER\" where  \"Customer ID\"="+customerID;
    //execute this query using the statement field       
     ResultSet rs= st.executeQuery(fetch);
    //add the results to a ResultSet       
@@ -44,7 +44,7 @@ public class DBManager {
     
     public Customer FindCustomer(int customerID, String customerPassword ) throws SQLException {       
    //setup the select sql query string     
-    String fetch="select * from QUY.\"CUSTOMER\" where  \"Customer ID\"="+customerID+"AND \"Customer Password\"='"+customerPassword+"'" ;
+    String fetch="select * from ASD.\"CUSTOMER\" where  \"Customer ID\"="+customerID+"AND \"Customer Password\"='"+customerPassword+"'" ;
    //execute this query using the statement field       
     ResultSet rs= st.executeQuery(fetch);
    //add the results to a ResultSet       
@@ -65,7 +65,7 @@ public class DBManager {
    return null;   
 }
     public Customer FindCustomer2(String customerEmail, String customerPassword) throws SQLException{
-    String fetch="select * from QUY.\"CUSTOMER\" where  \"Customer Email\"="+customerEmail+"AND \"Customer Password\"='"+customerPassword+"'";
+    String fetch="select * from ASD.\"CUSTOMER\" where  \"Customer Email\"="+customerEmail+"AND \"Customer Password\"='"+customerPassword+"'";
     ResultSet rs= st.executeQuery(fetch);
     //add the results to a ResultSet       
     //search the ResultSet for a user using the parameters
@@ -92,7 +92,7 @@ public class DBManager {
             String customerLName,String customerPhoneNum,String customerAddress,String customerDOB) throws SQLException {//code for add-operation       
      
    //String columns1 = "INSERT INTO QUY.\"SHIPMENT\"(\"Order ID\",\"Shipment Method\",\"Shipment Address\",\"Delivery Date\")";
-   String columns= "insert into QUY.\"CUSTOMER\"(\"Customer Email\",\"Customer Password\",\"Customer Firstname\",\"Customer Lastname\", \"Customer PhoneNum\",\"Customer Address\",\"Customer DOB\")";
+   String columns= "insert into ASD.\"CUSTOMER\"(\"Customer Email\",\"Customer Password\",\"Customer Firstname\",\"Customer Lastname\", \"Customer PhoneNum\",\"Customer Address\",\"Customer DOB\")";
    String values =  "VALUES("+customerEmail+",'"+customerPassword+"','"+customerFName+"','"+customerLName+"','"+customerPhoneNum+"','"+customerAddress+"','"+customerDOB+"')"; 
    st.executeUpdate(columns+values);
 }
@@ -100,13 +100,13 @@ public class DBManager {
     public void updateCustomer (int customerID,String customerEmail,String customerPassword,String customerFName,
             String customerLName,String customerPhoneNum,String customerAddress,String customerDOB) throws SQLException {//code for add-operation       
    //update sql command
-   String update="UPDATE QUY.CUSTOMER SET \"Customer Email\"=' "+customerEmail+" ',\"Customer Password\"=' "+customerPassword+" '. \"Customer Firstname\"=' "+customerFName+" ',\"Customer Lastname\"=' "+customerLName+" ',\"Customer PhoneNum\"=' "+customerPhoneNum+" '. \"Customer Address\"=' "+customerAddress+" ',\"Customer DOB\"=' "+customerDOB+" 'where \"Customer ID\"="+customerID;
+   String update="UPDATE ASD.CUSTOMER SET \"Customer Email\"=' "+customerEmail+" ',\"Customer Password\"=' "+customerPassword+" '. \"Customer Firstname\"=' "+customerFName+" ',\"Customer Lastname\"=' "+customerLName+" ',\"Customer PhoneNum\"=' "+customerPhoneNum+" '. \"Customer Address\"=' "+customerAddress+" ',\"Customer DOB\"=' "+customerDOB+" 'where \"Customer ID\"="+customerID;
    st.executeUpdate(update);
 }
 
     public void deleteCustomer(int customerID) throws SQLException{       
    //code for delete-operation   
-   String delete = "DELETE FROM QUY.\"CUSTOMER\" WHERE \"Customer ID\"="+customerID;
+   String delete = "DELETE FROM ASD.\"CUSTOMER\" WHERE \"Customer ID\"="+customerID;
    st.executeUpdate(delete);
 }
 

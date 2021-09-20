@@ -10,7 +10,7 @@ import java.sql.Connection;
  * @author quyda
  */
 public abstract class DB {
-    protected String URL="jdbc:derby://localhost:1527/ASD";
+    protected String URL="jdbc:derby://localhost:1527/";
     protected String db="ASD"; 
     protected String dbuser="asd";
     protected String dbpass="123";
