@@ -93,7 +93,7 @@ public class DBManager {
      
    //String columns1 = "INSERT INTO QUY.\"SHIPMENT\"(\"Order ID\",\"Shipment Method\",\"Shipment Address\",\"Delivery Date\")";
    String columns= "insert into ASD.\"CUSTOMER\"(\"Customer Email\",\"Customer Password\",\"Customer Firstname\",\"Customer Lastname\", \"Customer PhoneNum\",\"Customer Address\",\"Customer DOB\")";
-   String values =  "VALUES("+customerEmail+",'"+customerPassword+"','"+customerFName+"','"+customerLName+"','"+customerPhoneNum+"','"+customerAddress+"','"+customerDOB+"')"; 
+   String values =  "VALUES('"+customerEmail+"','"+customerPassword+"','"+customerFName+"','"+customerLName+"','"+customerPhoneNum+"','"+customerAddress+"','"+customerDOB+"')"; 
    st.executeUpdate(columns+values);
 }
 
