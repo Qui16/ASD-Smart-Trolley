@@ -65,23 +65,26 @@ public class TestDB {
     }
 
     private String read(String prompt) {
-        System.out.print(prompt + ": ");
-        System.out.flush();
-        return in.nextLine();
+        System.out.print(prompt+": ");
+        
+        
+        return in.next();
     }
 
     private String read(int prompt) {
         System.out.print(prompt + ": ");
-        return in.nextLine();
+        
+        return in.next();
     }
 
     private void menu() throws SQLException {
         char c;
-        help();
-        while ((c = read("Command [c/r/u/d/x]").charAt(0)) != 'x') {
+        help();       
+        
+        while ((c = read("Command [c/r/u/d/f/x]").charAt(0)) != 'x') {
             switch (c) {
-                case 'c':
-                    testCreate();
+                case 'c':                                  
+                    testCreate();                  
                     break;
                 case 'r':
                     testFind();
@@ -104,6 +107,7 @@ public class TestDB {
                 + "c = Create User \n"
                 + "r = Find User \n"
                 + "u = Update User \n"
-                + "d = Delete User \n");
+                + "d = Delete User \n");  
+        
     }
 }
