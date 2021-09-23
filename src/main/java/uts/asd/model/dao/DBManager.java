@@ -100,7 +100,7 @@ public class DBManager {
     public void updateCustomer (int customerID,String customerEmail,String customerPassword,String customerFName,
             String customerLName,String customerPhoneNum,String customerAddress,String customerDOB) throws SQLException {//code for add-operation       
    //update sql command
-   String update="UPDATE ASD.CUSTOMER SET \"Customer Email\"=' "+customerEmail+" ',\"Customer Password\"=' "+customerPassword+" '. \"Customer Firstname\"=' "+customerFName+" ',\"Customer Lastname\"=' "+customerLName+" ',\"Customer PhoneNum\"=' "+customerPhoneNum+" '. \"Customer Address\"=' "+customerAddress+" ',\"Customer DOB\"=' "+customerDOB+" 'where \"Customer ID\"="+customerID;
+   String update="UPDATE ASD.CUSTOMER SET \"Customer Email\"='"+customerEmail+"',\"Customer Password\"='"+customerPassword+"', \"Customer Firstname\"='"+customerFName+"',\"Customer Lastname\"='"+customerLName+"',\"Customer PhoneNum\"='"+customerPhoneNum+"', \"Customer Address\"='"+customerAddress+"',\"Customer DOB\"='"+customerDOB+"'where \"Customer ID\"="+customerID;
    st.executeUpdate(update);
 }
 
