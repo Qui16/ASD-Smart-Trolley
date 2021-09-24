@@ -37,23 +37,25 @@ public class CustomerCreateServlet extends HttpServlet {
             String customerPhoneNum=request.getParameter("customerPhoneNum");
             String customerAddress=request.getParameter("customerAddress");
             String customerDOB=request.getParameter("customerDOB");
-        
-            /*session.setAttribute("customerEmail",customerEmail);
-            session.setAttribute("customerFName",customerFName);
-            session.setAttribute("customerLName",customerLName);
-            session.setAttribute("customer_password",customerPassword);*/
+            
+            
+           
                                
             DBManager manager=(DBManager) session.getAttribute("manager");
             try{
-                if(customerEmail!="" && customerPassword!=""&& (customerFName!="" || customerLName!="")){
+                if(!customerEmail.isEmpty() && !customerPassword.isEmpty() && (!customerFName.isEmpty() || !customerLName.isEmpty())){
                 if(customerDOB.equals("")){
                     LocalDate date=LocalDate.now();
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     customerDOB=date.format(formatter);
                 }
                 manager.addCustomer(customerEmail, customerPassword, customerFName, customerLName,customerPhoneNum,customerAddress,customerDOB);
+                int ID=manager.FindCustomerID(customerEmail, customerPassword);
+                Customer customer=new Customer(ID,customerEmail,customerPassword,
+                customerFName,customerLName,customerPhoneNum,customerAddress,customerDOB);
+                session.setAttribute("customer",customer);
                 session.setAttribute("added","added");
-                request.getRequestDispatcher("RegisterScreen.jsp").forward(request, response);
+                request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
                 }
                 else{
                 session.setAttribute("notAdded","notAdded");

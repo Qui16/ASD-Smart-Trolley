@@ -65,14 +65,14 @@ public class DBManager {
    return null;   
 }
     public Customer FindCustomer2(String customerEmail, String customerPassword) throws SQLException{
-    String fetch="select * from ASD.\"CUSTOMER\" where  \"Customer Email\"="+customerEmail+"AND \"Customer Password\"='"+customerPassword+"'";
+    String fetch="select * from ASD.\"CUSTOMER\" where  \"Customer Email\"='"+customerEmail+"'AND \"Customer Password\"='"+customerPassword+"'";
     ResultSet rs= st.executeQuery(fetch);
     //add the results to a ResultSet       
     //search the ResultSet for a user using the parameters
     while (rs.next()){
       String email=rs.getString(2);
       String password=rs.getString(3);
-       if(email==customerEmail && password.equals(customerPassword) ){
+       if(email.equals(customerEmail) && password.equals(customerPassword) ){
            int  ID=rs.getInt(1);
            String customerFName =rs.getString(4);
            String customerLName=rs.getString(5);
@@ -85,7 +85,21 @@ public class DBManager {
     return null;
     }
     
-    //Find user by email and password in the database   
+    public int FindCustomerID(String customerEmail, String customerPassword) throws SQLException{
+    String fetch="select * from ASD.\"CUSTOMER\" where  \"Customer Email\"='"+customerEmail+"'AND \"Customer Password\"='"+customerPassword+"'";
+    ResultSet rs= st.executeQuery(fetch);
+    //add the results to a ResultSet       
+    //search the ResultSet for a user using the parameters
+    while (rs.next()){
+      String email=rs.getString(2);
+      String password=rs.getString(3);
+       if(email.equals(customerEmail) && password.equals(customerPassword) ){
+           int  ID=rs.getInt(1);
+           return ID;
+       } 
+    }   
+    return -1;
+    }
     
     
     public void addCustomer (String customerEmail,String customerPassword,String customerFName,

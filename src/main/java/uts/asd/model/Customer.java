@@ -19,35 +19,43 @@ public class Customer implements Serializable {
         this.customerEmail = customerEmail;
         this.customerPassword = customerPassword;
         this.customerFName = customerFName;
+        this.customerLName = customerLName;
         this.customerPhoneNum = customerPhoneNum;
         this.customerAddress = customerAddress;
         this.customerDOB = customerDOB;
         this.isStaff = isStaff;
         this.isAdmin = isAdmin;
     }
-    public Customer(int customerID, String customerEmail, String customerPassword, String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
+ 
+    
+    public Customer(int customerID, String customerEmail,String customerPassword,String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
         this.customerID = customerID;
         this.customerEmail = customerEmail;
-        this.customerPassword = customerPassword;
+        this.customerPassword=customerPassword;
         this.customerFName = customerFName;
+        this.customerLName=customerLName;
         this.customerPhoneNum = customerPhoneNum;
         this.customerAddress = customerAddress;
         this.customerDOB = customerDOB;
     }
-    
-    public Customer(int customerID, String customerEmail,String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
+
+    public Customer(int customerID, String customerEmail, String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
         this.customerID = customerID;
         this.customerEmail = customerEmail;
         this.customerFName = customerFName;
+        this.customerLName = customerLName;
         this.customerPhoneNum = customerPhoneNum;
         this.customerAddress = customerAddress;
         this.customerDOB = customerDOB;
+     
     }
     
-   public Customer(String customerEmail, String customerPassword, String customerFName, String customerPhoneNum, String customerAddress, String customerDOB) {
+    
+   public Customer(String customerEmail, String customerPassword, String customerFName,String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
         this.customerEmail = customerEmail;
         this.customerPassword = customerPassword;
         this.customerFName = customerFName;
+        this.customerLName=customerLName;
         this.customerPhoneNum = customerPhoneNum;
         this.customerAddress = customerAddress;
         this.customerDOB = customerDOB;

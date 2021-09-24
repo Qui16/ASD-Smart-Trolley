@@ -9,6 +9,10 @@
         <servlet-name>CustomerCreateServlet</servlet-name>
         <servlet-class>uts.asd.controller.CustomerCreateServlet</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>CustomerLoginServlet</servlet-name>
+        <servlet-class>uts.asd.controller.CustomerLoginServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -17,6 +21,10 @@
     <servlet-mapping>
         <servlet-name>CustomerCreateServlet</servlet-name>
         <url-pattern>/CustomerCreateServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>CustomerLoginServlet</servlet-name>
+        <url-pattern>/CustomerLoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

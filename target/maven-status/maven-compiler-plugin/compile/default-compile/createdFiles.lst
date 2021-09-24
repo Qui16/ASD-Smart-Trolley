@@ -4,6 +4,8 @@ uts\asd\model\dao\DB.class
 uts\asd\controller\ConnServlet.class
 uts\asd\model\Item.class
 uts\asd\controller\CustomerCreateServlet.class
+uts\asd\controller\CustomerReadServlet.class
+uts\asd\controller\CustomerLoginServlet.class
 uts\asd\model\Product.class
 uts\asd\model\Cart.class
 uts\asd\model\Customer.class
