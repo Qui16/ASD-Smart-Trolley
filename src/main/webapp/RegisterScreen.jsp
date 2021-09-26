@@ -14,7 +14,7 @@
     
     <div style="padding-left:20px">
         <h1>Sign Up</h1>
-        <form action="CustomerLoginServlet" method="post">
+        <form action="CustomerCreateServlet" method="post">
             <table class="table"> 
                 <tr><td>First Name:</td><td><input type="text"name="customerFName"></td></tr>
                 <tr><td>Last Name:</td><td><input type="text"name="customerLName"></td></tr>

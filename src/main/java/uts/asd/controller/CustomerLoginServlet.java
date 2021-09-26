@@ -44,7 +44,7 @@ public class CustomerLoginServlet extends HttpServlet {
     
     }
     catch(SQLException ex){
-    request.getRequestDispatcher("RegisterScreen.jsp").include(request, response);
+    request.getRequestDispatcher("navBar.jsp").include(request, response);
     Logger.getLogger(CustomerCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

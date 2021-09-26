@@ -9,11 +9,18 @@
         <servlet-name>CustomerCreateServlet</servlet-name>
         <servlet-class>uts.asd.controller.CustomerCreateServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>CustomerLoginServlet</servlet-name>
         <servlet-class>uts.asd.controller.CustomerLoginServlet</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>CustomerUpdateServlet</servlet-name>
+        <servlet-class>uts.asd.controller.CustomerUpdateServlet</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>CustomerDeleteServlet</servlet-name>
+        <servlet-class>uts.asd.controller.CustomerDeleteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -25,6 +32,14 @@
      <servlet-mapping>
         <servlet-name>CustomerLoginServlet</servlet-name>
         <url-pattern>/CustomerLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerUpdateServlet</servlet-name>
+        <url-pattern>/CustomerUpdateServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>CustomerDeleteServlet</servlet-name>
+        <url-pattern>/CustomerDeleteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

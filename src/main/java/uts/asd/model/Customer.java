@@ -92,9 +92,7 @@ public class Customer implements Serializable {
         return customerDOB;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
+  
 
     public void setCustomerEmail(String customerEmail) {
         this.customerEmail = customerEmail;

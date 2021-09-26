@@ -4,13 +4,15 @@ C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\da
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Product.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\TestDB.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerCreateServlet.java
+C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\Validator.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Customer.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\PaymentServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Cart.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\dao\DBManager.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Item.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\ItemServlet.java
-C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerReadServlet.java
+C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerDeleteServlet.java
+C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerUpdateServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\dao\DB.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Staff.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerLoginServlet.java
