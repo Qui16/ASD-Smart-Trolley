@@ -11,17 +11,39 @@ import java.io.Serializable;
  */
 public class Staff implements Serializable{
     private int staffID;
-    private String staffEmail,staffPassword,staffFirstName, stafLastName, staffPhoneNum, staffDOB, staffRole;
+    private String staffEmail,staffPassword,staffFName, staffLName, staffPhoneNum,staffAddress,staffDOB, staffRole;
 
-    public Staff(int staffID, String staffEmail, String staffPassword, String staffFirstName, String stafLastName, String staffPhoneNum, String staffDOB, String staffRole) {
+    public Staff(int staffID, String staffEmail, String staffPassword, String staffFirstName, String stafLastName, String staffPhoneNum,String staffAddress, String staffDOB, String staffRole) {
         this.staffID = staffID;
         this.staffEmail = staffEmail;
         this.staffPassword = staffPassword;
-        this.staffFirstName = staffFirstName;
-        this.stafLastName = stafLastName;
+        this.staffFName = staffFirstName;
+        this.staffLName = stafLastName;
         this.staffPhoneNum = staffPhoneNum;
+        this.staffAddress=staffAddress;
         this.staffDOB = staffDOB;
         this.staffRole = staffRole;
+    }
+
+    public Staff(int staffID, String staffEmail, String staffPassword, String staffFName, String staffLName, String staffPhoneNum, String staffAddress, String staffDOB) {
+        this.staffID = staffID;
+        this.staffEmail = staffEmail;
+        this.staffPassword = staffPassword;
+        this.staffFName = staffFName;
+        this.staffLName = staffLName;
+        this.staffPhoneNum = staffPhoneNum;
+        this.staffAddress = staffAddress;
+        this.staffDOB = staffDOB;
+    }
+    
+    
+
+    public String getStaffAddress() {
+        return staffAddress;
+    }
+
+    public void setStaffAddress(String staffAddress) {
+        this.staffAddress = staffAddress;
     }
     
     
@@ -37,12 +59,12 @@ public class Staff implements Serializable{
         return staffPassword;
     }
 
-    public String getStaffFirstName() {
-        return staffFirstName;
+    public String getStaffFName() {
+        return staffFName;
     }
 
-    public String getStafLastName() {
-        return stafLastName;
+    public String getStaffLName() {
+        return staffLName;
     }
 
     public String getStaffPhoneNum() {
@@ -69,12 +91,12 @@ public class Staff implements Serializable{
         this.staffPassword = staffPassword;
     }
 
-    public void setStaffFirstName(String staffFirstName) {
-        this.staffFirstName = staffFirstName;
+    public void setStaffFName(String staffFirstName) {
+        this.staffFName = staffFirstName;
     }
 
-    public void setStafLastName(String stafLastName) {
-        this.stafLastName = stafLastName;
+    public void setStafLName(String stafLastName) {
+        this.staffLName = stafLastName;
     }
 
     public void setStaffPhoneNum(String staffPhoneNum) {

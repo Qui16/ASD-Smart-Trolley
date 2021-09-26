@@ -39,5 +39,19 @@ CREATE TABLE Customer (
 "Customer PhoneNum" varchar(255) ,
 "Customer Address" varchar(255) ,
 "Customer DOB" date ,
+"Customer Point" int,
 primary key ("Customer ID")
+);
+
+CREATE TABLE Staff (
+"Staff ID" int not null GENERATED ALWAYS AS IDENTITY (START WITH 1000,  INCREMENT BY 1),
+"Staff Email" varchar(255) not null,
+"Staff Password" varchar(255) not null,
+"Staff Firstname" varchar(255) ,
+"Staff Lastname" varchar(255) ,
+"Staff PhoneNum" varchar(255) ,
+"Staff Address" varchar(255) ,
+"Staff DOB" date ,
+"Staff Role" varchar(255),
+primary key ("Staff ID")
 );

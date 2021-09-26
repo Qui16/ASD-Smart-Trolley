@@ -9,6 +9,7 @@
 <html>
     <head>
         <title>Customer Register </title>
+        <jsp:include page="/ConnServlet" flush="true"/>
     </head>
    
     
@@ -29,5 +30,5 @@
             </table>
         </form>
     </div>
-    <jsp:include page="/ConnServlet" flush="true"/>
+   
 </html>

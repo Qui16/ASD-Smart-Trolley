@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import uts.asd.model.Customer;
+import uts.asd.model.Staff;
 //import uts.asd.model.Staff;
 /**
  *
@@ -101,6 +102,67 @@ public class DBManager {
     return -1;
     }
     
+    public int FindStaffID(String staffEmail, String staffPassword) throws SQLException{
+    String fetch="select * from ASD.\"STAFF\" where  \"Staff Email\"='"+staffEmail+"'AND \"Staff Password\"='"+staffPassword+"'";
+    ResultSet rs= st.executeQuery(fetch);
+    //add the results to a ResultSet       
+    //search the ResultSet for a user using the parameters
+    while (rs.next()){
+      String email=rs.getString(2);
+      String password=rs.getString(3);
+       if(email.equals(staffEmail) && password.equals(staffPassword) ){
+           int  ID=rs.getInt(1);
+           return ID;
+       } 
+    }   
+    return -1;
+    }
+    
+    public Staff FindStaff(int staffID, String staffPassword ) throws SQLException {       
+   //setup the select sql query string     
+    String fetch="select * from ASD.\"STAFF\" where  \"Staff ID\"="+staffID+"AND \"Staff Password\"='"+staffPassword+"'" ;
+   //execute this query using the statement field       
+    ResultSet rs= st.executeQuery(fetch);
+   //add the results to a ResultSet       
+   //search the ResultSet for a user using the parameters
+    while (rs.next()){
+      int  ID=rs.getInt(1);
+       String password=rs.getString(3);
+       if(staffID==ID && password.equals(staffPassword) ){
+           String staffEmail=rs.getString(2);
+           String staffFName =rs.getString(4);
+           String staffLName=rs.getString(5);
+           String staffPhoneNum=rs.getString(6);
+           String staffAddress=rs.getString(7);
+           String staffDOB=rs.getString(8);
+           String staffRole=rs.getString(9);
+           return new Staff(ID,staffEmail,password,staffFName,staffLName,staffPhoneNum,staffAddress,staffDOB,staffRole);
+       }  
+   }                 
+   return null;   
+   }
+    
+    public Staff FindStaff2(String staffEmail, String staffPassword) throws SQLException{
+    String fetch="select * from ASD.\"STAFF\" where  \"Staff Email\"='"+staffEmail+"'AND \"Staff Password\"='"+staffPassword+"'";
+    ResultSet rs= st.executeQuery(fetch);
+    //add the results to a ResultSet       
+    //search the ResultSet for a user using the parameters
+    while (rs.next()){
+      String email=rs.getString(2);
+      String password=rs.getString(3);
+       if(email.equals(staffEmail) && password.equals(staffPassword) ){
+           int  ID=rs.getInt(1);
+           String staffFName =rs.getString(4);
+           String staffLName=rs.getString(5);
+           String staffPhoneNum=rs.getString(6);
+           String staffAddress=rs.getString(7);
+           String staffDOB=rs.getString(8);
+           String staffRole=rs.getString(9);
+           return new Staff(ID,email,password,staffFName,staffLName,staffPhoneNum,staffAddress,staffDOB,staffRole);
+       } 
+    }   
+    return null;
+    }
     
     public void addCustomer (String customerEmail,String customerPassword,String customerFName,
             String customerLName,String customerPhoneNum,String customerAddress,String customerDOB) throws SQLException {//code for add-operation       
@@ -123,5 +185,28 @@ public class DBManager {
    String delete = "DELETE FROM ASD.\"CUSTOMER\" WHERE \"Customer ID\"="+customerID;
    st.executeUpdate(delete);
 }
+    
+   public void addStaff (String staffEmail,String staffPassword,String staffFName,
+           String staffLName,String staffPhoneNum,String staffAddress,String staffDOB, String staffRole) throws SQLException {//code for add-operation           
+   //String columns1 = "INSERT INTO QUY.\"SHIPMENT\"(\"Order ID\",\"Shipment Method\",\"Shipment Address\",\"Delivery Date\")";
+   String columns= "insert into ASD.\"STAFF\"(\"Staff Email\",\"Staff Password\",\"Staff Firstname\",\"Staff Lastname\", \"Staff PhoneNum\",\"Staff Address\",\"Staff DOB\",\"Staff Role\")";
+   String values =  "VALUES('"+staffEmail+"','"+staffPassword+"','"+staffFName+"','"+staffLName+"','"+staffPhoneNum+"','"+staffAddress+"','"+staffDOB+"','"+staffRole+"')"; 
+   st.executeUpdate(columns+values);
+}
+
+    public void updateStaff (int staffID,String staffEmail,String staffPassword,String staffFName,
+           String staffLName,String staffPhoneNum,String staffAddress,String staffDOB) throws SQLException {//code for add-operation       
+   //update sql command
+   String update="UPDATE ASD.STAFF SET \"Staff Email\"='"+staffEmail+"',\"Staff Password\"='"+staffPassword+"', \"Staff Firstname\"='"+staffFName+"',\"Staff Lastname\"='"+staffLName+"',\"Staff PhoneNum\"='"+staffPhoneNum+"', \"Staff Address\"='"+staffAddress+"',\"Staff DOB\"='"+staffDOB+"'where \"Staff ID\"="+staffID;
+   st.executeUpdate(update);
+}
+
+    public void deleteStaff(int staffID) throws SQLException{       
+   //code for delete-operation   
+   String delete = "DELETE FROM ASD.\"STAFF\" WHERE \"Staff ID\"="+staffID;
+   st.executeUpdate(delete);
+}
+    
+    
 
 }
