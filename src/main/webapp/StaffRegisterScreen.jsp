@@ -20,8 +20,8 @@
                 <table class="table"> 
                     <tr><td>First Name: </td><td><input type="text"name="staffFName"></td></tr>
                     <tr><td>Last Name: </td><td><input type="text"name="staffLName"></td></tr>
-                    <tr><td>Email: </td><td><input type="text" name="staffEmail"></td></tr>
-                    <tr><td>Password: </td><td><input type="password" name="staffPassword"></td></tr>
+                    <tr><td>Email: </td><td><input type="text" name="staffEmail" required></td></tr>
+                    <tr><td>Password: </td><td><input type="password" name="staffPassword" required></td></tr>
                     <tr><td>Phone Number: </td><td><input type="text" name="staffPhoneNum"></td></tr>   
                     <tr><td>Address: </td><td><input type="text" name="staffAddress"></td></tr>   
                     <tr><td>DOB: </td><td><input type="date" name="staffDOB"></td>

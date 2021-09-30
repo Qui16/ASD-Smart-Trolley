@@ -9,17 +9,34 @@
 <html>
     <head>       
         <title>Welcome</title>
+        <link rel="stylesheet" href="./css/warning.css">
     </head>
-    
-        <h1>Login page</h1>
-        <div style="padding-left:20px">
+    <body>
+        <%String validate = (String)session.getAttribute("authentication");%>
+    <h1>Login page</h1>
+    <div style="padding-left:20px">
         <form action="LoginServlet" method="post">
             <table class="table">
-            <tr><td>Email:</td><td><input type="text" name="Email"></td></tr>
-            <tr><td>Password:</td><td><input type="password" name="Password"></td></tr>
-            <tr><td><input class="button" name="login" type="submit" value="Sign In"></td></tr>
+                <tr><td>Email:</td><td><input type="text" name="Email" required></td></tr>
+                <tr><td>Password:</td><td><input type="password" name="Password" required></td></tr>
+                <tr><td><input class="button" name="login" type="submit" value="Sign In"></td></tr>
             </table>    
         </form>
-        </div>
-        <jsp:include page="/ConnServlet" flush="true"/>
+    </div>
+    <%
+        if(validate!=null){
+        if (validate.equals("invalid")) {
+    %>
+    <div>
+    <label class="error" >Illegal character(s) detected! Please recheck the input</label>
+    </div>
+    <%} else if (validate.equals("unknow")) {%>
+    <div>
+    <label class="error" >Wrong email or password!</label>
+    </div>
+    <%}}%>
+    
+    <jsp:include page="/ConnServlet" flush="true"/>
+    </body>
+
 </html>

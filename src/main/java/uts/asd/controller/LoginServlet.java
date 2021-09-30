@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import uts.asd.model.Customer;
 import uts.asd.model.Staff;
 import uts.asd.model.dao.DBManager;
+import uts.asd.controller.Validator;
 
 /**
  *
@@ -27,13 +28,15 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     HttpSession session = request.getSession();
-    String Email=request.getParameter("Email");
-    String Password=request.getParameter("Password");
+    String email=request.getParameter("Email");
+    String password=request.getParameter("Password");
     DBManager manager=(DBManager) session.getAttribute("manager");
-    
+    Validator validate= new Validator();
+    validate.clear(session);
     try{
-    Staff staff=manager.FindStaff2(Email,Password);
-    Customer customer=manager.FindCustomer2(Email,Password);
+    if((validate.validateEmail(email)) && (validate.validatePassword(password)) && !validate.checkEmpty(email, password) ){
+    Staff staff=manager.FindStaff2(email,password);
+    Customer customer=manager.FindCustomer2(email,password);
         if(staff!=null){
             session.setAttribute("staff",staff);
             session.setAttribute("customer",null);
@@ -47,9 +50,15 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
         }
         else{
-            session.setAttribute("authentication","invalid");
+            session.setAttribute("authentication","unknow");
             request.getRequestDispatcher("login.jsp").forward(request, response);   
         }
+        }
+    else{
+        
+        session.setAttribute("authentication","invalid");
+        request.getRequestDispatcher("login.jsp").include(request, response);
+    }
     
     }
     catch(SQLException ex){

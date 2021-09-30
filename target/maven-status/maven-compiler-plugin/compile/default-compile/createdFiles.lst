@@ -3,6 +3,7 @@ uts\asd\model\dao\DBConnector.class
 uts\asd\controller\UpdateServlet.class
 uts\asd\model\dao\DB.class
 uts\asd\controller\ConnServlet.class
+uts\asd\controller\LogoutServlet.class
 uts\asd\controller\DeleteServlet.class
 uts\asd\model\Item.class
 uts\asd\controller\CustomerCreateServlet.class
