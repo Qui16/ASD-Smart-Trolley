@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+/*
 package uts.asd.controller;
 
 import java.io.IOException;
@@ -17,11 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.asd.model.Customer;
 import uts.asd.model.dao.DBManager;
-
+*/
 /**
  *
  * @author quyda
  */
+/*
 public class CustomerUpdateServlet extends HttpServlet {
 
     @Override
@@ -51,3 +53,4 @@ public class CustomerUpdateServlet extends HttpServlet {
     }
 
 }
+*/

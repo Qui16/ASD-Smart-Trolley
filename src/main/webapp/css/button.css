@@ -8,12 +8,13 @@ and open the template in the editor.
     Author     : quyda
 */
 
-  .button {
-       bottom:10px;
-       right:10px;
-       color: #CA3110;
-       position: absolute;
-       z-index: 2;
-       background: #333130; 
-       border-radius: 4px;
-       }
+.button {
+    bottom:10px;
+    right:10px;
+    color: #CA3110;
+    position: absolute;
+    z-index: 2;
+    background: #333130; 
+    border-radius: 4px;
+}
+

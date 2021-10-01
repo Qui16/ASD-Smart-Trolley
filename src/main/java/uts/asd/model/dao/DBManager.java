@@ -116,6 +116,20 @@ public class DBManager {
     return false;
     }
     
+     public boolean StaffExist(String staffEmail) throws SQLException{
+    String fetch="select * from ASD.\"STAFF\" where  \"Staff Email\"='"+staffEmail+"'";
+    ResultSet rs= st.executeQuery(fetch);
+    //add the results to a ResultSet       
+    //search the ResultSet for a user using the parameters
+    while (rs.next()){
+      String email=rs.getString(2);
+       if(email.equals(staffEmail)){
+           return true;
+       } 
+    }   
+    return false;
+    }
+    
     public int FindStaffID(String staffEmail, String staffPassword) throws SQLException{
     String fetch="select * from ASD.\"STAFF\" where  \"Staff Email\"='"+staffEmail+"'AND \"Staff Password\"='"+staffPassword+"'";
     ResultSet rs= st.executeQuery(fetch);

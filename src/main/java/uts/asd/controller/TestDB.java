@@ -50,14 +50,14 @@ public class TestDB {
         String exist = (customer != null) ? "Customer exists in the database" : "Customer does not exist!!!";
         System.out.println(exist);
     }
-
+/*
     private void testUpdate() throws SQLException {
         int customerID = Integer.parseInt(read("Customer ID"));
         manager.updateCustomer(customerID,read("Customer Email"),read("Customer Password"),read("Customer Firstname"),read("Customer Lastname"),
                 read("Customer PhoneNum"),read("Customer Address"),read("Customer DOB"));
         System.out.println("User details updated successfully ");
     }
-
+*/
     private void testDelete() throws SQLException {
         int customerID = Integer.parseInt(read("Customer ID"));
         manager.deleteCustomer(customerID);
@@ -90,7 +90,7 @@ public class TestDB {
                     testFind();
                     break;
                 case 'u':
-                    testUpdate();
+                    //testUpdate();
                     break;
                 case 'd':
                     testDelete();

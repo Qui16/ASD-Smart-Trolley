@@ -53,6 +53,7 @@
                 <tr><td>Re-type Password:</td><td><input class="errorField" type="password" name="customerPassword2" required></td><td class="error"><%=passErr%></td></tr>
                         <%}%>
                         <%if (phoneErr == null) {%>
+                
                 <tr><td>Phone Number:</td><td><input type="text" name="customerPhoneNum"></td></tr>   
                         <%} else {%>             
                 <tr><td>Phone Number:</td><td><input class="errorField" type="text" name="customerPhoneNum"></td><td class="error"><%=phoneErr%></td></tr>

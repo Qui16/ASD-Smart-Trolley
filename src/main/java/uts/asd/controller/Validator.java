@@ -33,8 +33,8 @@ public class Validator implements Serializable {
         return match.matches();
     }
 
-    public boolean checkEmpty(String email, String password) {
-        return email.isEmpty() || password.isEmpty();
+    public boolean checkEmpty(String a, String b) {
+        return a.isEmpty() || b.isEmpty();
     }
 
     public boolean validateEmail(String email) {
