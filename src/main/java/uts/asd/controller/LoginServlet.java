@@ -40,18 +40,16 @@ public class LoginServlet extends HttpServlet {
         if(staff!=null){
             session.setAttribute("staff",staff);
             session.setAttribute("customer",null);
-            session.setAttribute("added","added");
             request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
         }
         else if(customer!=null){
             session.setAttribute("customer",customer);
             session.setAttribute("staff",null);
-            session.setAttribute("added","added");
             request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
         }
         else{
             session.setAttribute("authentication","unknow");
-            request.getRequestDispatcher("login.jsp").forward(request, response);   
+            request.getRequestDispatcher("login.jsp").include(request, response);   
         }
         }
     else{

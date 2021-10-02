@@ -4,6 +4,7 @@
     Author     : quyda
 --%>
 
+<%@page import="uts.asd.controller.Validator"%>
 <%@page import="uts.asd.model.Staff"%>
 <%@page import="uts.asd.model.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,9 +24,11 @@
                 <a href="LogoutServlet">Logout</a>
             </div>
             <%
+                Validator validate=new Validator();
                 Customer customer = (Customer) session.getAttribute("customer");
-                Staff staff = (Staff) session.getAttribute("staff");
+                Staff staff = (Staff) session.getAttribute("staff");             
                 session.setAttribute("passUpdate","");
+                validate.clear(session);
             %>
             <%if (customer != null) {%>
         </div>
@@ -44,19 +47,17 @@
             <form action="UpdateScreen.jsp" method="post">
                 <%session.setAttribute("customer", customer);
                     session.setAttribute("staff", null);
+                    session.setAttribute("existErr","");
                 %>
                 <button type="submit">Update Details</button>
             </form>
             <form method="post" action="PassUpdateScreen.jsp">
                 <%session.setAttribute("customer", customer);
-                    session.setAttribute("staff", null);
-                    session.setAttribute("passUpdate", "true");
+                    session.setAttribute("staff", null);                   
                 %>
                 <button type="submit">Change Password</button>
             </form>
-            <form method="post" action="AccountScreen.jsp">
-                <button type="submit">Cancel</button>
-            </form>
+            
         </div>
         <div>
             <form action="DeleteServlet" method="post">
@@ -67,7 +68,6 @@
             </form>
         </div>
         <%} else if (staff != null) {%>
-    </div>
     <div style="padding-left:20px">
         <h1>Staff Profile</h1>
         <p><span class="tag">Staff ID: </span> ${staff.staffID}</p>
@@ -84,6 +84,7 @@
         <form action="UpdateScreen.jsp" method="post">
             <%session.setAttribute("staff", staff);
                 session.setAttribute("customer", null);
+                session.setAttribute("existErr","");
             %>
             <button type="submit">Update Details</button>
         </form>
@@ -95,7 +96,6 @@
         <form method="post" action="PassUpdateScreen.jsp">
             <%session.setAttribute("staff", staff);
                 session.setAttribute("customer", null);
-                session.setAttribute("passUpdate", "true");
             %>
             <button type="submit">Change Password</button>
         </form>

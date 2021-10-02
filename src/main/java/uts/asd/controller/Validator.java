@@ -18,11 +18,11 @@ import javax.servlet.http.HttpSession;
 public class Validator implements Serializable {
 
     private final String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";
-    private final String namePattern = "([A-za-z]+)((\\s)([A-za-z])+)*";
-    private final String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$";
+    private final String namePattern = "^$|(([A-za-z\\s]+)((\\s)([A-za-z\\s])+)*)";
+    private final String passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$";//Minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character
     private final String datePattern = "^[0-9]{4}-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])$";
     private final String phoneNumPattern = "[0-9]{10}";
-    private final String addressPattern = "([A-Za-z0-9]+)((\\s)([A-za-z0-9])+)*";
+    private final String addressPattern = "([A-Za-z0-9]+)((\\s)([A-za-z0-9\\s])+)*";
 
     public Validator() {
     }
@@ -62,15 +62,15 @@ public class Validator implements Serializable {
     }
 
     public static void clear(HttpSession session) {
-        session.setAttribute("existErr", null);
-        session.setAttribute("emailErr", null);
-        session.setAttribute("passErr", null);
-        session.setAttribute("nameErr", null);
-        session.setAttribute("phoneErr", null);
-        session.setAttribute("addressErr", null);
-        session.setAttribute("dateErr", null);
-        session.setAttribute("updated", null);
-        session.setAttribute("authentication", null);
+        session.setAttribute("existErr", "");
+        session.setAttribute("emailErr", "");
+        session.setAttribute("passErr", "");
+        session.setAttribute("nameErr", "");
+        session.setAttribute("phoneErr", "");
+        session.setAttribute("addressErr", "");
+        session.setAttribute("dateErr", "");
+        session.setAttribute("updated", "");
+        session.setAttribute("authentication", "");
         //session.setAttribute("added", null);
     }
 }
