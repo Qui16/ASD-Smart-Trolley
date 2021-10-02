@@ -25,6 +25,7 @@
             <%
                 Customer customer = (Customer) session.getAttribute("customer");
                 Staff staff = (Staff) session.getAttribute("staff");
+                session.setAttribute("passUpdate","");
             %>
             <%if (customer != null) {%>
         </div>
@@ -44,7 +45,17 @@
                 <%session.setAttribute("customer", customer);
                     session.setAttribute("staff", null);
                 %>
-                <input type="submit" value="Update" />
+                <button type="submit">Update Details</button>
+            </form>
+            <form method="post" action="PassUpdateScreen.jsp">
+                <%session.setAttribute("customer", customer);
+                    session.setAttribute("staff", null);
+                    session.setAttribute("passUpdate", "true");
+                %>
+                <button type="submit">Change Password</button>
+            </form>
+            <form method="post" action="AccountScreen.jsp">
+                <button type="submit">Cancel</button>
             </form>
         </div>
         <div>
@@ -74,12 +85,19 @@
             <%session.setAttribute("staff", staff);
                 session.setAttribute("customer", null);
             %>
-            <input type="submit" value="Update" />
+            <button type="submit">Update Details</button>
         </form>
     </div>
     <div>
         <form action="StaffRegisterScreen.jsp">
             <input type="submit" value="Staff Register" />
+        </form>
+        <form method="post" action="PassUpdateScreen.jsp">
+            <%session.setAttribute("staff", staff);
+                session.setAttribute("customer", null);
+                session.setAttribute("passUpdate", "true");
+            %>
+            <button type="submit">Change Password</button>
         </form>
     </div>
     <div>

@@ -19,5 +19,4 @@ uts\asd\model\Staff.class
 uts\asd\model\dao\DBManager.class
 uts\asd\controller\CustomerDeleteServlet.class
 uts\asd\controller\TestDB.class
-uts\asd\controller\CustomerUpdateServlet.class
 uts\asd\controller\ItemServlet.class

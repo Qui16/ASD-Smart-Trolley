@@ -26,21 +26,21 @@
 
             Customer customer = (Customer) session.getAttribute("customer");
             Staff staff = (Staff) session.getAttribute("staff");
-            /*
+
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
-            String nameErr = (String) session.getAttribute("nameErr");          
+            String nameErr = (String) session.getAttribute("nameErr");
             String phoneErr = (String) session.getAttribute("phoneErr");
             String addressErr = (String) session.getAttribute("addressErr");
             String dateErr = (String) session.getAttribute("dateErr");
             String existErr = (String) session.getAttribute("existErr");
-             */
+            /*
             String nameErr = "err";
             String emailErr = "err";
             String passErr = "err";
             String phoneErr = "err";
             String addressErr = "err";
-            String dateErr = "err";
+            String dateErr = "err";*/
         %>
         <%if (customer != null) {%>
         <div>
@@ -82,6 +82,11 @@
                     <tr><td><input name="update" type="submit" value="Save"></td></tr> 
                 </table>
             </form>
+            <div>
+                <%if (existErr.equals("existed")) {%>
+                <p class="error" style="size: 30">Email existed! Please choose a different Email</p>
+                <%}%>
+            </div>
             <form method="post" action="AccountScreen.jsp">
                 <button type="submit">Cancel</button>
             </form>
@@ -127,6 +132,11 @@
                     <tr><td><input name="update" type="submit" value="Save"></td></tr> 
                 </table>                       
             </form>
+            <div>
+                <%if (existErr.equals("existed")) {%>
+                <p class="error" style="size: 30">Email existed! Please choose a different Email</p>
+                <%}%>
+            </div>
             <form method="post" action="AccountScreen.jsp">
                 <button type="submit">Cancel</button>
             </form>

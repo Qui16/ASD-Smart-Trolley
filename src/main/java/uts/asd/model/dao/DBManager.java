@@ -201,13 +201,18 @@ public class DBManager {
    st.executeUpdate(columns+values);
 }
 
-    public void updateCustomer (int customerID,String customerEmail,String customerPassword,String customerFName,
+    public void updateCustomer (int customerID,String customerEmail,String customerFName,
             String customerLName,String customerPhoneNum,String customerAddress,String customerDOB) throws SQLException {//code for add-operation       
    //update sql command
-   String update="UPDATE ASD.CUSTOMER SET \"Customer Email\"='"+customerEmail+"',\"Customer Password\"='"+customerPassword+"', \"Customer Firstname\"='"+customerFName+"',\"Customer Lastname\"='"+customerLName+"',\"Customer PhoneNum\"='"+customerPhoneNum+"', \"Customer Address\"='"+customerAddress+"',\"Customer DOB\"='"+customerDOB+"'where \"Customer ID\"="+customerID;
+   String update="UPDATE ASD.CUSTOMER SET \"Customer Email\"='"+customerEmail+"', \"Customer Firstname\"='"+customerFName+"',\"Customer Lastname\"='"+customerLName+"',\"Customer PhoneNum\"='"+customerPhoneNum+"', \"Customer Address\"='"+customerAddress+"',\"Customer DOB\"='"+customerDOB+"'where \"Customer ID\"="+customerID;
    st.executeUpdate(update);
 }
-
+     public void updateCustomerPass (int customerID,String customerPassword) throws SQLException {//code for add-operation       
+   //update sql command
+   String update="UPDATE ASD.CUSTOMER SET \"Customer Password\"='"+customerPassword+"'where \"Customer ID\"="+customerID;
+   st.executeUpdate(update);
+}
+    
     public void deleteCustomer(int customerID) throws SQLException{       
    //code for delete-operation   
    String delete = "DELETE FROM ASD.\"CUSTOMER\" WHERE \"Customer ID\"="+customerID;
@@ -222,10 +227,16 @@ public class DBManager {
    st.executeUpdate(columns+values);
 }
 
-    public void updateStaff (int staffID,String staffEmail,String staffPassword,String staffFName,
+    public void updateStaff (int staffID,String staffEmail,String staffFName,
            String staffLName,String staffPhoneNum,String staffAddress,String staffDOB) throws SQLException {//code for add-operation       
    //update sql command
-   String update="UPDATE ASD.STAFF SET \"Staff Email\"='"+staffEmail+"',\"Staff Password\"='"+staffPassword+"', \"Staff Firstname\"='"+staffFName+"',\"Staff Lastname\"='"+staffLName+"',\"Staff PhoneNum\"='"+staffPhoneNum+"', \"Staff Address\"='"+staffAddress+"',\"Staff DOB\"='"+staffDOB+"'where \"Staff ID\"="+staffID;
+   String update="UPDATE ASD.STAFF SET \"Staff Email\"='"+staffEmail+"', \"Staff Firstname\"='"+staffFName+"',\"Staff Lastname\"='"+staffLName+"',\"Staff PhoneNum\"='"+staffPhoneNum+"', \"Staff Address\"='"+staffAddress+"',\"Staff DOB\"='"+staffDOB+"'where \"Staff ID\"="+staffID;
+   st.executeUpdate(update);
+}
+    
+     public void updateStaffPass (int staffID,String staffPassword) throws SQLException {//code for add-operation       
+   //update sql command
+   String update="UPDATE ASD.CUSTOMER SET \"Staff Password\"='"+staffPassword+"'where \"Staff ID\"="+staffID;
    st.executeUpdate(update);
 }
 
