@@ -18,5 +18,6 @@ uts\asd\model\dao\DBManager.class
 uts\asd\controller\AccountLoginServlet.class
 uts\asd\controller\AccountCreateServlet.class
 uts\asd\controller\TestDB.class
+.netbeans_automatic_build
 uts\asd\controller\AccountLogoutServlet.class
 uts\asd\controller\ItemServlet.class
