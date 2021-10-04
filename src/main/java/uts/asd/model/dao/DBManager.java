@@ -98,7 +98,8 @@ public class DBManager {
                 String customerPhoneNum = rs.getString(6);
                 String customerAddress = rs.getString(7);
                 String customerDOB = rs.getString(8);
-                return new Customer(ID, customerEmail, password, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
+                int customerPoint=rs.getInt(9);
+                return new Customer(ID,customerPoint, customerEmail, password, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
             }
         }
         return null;

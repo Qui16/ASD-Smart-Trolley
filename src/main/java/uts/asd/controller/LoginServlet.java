@@ -61,7 +61,7 @@ public class LoginServlet extends HttpServlet {
     }
     catch(SQLException ex){
     request.getRequestDispatcher("navBar.jsp").include(request, response);
-    Logger.getLogger(CustomerCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
+    Logger.getLogger(AccountCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

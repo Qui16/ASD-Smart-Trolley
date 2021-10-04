@@ -13,12 +13,23 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="./css/warning.css">
         <link rel="stylesheet" href="./css/button.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <title>Update</title>       
     </head>
 
     <body>
-        <div class="header-right">
-            <a href="AccountScreen.jsp">My Account</a>
+        <div class="header">
+            <div class="header-right">
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="AccountScreen.jsp"><h3>My Account</h3></a>
+                        </li>                      
+                    </ul>
+                </div>
+            </nav>
         </div>
         <h3>Update Profile</h3>
         <%
@@ -42,12 +53,14 @@
         <%if (customer != null) {%>
         <div>
             <form action="UpdateServlet" method="post">
-                <table class="table"> 
+                <table class="table.table-borderless"> 
                     <tr><td>Customer ID: </td><td>${customer.customerID}</td></tr>
                     <%if (nameErr.equals("")) {%>
+
                     <tr><td>FIRST NAME: </td><td><input type="text" name="FName" value="<%=customer.getCustomerFName()%>"></td></tr>
                     <tr><td>LAST NAME: </td><td><input type="text" name="LName" value="<%=customer.getCustomerLName()%>"></td></tr>
-                            <%} else {%>
+
+                    <%} else {%>
                     <tr><td>FIRST NAME: </td><td><input type="text" class="errorField" name="FName"></td><td class="error">Invalid name format!</td></tr>
                     <tr><td>LAST NAME: </td><td><input type="text" class="errorField" name="LName"></td><td class="error">Invalid name format!</td></tr>
                             <%}%>
@@ -77,19 +90,15 @@
                             <%} else {%>
                     <tr><td>DOB:</td><td><input type="date" name="DOB" class="errorField"><td class="error">Invalid DOB format!</td></td> 
                             <%}%>
-                    </tr>   
-                    <tr><td><input name="update" type="submit" value="Save"></td></tr> 
+                    </tr> 
+                    <tr><td><a href="AccountScreen.jsp" class="btn btn-secondary">Cancel</a></td><td><button type="submit" name="update" class="btn btn-success">Save</button></td></tr>
                 </table>
             </form>          
-            <form method="post" action="AccountScreen.jsp">
-                <button type="submit">Cancel</button>
-            </form>
         </div>
-
         <%} else if (staff != null) {%>
         <div>
             <form action="UpdateServlet" method="post">
-                <table class="table">               
+                <table class="table.table-borderless">               
                     <tr><td>Staff ID: </td><td>${staff.staffID}</td></tr>
                     <%if (nameErr.equals("nameErr")) {%>                 
                     <tr><td>FIRST NAME: </td><td><input type="text" class="errorField" name="FName"></td><td class="error">Invalid name format!</td></tr>
@@ -129,16 +138,11 @@
                             <%} else {%>
                     <tr><td>DOB:</td><td><input type="date" name="DOB" class="errorField"><td class="error">Invalid DOB format!</td></td> 
                             <%}%>
-                    </tr>   
-                    <tr><td><input name="update" type="submit" value="Save"></td></tr> 
+                    </tr>                      
+                    <tr><td><a href="AccountScreen.jsp" class="btn btn-secondary">Cancel</a></td><td><button type="submit" name="update" class="btn btn-success">Save</button></td></tr>
                 </table>                       
             </form>
-            <div>
-            </div>
-            <form method="post" action="AccountScreen.jsp">
-                <button type="submit">Cancel</button>
-            </form>
-        </div>
+        </div> 
         <%}%>
         <%session.setAttribute("passUpdate", "");%>
         <jsp:include page="/ConnServlet" flush="true"/>
