@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>ConnServlet</servlet-name>
+        <servlet-class>uts.asd.controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>CustomerCreateServlet</servlet-name>
+        <servlet-class>uts.asd.controller.CustomerCreateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffCreateServlet</servlet-name>
+        <servlet-class>uts.asd.controller.StaffCreateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>uts.asd.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>uts.asd.controller.UpdateServlet</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>uts.asd.controller.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>uts.asd.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConnServlet</servlet-name>
+        <url-pattern>/ConnServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerCreateServlet</servlet-name>
+        <url-pattern>/CustomerCreateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffCreateServlet</servlet-name>
+        <url-pattern>/StaffCreateServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+
+               30
+
+           </session-timeout>
+    </session-config>
+    
+</web-app>

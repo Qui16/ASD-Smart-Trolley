@@ -1,6 +1,6 @@
 <%-- 
-    Document   : payment
-    Created on : 9 Sep 2021, 01:38:08
+    Document   : Payment
+    Created on : 10 Sep 2021, 12:33:43
     Author     : casio
 --%>
 
@@ -9,10 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./css/style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap" rel="stylesheet"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <title>Payment Page</title>
     </head>
     <body>
-        <form action="PaymentSuccess.jsp" method="post">
+        
+        <form action="ConfirmPayment.jsp" method="post">
             <table class="table table-responsive">
                 
                 <tr><td>Amount :500$</td></tr>
@@ -27,7 +31,16 @@
                         </select>                                   
                     </td>
                     <td>
-                        <input class="date" type="date" name="datePaid"/>  
+                        <p id ="datetime"></p>
+                        <body onload = "currentDate()">
+                            <input id="date" type="hidden" name="datePaid">
+                        <script>
+                            document.getElementById("datetime").innerHTML = new Date().toLocaleDateString();
+                            function currentDate(){
+                            var d = new Date().toLocaleDateString();
+                            document.getElementById("date").defaultValue = d;
+                        }
+                        </script>
                     </td>
                 </tr>
                 <tr><td>Card Number</td><td><input  type="text" name="cardNumber" required=""/></td></tr>
@@ -42,7 +55,7 @@
         </form>
         <script>
             var checker = document.getElementById("tos");
-            var send = document.getElementById("submit")
+            var send = document.getElementById("submit");
             this.onchange = function () {
                 if (checker.checked) {
                     send.disabled = false;
@@ -53,3 +66,4 @@
         </script>
     </body>
 </html>
+
