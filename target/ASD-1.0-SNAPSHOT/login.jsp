@@ -17,7 +17,7 @@
         <%String validate = (String) session.getAttribute("authentication");%>
         <h1>Login page</h1>
         <div class="position-absolute top-50 start-50 translate-middle">
-            <form action="LoginServlet" method="post">
+            <form action="AccountLoginServlet" method="post">
                 <table class="table.table-borderless">
                     <tr><td>Email:</td><td><input type="text" name="Email" required></td></tr>
                     <tr><td>Password:</td><td><input type="password" name="Password" required></td></tr>
