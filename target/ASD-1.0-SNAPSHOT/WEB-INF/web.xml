@@ -49,6 +49,14 @@
         <servlet-name>AccountLogoutServlet</servlet-name>
         <url-pattern>/AccountLogoutServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PaymentServlet</servlet-name>
+        <servlet-class>uts.asd.controller.PaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentServlet</servlet-name>
+        <url-pattern>/PaymentServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
 

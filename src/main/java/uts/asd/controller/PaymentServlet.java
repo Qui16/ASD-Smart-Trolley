@@ -40,7 +40,7 @@ public class PaymentServlet extends HttpServlet {
 
         Payment payment = new Payment(paymentMethod, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
         Customer user = (Customer) session.getAttribute("user");
-        PaymentManager manager = (PaymentManager) session.getAttribute("manager");
+        PaymentManager pay = (PaymentManager) session.getAttribute("pay");
         ScanCart orders = (ScanCart) session.getAttribute("order");
         validator.clear(session);
 
@@ -54,21 +54,22 @@ public class PaymentServlet extends HttpServlet {
             
             //double orderPrice = orders.getTotalPrice();
             int order_Id = (int)session.getAttribute("orderId");
+            double orderPrice = 500;
             //double orderPrice = manager.getPrice();
             System.out.println(order_Id);
             //System.out.println(orderPrice);
             //session.setAttribute("INVOICE_ID", invoice_Id);
             //session.setAttribute("PAY_ID", payment_Id);
-            //manager.addPayment(order_Id, paymentMethod, orderPrice, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
-            int payment_Id = manager.getPaymentId(cardNumber);
-            payment = manager.searchPayment(payment_Id, datePaid);
+            pay.addPayment(order_Id, paymentMethod, orderPrice, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
+            int payment_Id = pay.getPaymentId(cardNumber);
+            payment = pay.searchPayment(payment_Id, datePaid);
             //manager.addHistory(user.getCustomerID(), payment_Id, order_Id, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);
             session.setAttribute("payment", payment);
 
             request.getRequestDispatcher("confirm_payment.jsp").include(request, response);
             //}
         } catch (SQLException | NullPointerException ex) {
-            request.getRequestDispatcher("create_payment.jsp").include(request, response);
+            request.getRequestDispatcher("Payment.jsp").include(request, response);
 
         }
     }
