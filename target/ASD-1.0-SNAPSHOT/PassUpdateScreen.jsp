@@ -24,45 +24,46 @@
     %>
     <body>
         <div style="padding-left:40%; padding-top: 20%">
-        <form action="UpdateServlet" method="post">
-            <%if (passErr.equals("passErr")) {%>              
-            <table>
-                <tr><td>Current Password:</td> <td><input type="password" name="Password0" required> </td> </tr>
-                <tr><td>Password:</td> <td><input type="password" name="Password" class="errorField" required ></td> <td class="error">Invalid password format!</td> </tr>             
-                <tr><td>Re-type Password:</td><td><input class="errorField" type="password" name="Password2" required></td><td class="error"></tr>
-            </table> 
-            <label class="error">Minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character(@$!%*?&)<p></label>
-            <%} else if (passErr.equals("wrongPass")) {%>
-            <table>
-                <tr><td>Current Password:</td> <td><input class="errorField" type="password" name="Password0" required> </td> <td class="error">Current password is not corrected!</td> </tr>
-                <tr><td>Password:</td> <td><input type="password" name="Password" required ></td></tr> 
-                <tr><td>Re-type Password:</td><td><input type="password" name="Password2" required></td></tr>
-            </table>
-            <%} else if (passErr.equals("noMatch")) {%>
-            <table>
-                <tr><td>Current Password:</td> <td><input type="password" name="Password0" required> </td> </tr>
-                <tr><td>Password:</td> <td><input type="password" name="Password" class="errorField" required ></td></tr> 
-                <tr><td>Re-type Password:</td><td><input class="errorField" type="password" name="Password2" required></td><td class="error">Not matched!</td></tr>
-            </table>
-            <%} else {%>
-            <table>
+            <form action="AccountUpdateServlet" method="post">
+                <%if (passErr.equals("passErr")) {%>              
+                <table>
+                    <tr><td>Current Password:</td> <td><input type="password" name="Password0" required> </td> </tr>
+                    <tr><td>Password:</td> <td><input type="password" name="Password" class="errorField" required ></td> <td class="error">Invalid password format!</td> </tr>             
+                    <tr><td>Re-type Password:</td><td><input class="errorField" type="password" name="Password2" required></td><td class="error"></tr>
+                </table> 
+                <label class="error">Minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character(@$!%*?&)</label>
+                <p>
+                <%} else if (passErr.equals("wrongPass")) {%>
+                <table>
+                    <tr><td>Current Password:</td> <td><input class="errorField" type="password" name="Password0" required> </td> <td class="error">Current password is not corrected!</td> </tr>
+                    <tr><td>Password:</td> <td><input type="password" name="Password" required ></td></tr> 
+                    <tr><td>Re-type Password:</td><td><input type="password" name="Password2" required></td></tr>
+                </table>
+                <%} else if (passErr.equals("noMatch")) {%>
+                <table>
+                    <tr><td>Current Password:</td> <td><input type="password" name="Password0" required> </td> </tr>
+                    <tr><td>Password:</td> <td><input type="password" name="Password" class="errorField" required ></td></tr> 
+                    <tr><td>Re-type Password:</td><td><input class="errorField" type="password" name="Password2" required></td><td class="error">Not matched!</td></tr>
+                </table>
+                <%} else {%>
+                <table>
 
-                <tr><td>Current Password:</td> <td><input type="password" name="Password0" required> </td> </tr>
-                <tr><td>New Password:</td> <td><input type="password" name="Password" required> </td> </tr>
-                <tr><td>Re-type Password:</td><td><input type="password" name="Password2" required></td></tr>        
-            </table>
-            <%}%>
-            <%session.setAttribute("passUpdate", "true");
-                session.setAttribute("customer", customer);
-                session.setAttribute("staff", staff);
-            %>
-            <button type="submit" class="btn btn-success" >Save</button>
-        </form>
-            </div>
-            <div class=" position-fixed start-0 top-0">
-        <form method="post" action="AccountScreen.jsp"  >       
-            <button type="submit" class="btn btn-secondary">Cancel</button>
-        </form>
-                </div>
+                    <tr><td>Current Password:</td> <td><input type="password" name="Password0" required> </td> </tr>
+                    <tr><td>New Password:</td> <td><input type="password" name="Password" required> </td> </tr>
+                    <tr><td>Re-type Password:</td><td><input type="password" name="Password2" required></td></tr>        
+                </table>
+                <%}%>
+                <%session.setAttribute("passUpdate", "true");
+                    session.setAttribute("customer", customer);
+                    session.setAttribute("staff", staff);
+                %>
+                <button type="submit" class="btn btn-success" >Save</button>
+            </form>
+        </div>
+        <div class=" position-fixed start-0 top-0">
+            <form method="post" action="AccountScreen.jsp"  >       
+                <button type="submit" class="btn btn-secondary">Cancel</button>
+            </form>
+        </div>
     </body>
 </html>

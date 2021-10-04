@@ -42,17 +42,10 @@
             String addressErr = (String) session.getAttribute("addressErr");
             String dateErr = (String) session.getAttribute("dateErr");
             String existErr = (String) session.getAttribute("existErr");
-            /*
-            String nameErr = "err";
-            String emailErr = "err";
-            String passErr = "err";
-            String phoneErr = "err";
-            String addressErr = "err";
-            String dateErr = "err";*/
         %>
         <%if (customer != null) {%>
         <div>
-            <form action="UpdateServlet" method="post">
+            <form action="AccountUpdateServlet" method="post">
                 <table class="table.table-borderless"> 
                     <tr><td>Customer ID: </td><td>${customer.customerID}</td></tr>
                     <%if (nameErr.equals("")) {%>
@@ -97,7 +90,7 @@
         </div>
         <%} else if (staff != null) {%>
         <div>
-            <form action="UpdateServlet" method="post">
+            <form action="AccountUpdateServlet" method="post">
                 <table class="table.table-borderless">               
                     <tr><td>Staff ID: </td><td>${staff.staffID}</td></tr>
                     <%if (nameErr.equals("nameErr")) {%>                 

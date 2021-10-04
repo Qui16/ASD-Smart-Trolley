@@ -22,6 +22,6 @@ public class AccountLogoutServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        request.getRequestDispatcher("navBar.jsp").include(request, response);
+        request.getRequestDispatcher("navBar.jsp").forward(request, response);
     }
 }

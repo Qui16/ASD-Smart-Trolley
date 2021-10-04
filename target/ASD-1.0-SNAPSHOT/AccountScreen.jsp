@@ -29,7 +29,7 @@
                         </li>
                         <li>
                             <div class="position-absolute top-0 end-0">
-                                <form action="LogoutServlet">
+                                <form action="AccountLogoutServlet">
                                     <button type="submit"  class="btn btn-danger">Log Out</button>
                                 </form>
                             </div>
@@ -83,7 +83,7 @@
         </table>
     </div>
     <div class="position-fixed bottom-0 end-0">
-        <form action="DeleteServlet" method="post">
+        <form action="AccountDeleteServlet" method="post">
             <%session.setAttribute("customer", customer);
                 session.setAttribute("staff", null);
             %>
@@ -134,7 +134,7 @@
         </table>     
     </div>
     <div class="position-fixed bottom-0 end-0">
-        <form action="DeleteServlet" method="post">
+        <form action="AccountDeleteServlet" method="post">
             <%session.setAttribute("staff", staff);
                 session.setAttribute("customer", null);
             %>
