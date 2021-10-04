@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\ScanCart.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\ConnServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\StaffCreateServlet.java
@@ -21,3 +22,13 @@ C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controll
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\dao\DB.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Staff.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerLoginServlet.java
+=======
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Item.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Cart.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\ItemServlet.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerCreateServlet.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Product.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\PaymentServlet.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Customer.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\ScanCart.java
+>>>>>>> Stashed changes
