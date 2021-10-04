@@ -140,7 +140,7 @@ public class AccountCreateServlet extends HttpServlet {
             
             
         } catch (SQLException ex) {
-            request.getRequestDispatcher("RegisterScreen.jsp").include(request, response);
+            request.getRequestDispatcher("CustomerRegisterScreen.jsp").include(request, response);
             Logger.getLogger(AccountCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

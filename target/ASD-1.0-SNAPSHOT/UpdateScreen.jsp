@@ -48,14 +48,15 @@
             <form action="AccountUpdateServlet" method="post">
                 <table class="table.table-borderless"> 
                     <tr><td>Customer ID: </td><td>${customer.customerID}</td></tr>
-                    <%if (nameErr.equals("")) {%>
-
-                    <tr><td>FIRST NAME: </td><td><input type="text" name="FName" value="<%=customer.getCustomerFName()%>"></td></tr>
-                    <tr><td>LAST NAME: </td><td><input type="text" name="LName" value="<%=customer.getCustomerLName()%>"></td></tr>
-
-                    <%} else {%>
+                    <%if (nameErr.equals("nameErr")) {%>                 
                     <tr><td>FIRST NAME: </td><td><input type="text" class="errorField" name="FName"></td><td class="error">Invalid name format!</td></tr>
                     <tr><td>LAST NAME: </td><td><input type="text" class="errorField" name="LName"></td><td class="error">Invalid name format!</td></tr>
+                            <%} else if (nameErr.equals("empty")) {%>
+                    <tr><td>FIRST NAME: </td><td><input type="text" class="errorField" name="FName"></td><td class="error">Name can not be empty!</td></tr>
+                    <tr><td>LAST NAME: </td><td><input type="text" class="errorField" name="LName"></td><td class="error"></td></tr>
+                            <%} else {%>
+                    <tr><td>FIRST NAME: </td><td><input type="text" name="FName" value="<%=customer.getCustomerFName()%>"></td></tr>
+                    <tr><td>LAST NAME: </td><td><input type="text" name="LName" value="<%=customer.getCustomerLName()%>"></td></tr>
                             <%}%>
 
                     <%if (emailErr.equals("emailErr")) {%>
@@ -66,22 +67,22 @@
                     <tr><td>Email:</td><td><input type="text" name="Email" value="${customer.customerEmail}"></td></tr>      
                             <%}%>
 
-                    <%if (phoneErr.equals("")) {%>
-                    <tr><td>Phone Number:</td><td><input type="text" name="PhoneNum"value="${customer.customerPhoneNum}"></td></tr>  
-                            <%} else {%>
-                    <tr><td>Phone Number:</td><td><input type="text" name="PhoneNum" class="errorField"></td><td class="error">Invalid Phone Number format!</td></tr> 
+                    <%if (phoneErr.equals("phoneErr")) {%>
+                    <tr><td>Phone Number:</td><td><input type="text" name="PhoneNum" class="errorField"></td><td class="error">Invalid Phone Number format!</td></tr>
+                            <%} else {%>                   
+                    <tr><td>Phone Number:</td><td><input type="text" name="PhoneNum"value="${customer.customerPhoneNum}"></td></tr> 
                             <%}%>
 
-                    <%if (addressErr.equals("")) {%>
-                    <tr><td>Address:</td><td><input type="text" name="Address"value="<%=customer.getCustomerAddress()%>"></td></tr>   
-                            <%} else {%>
+                    <%if (addressErr.equals("addressErr")) {%>
                     <tr><td>Address:</td><td><input type="text" name="Address" class="errorField"></td><td class="error">Invalid Address format!</td></tr>
+                            <%} else {%>
+                    <tr><td>Address:</td><td><input type="text" name="Address"value="<%=customer.getCustomerAddress()%>"></td></tr>                  
                             <%}%>
 
-                    <%if (dateErr.equals("")) {%>
-                    <tr><td>DOB:</td><td><input type="date" name="DOB"value="${customer.customerDOB}"></td>             
-                            <%} else {%>
+                    <%if (dateErr.equals("dateErr")) {%>
                     <tr><td>DOB:</td><td><input type="date" name="DOB" class="errorField"><td class="error">Invalid DOB format!</td></td> 
+                            <%} else {%>
+                    <tr><td>DOB:</td><td><input type="date" name="DOB"value="${customer.customerDOB}"></td>
                             <%}%>
                     </tr> 
                     <tr><td><a href="AccountScreen.jsp" class="btn btn-secondary">Cancel</a></td><td><button type="submit" name="update" class="btn btn-success">Save</button></td></tr>
@@ -114,22 +115,22 @@
                     <tr><td>Email:</td><td><input type="text" name="Email" value="${staff.staffEmail}"></td></tr>
                             <%}%>
 
-                    <%if (phoneErr.equals("")) {%>
-                    <tr><td>Phone Number:</td><td><input type="text" name="PhoneNum"value="${staff.staffPhoneNum}"></td></tr>  
-                            <%} else {%>
+                    <%if (phoneErr.equals("phoneErr")) {%>                      
                     <tr><td>Phone Number:</td><td><input type="text" name="PhoneNum" class="errorField"></td><td class="error">Invalid Phone Number format!</td></tr> 
+                            <%} else {%>
+                    <tr><td>Phone Number:</td><td><input type="text" name="PhoneNum"value="${staff.staffPhoneNum}"></td></tr>
                             <%}%>
 
-                    <%if (addressErr.equals("")) {%>
-                    <tr><td>Address:</td><td><input type="text" name="Address"value="<%=staff.getStaffAddress()%>"></td></tr>   
-                            <%} else {%>
+                    <%if (addressErr.equals("addressErr")) {%>                  
                     <tr><td>Address:</td><td><input type="text" name="Address" class="errorField"></td><td class="error">Invalid Address format!</td></tr>
+                            <%} else {%>
+                    <tr><td>Address:</td><td><input type="text" name="Address"value="<%=staff.getStaffAddress()%>"></td></tr> 
                             <%}%>
 
-                    <%if (dateErr.equals("")) {%>
-                    <tr><td>DOB:</td><td><input type="date" name="DOB"value="${staff.staffDOB}"></td>             
-                            <%} else {%>
+                    <%if (dateErr.equals("dateErr")) {%>                    
                     <tr><td>DOB:</td><td><input type="date" name="DOB" class="errorField"><td class="error">Invalid DOB format!</td></td> 
+                            <%} else {%>
+                    <tr><td>DOB:</td><td><input type="date" name="DOB"value="${staff.staffDOB}"></td> 
                             <%}%>
                     </tr>                      
                     <tr><td><a href="AccountScreen.jsp" class="btn btn-secondary">Cancel</a></td><td><button type="submit" name="update" class="btn btn-success">Save</button></td></tr>

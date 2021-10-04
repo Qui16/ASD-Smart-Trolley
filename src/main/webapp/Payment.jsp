@@ -16,7 +16,7 @@
     </head>
     <body>
         
-        <form action="ConfirmPayment.jsp" method="post">
+        <form action="PaymentServlet" method="post">
             <table class="table table-responsive">
                 
                 <tr><td>Amount :500$</td></tr>
