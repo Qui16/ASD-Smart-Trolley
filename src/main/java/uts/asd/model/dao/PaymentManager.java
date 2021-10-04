@@ -27,7 +27,7 @@ public class PaymentManager {
 
     public int getPaymentId(String cardNumber) throws SQLException {
         int PAY_ID;
-        String fetch = "select PAY_ID FROM IOTUSER.PAYMENT WHERE CREDIT_CARD_NO =  '" + cardNumber + "'";
+        String fetch = "select PAY_ID FROM ASD.PAYMENT WHERE CREDIT_CARD_NO =  '" + cardNumber + "'";
         ResultSet rs = st.executeQuery(fetch);
         if (rs.next()) {
             PAY_ID = rs.getInt(1);
@@ -39,7 +39,7 @@ public class PaymentManager {
 
     //Find the paymentId in database -- used in Payment_DeleteServlet and Payment_EditServlet
     public Payment foundedPaymentId(int PAY_ID) throws SQLException {
-        String fetch = "select * from IOTUSER.PAYMENT WHERE PAY_ID = " + PAY_ID + " ";
+        String fetch = "select * from ASD.PAYMENT WHERE PAY_ID = " + PAY_ID + " ";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -59,7 +59,7 @@ public class PaymentManager {
 
     //Search paymnet by ID and datepaid in the database - Read one row in the database table - used in Payment_SearchServlet
     public PaymentHistory searchPaymentHistory(int PAY_ID, String datePaid) throws SQLException {
-        String fetch = "SELECT * FROM IOTUSER.PAYMENT_HISTORY WHERE PAY_ID= " + PAY_ID + " AND DATE_PAID='" + datePaid + "' ";
+        String fetch = "SELECT * FROM ASD.PAYMENT_HISTORY WHERE PAY_ID= " + PAY_ID + " AND DATE_PAID='" + datePaid + "' ";
         ResultSet rs = st.executeQuery(fetch);
 
         while (rs.next()) {
@@ -79,7 +79,7 @@ public class PaymentManager {
     }
     
     public Payment searchPayment(int PAY_ID, String datePaid) throws SQLException {       
-       String fetch = "select * from IOTUSER.PAYMENT WHERE PAY_ID= " + PAY_ID + " AND DATE_PAID='" + datePaid + "'";
+       String fetch = "select * from ASD.PAYMENT WHERE PAY_ID= " + PAY_ID + " AND DATE_PAID='" + datePaid + "'";
        ResultSet rs = st.executeQuery(fetch);
        
        while(rs.next()){
@@ -101,35 +101,35 @@ public class PaymentManager {
 
     //Add a payment-data into the database - used in Payment_CreateServlet
     public void addPayment(int OrderId, String paymentMethod, double OrderPrice, String cardNumber, String expiryDate, String cvv, String nameOnCard, String datePaid) throws SQLException {
-        String columns = "INSERT INTO IOTUSER.PAYMENT(ORDER_ID, PAYMENT_METHOD, ORDER_LINE_PRICE, CREDIT_CARD_NO, EXPIRY_DATE, SECURITY_NO, OWNER_NAME, DATE_PAID)";
+        String columns = "INSERT INTO ASD.PAYMENT(ORDER_ID, PAYMENT_METHOD, ORDER_LINE_PRICE, CREDIT_CARD_NO, EXPIRY_DATE, SECURITY_NO, OWNER_NAME, DATE_PAID)";
         String values = "VALUES (" + OrderId + ",'" + paymentMethod + "'," + OrderPrice + ",'" + cardNumber + "','" + expiryDate + "','" + cvv + "','" + nameOnCard + "','" + datePaid + "')";
         st.executeUpdate(columns + values);
     }
 
     //Update a payment details in the database - used in Payment_UpdateServlet
     public void updatePayment(int PAY_ID,  String paymentMethod, String cardNumber, String expiryDate, String cvv, String nameOnCard, String datePaid) throws SQLException {
-        String update = "UPDATE IOTUSER.PAYMENT SET PAYMENT_METHOD='" + paymentMethod + "', CREDIT_CARD_NO='"
+        String update = "UPDATE ASD.PAYMENT SET PAYMENT_METHOD='" + paymentMethod + "', CREDIT_CARD_NO='"
                 + cardNumber + "', EXPIRY_DATE='" + expiryDate + "', SECURITY_NO ='" + cvv + "',  OWNER_NAME='" + nameOnCard + "',  DATE_PAID='" + datePaid + "' WHERE PAY_ID = " + PAY_ID + "";
         st.executeUpdate(update);
     }
     
     public void updatePaymentHistory(int PAY_ID, String paymentMethod, String cardNumber, String nameOnCard, String datePaid) throws SQLException {
-        String update = "UPDATE IOTUSER.PAYMENT_HISTORY SET PAYMENT_METHOD='" + paymentMethod + "', CREDIT_CARD_NO='"
+        String update = "UPDATE ASD.PAYMENT_HISTORY SET PAYMENT_METHOD='" + paymentMethod + "', CREDIT_CARD_NO='"
                 + cardNumber + "',  OWNER_NAME='" + nameOnCard + "',  DATE_PAID='" + datePaid + "' WHERE PAY_ID = " + PAY_ID + "";
         st.executeUpdate(update);
     }
 
     //delete a payment from database - used in Payment_DeleteServlet
     public void deletePayment(int PAY_ID) throws SQLException {
-        String delete1 = "DELETE FROM IOTUSER.PAYMENT WHERE PAY_ID=" + PAY_ID + "";
-        String delete2 = "DELETE FROM IOTUSER.PAYMENT_HISTORY WHERE PAY_ID=" + PAY_ID + "";
+        String delete1 = "DELETE FROM ASD.PAYMENT WHERE PAY_ID=" + PAY_ID + "";
+        String delete2 = "DELETE FROM ASD.PAYMENT_HISTORY WHERE PAY_ID=" + PAY_ID + "";
         st.executeUpdate(delete1);
         st.executeUpdate(delete2);
     }
 
     //shows the list of payment based on userId -- Used in Payment_ShowHistoryServlet
     public ArrayList<PaymentHistory> fetchHistory(int userId) throws SQLException {
-        String fetch = "SELECT * FROM IOTUSER.PAYMENT_HISTORY WHERE USER_ID = " + userId + "";
+        String fetch = "SELECT * FROM ASD.PAYMENT_HISTORY WHERE USER_ID = " + userId + "";
         ArrayList<PaymentHistory> temp = new ArrayList();
         ResultSet rs = st.executeQuery(fetch);
         
@@ -147,14 +147,14 @@ public class PaymentManager {
     }
     
     public void addHistory(int userId, int paymentId, int orderId, String paymentMethod, double orderPrice,  String cardNumber, String nameOnCard, String datePaid) throws SQLException {
-        String columns = "INSERT INTO IOTUSER.PAYMENT_HISTORY(USER_ID, PAY_ID, ORDER_ID, PAYMENT_METHOD, ORDER_LINE_PRICE, CREDIT_CARD_NO, OWNER_NAME, DATE_PAID)";
+        String columns = "INSERT INTO ASD.PAYMENT_HISTORY(USER_ID, PAY_ID, ORDER_ID, PAYMENT_METHOD, ORDER_LINE_PRICE, CREDIT_CARD_NO, OWNER_NAME, DATE_PAID)";
         String values = "VALUES (" + userId + ","  + paymentId + "," + orderId + ",'" + paymentMethod + "'," + orderPrice + ",'" + cardNumber + "','" + nameOnCard + "','" + datePaid + "')";
         st.executeUpdate(columns + values);
     }
 
     public double getPrice() throws SQLException {
         double orderPrice;
-        String fetch = "select MAX(ORDER_LINE_PRICE) FROM IOTUSER.ORDER_LINE";
+        String fetch = "select MAX(ORDER_LINE_PRICE) FROM ASD.ORDER_LINE";
         ResultSet rs = st.executeQuery(fetch);
         if (rs.next()) {
             orderPrice = rs.getDouble(4);
@@ -167,7 +167,7 @@ public class PaymentManager {
 
     public int getOrderId() throws SQLException {
         int orderId;
-        String fetch = "select MAX(ORDER_ID) FROM IOTUSER.ORDER_LINE";
+        String fetch = "select MAX(ORDER_ID) FROM ASD.ORDER_LINE";
         ResultSet rs = st.executeQuery(fetch);
         if (rs.next()) {
             orderId = Integer.parseInt(rs.getString(3));
