@@ -5,7 +5,6 @@ C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\da
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Product.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\DeleteServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\TestDB.java
-C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerCreateServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\Validator.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Customer.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\UpdateServlet.java
@@ -14,6 +13,7 @@ C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Ca
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\dao\DBManager.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\LogoutServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Item.java
+C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\AccountCreateServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\ItemServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\CustomerDeleteServlet.java
 C:\Users\quyda\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\LoginServlet.java

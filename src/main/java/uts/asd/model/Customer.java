@@ -11,6 +11,7 @@ import java.io.Serializable;
  */
 public class Customer implements Serializable {
     private int customerID;
+    private int customerPoint;
     private String customerEmail, customerPassword,customerFName,customerLName,customerPhoneNum, customerAddress,customerDOB;
     private boolean isStaff, isAdmin;
 
@@ -37,6 +38,7 @@ public class Customer implements Serializable {
         this.customerPhoneNum = customerPhoneNum;
         this.customerAddress = customerAddress;
         this.customerDOB = customerDOB;
+        this.customerPoint = customerPoint;
     }
 
     public Customer(int customerID, String customerEmail, String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
@@ -46,10 +48,8 @@ public class Customer implements Serializable {
         this.customerLName = customerLName;
         this.customerPhoneNum = customerPhoneNum;
         this.customerAddress = customerAddress;
-        this.customerDOB = customerDOB;
-     
+        this.customerDOB = customerDOB;    
     }
-    
     
    public Customer(String customerEmail, String customerPassword, String customerFName,String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
         this.customerEmail = customerEmail;
@@ -60,6 +60,28 @@ public class Customer implements Serializable {
         this.customerAddress = customerAddress;
         this.customerDOB = customerDOB;
    }
+
+    public Customer(int customerID, int customerPoint, String customerEmail, String customerPassword, String customerFName, String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) {
+        this.customerID = customerID;
+        this.customerPoint = customerPoint;
+        this.customerEmail = customerEmail;
+        this.customerPassword = customerPassword;
+        this.customerFName = customerFName;
+        this.customerLName = customerLName;
+        this.customerPhoneNum = customerPhoneNum;
+        this.customerAddress = customerAddress;
+        this.customerDOB = customerDOB;
+    }
+
+    public int getCustomerPoint() {
+        return customerPoint;
+    }
+
+    public void setCustomerPoint(int customerPoint) {
+        this.customerPoint = customerPoint;
+    }
+   
+   
     public int getCustomerID() {
         return customerID;
     }

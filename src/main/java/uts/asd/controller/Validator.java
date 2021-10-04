@@ -26,7 +26,7 @@ public class Validator implements Serializable {
 
     public Validator() {
     }
-
+    
     public boolean validate(String pattern, String input) {
         Pattern regEx = Pattern.compile(pattern);
         Matcher match = regEx.matcher(input);

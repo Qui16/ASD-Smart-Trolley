@@ -13,6 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">      
         <link rel="stylesheet" href="./css/warning.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <title>Update</title>
         <jsp:include page="/ConnServlet" flush="true"/>
     </head>
@@ -22,14 +23,15 @@
         String passErr = (String) session.getAttribute("passErr");
     %>
     <body>
+        <div style="padding-left:40%; padding-top: 20%">
         <form action="UpdateServlet" method="post">
             <%if (passErr.equals("passErr")) {%>              
             <table>
                 <tr><td>Current Password:</td> <td><input type="password" name="Password0" required> </td> </tr>
                 <tr><td>Password:</td> <td><input type="password" name="Password" class="errorField" required ></td> <td class="error">Invalid password format!</td> </tr>             
                 <tr><td>Re-type Password:</td><td><input class="errorField" type="password" name="Password2" required></td><td class="error"></tr>
-                <tr><td colspan="3" class="error">Minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character(@$!%*?&)</td></tr>
-            </table>  
+            </table> 
+            <label class="error">Minimum six characters, at least one uppercase letter, one lowercase letter, one number and one special character(@$!%*?&)<p></label>
             <%} else if (passErr.equals("wrongPass")) {%>
             <table>
                 <tr><td>Current Password:</td> <td><input class="errorField" type="password" name="Password0" required> </td> <td class="error">Current password is not corrected!</td> </tr>
@@ -54,10 +56,13 @@
                 session.setAttribute("customer", customer);
                 session.setAttribute("staff", staff);
             %>
-            <button type="submit">Save</button>
+            <button type="submit" class="btn btn-success" >Save</button>
         </form>
-        <form method="post" action="AccountScreen.jsp">       
-            <button type="submit">Cancel</button>
+            </div>
+            <div class=" position-fixed start-0 top-0">
+        <form method="post" action="AccountScreen.jsp"  >       
+            <button type="submit" class="btn btn-secondary">Cancel</button>
         </form>
+                </div>
     </body>
 </html>
