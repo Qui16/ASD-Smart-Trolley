@@ -14,17 +14,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/button.css">
+        <link rel="stylesheet" href="./css/warning.css">
         <title>Account</title>
         <jsp:include page="/ConnServlet" flush="true"/>
     </head>
     <!-- get the type of the account and clear all error message first -->
-        <%
-            Validator validate = new Validator();
-            Customer customer = (Customer) session.getAttribute("customer");
-            Staff staff = (Staff) session.getAttribute("staff");
-            session.setAttribute("passUpdate", "");
-            validate.clear(session);
-        %>
+    <%
+        Validator validate = new Validator();
+        Customer customer = (Customer) session.getAttribute("customer");
+        Staff staff = (Staff) session.getAttribute("staff");      
+        session.setAttribute("passUpdate", "");
+        String idErr = (String) session.getAttribute("idErr");
+        validate.clear(session);
+        
+    %>
     <body>
         <div class="header">
             <div class="header-right">
@@ -46,7 +49,7 @@
                 </div>
             </nav>
         </div>
-         
+
         <%if (customer != null) {%>
     </div>
     <div style="padding-left:20px">
@@ -132,8 +135,22 @@
                         <button class="btn btn-warning" type="submit">Change Password</button>
                     </form>
                 </td>
+
             </tr>
         </table>     
+    </div>
+    <div style="padding-right:10px; padding-top: 10px">
+        <form action="FindCustomerServlet" method="post">
+            <%if (idErr.equals("idErr")) {%>
+            <button class="btn btn-success" type="submit">Find</button><input type="text" class="errorField" name="customerID">
+            <p class="error">Invalid format!</p>
+            <%} else if (idErr.equals("notFound")) {%>
+            <button class="btn btn-success" type="submit">Find</button><input type="text" class="errorField" name="customerID">
+            <p class="error">Account Not Found!</p>
+            <%} else {%>
+            <button class="btn btn-success" type="submit">Find</button><input type="text" name="customerID">
+            <%}%>
+        </form>
     </div>
     <div class="position-fixed bottom-0 end-0"><!-- Delete account -->
         <form action="AccountDeleteServlet" method="post">

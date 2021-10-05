@@ -23,6 +23,7 @@ public class Validator implements Serializable {
     private final String datePattern = "^[0-9]{4}-(1[0-2]|0[1-9])-(3[01]|[12][0-9]|0[1-9])$";//format yyyy-mm-dd
     private final String phoneNumPattern = "[0-9]{10}";//10 digits format
     private final String addressPattern = "([A-Za-z0-9]+)((\\s)([A-za-z0-9\\s])+)*";// 10 Canterbury st
+    private final String idPattern= "[0-9]+";
 
     public Validator() {
     }
@@ -35,6 +36,10 @@ public class Validator implements Serializable {
 
     public boolean checkEmpty(String a, String b) {
         return a.isEmpty() || b.isEmpty();
+    }
+    
+    public boolean validateID(String ID) {
+        return validate(idPattern, ID);
     }
 
     public boolean validateEmail(String email) {
@@ -61,8 +66,8 @@ public class Validator implements Serializable {
         return validate(addressPattern, address);
     }
 
-    public static void clear(HttpSession session) {
-        session.setAttribute("existErr", "1");
+    public static void clear(HttpSession session) { 
+        session.setAttribute("idErr", "1");
         session.setAttribute("emailErr", "1");
         session.setAttribute("passErr", "1");
         session.setAttribute("nameErr", "1");

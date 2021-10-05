@@ -36,12 +36,13 @@ public class DBManager {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String customerEmail = rs.getString(2);
+            String customerPassword = rs.getString(3);
             String customerFName = rs.getString(4);
             String customerLName = rs.getString(5);
             String customerPhoneNum = rs.getString(6);
             String customerAddress = rs.getString(7);
             String customerDOB = rs.getString(8);
-            return new Customer(ID, customerEmail, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
+            return new Customer(ID, customerEmail,customerPassword, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
         }
 
         return null;
