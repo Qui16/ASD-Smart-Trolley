@@ -7,8 +7,6 @@
 <%@page import="uts.asd.controller.Validator"%>
 <%@page import="uts.asd.model.Staff"%>
 <%@page import="uts.asd.model.Customer"%>
-<%@page import="uts.asd.model.Payment"%>
-<%@page import="uts.asd.model.dao.PaymentManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,18 +14,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/button.css">
+        <link rel="stylesheet" href="./css/warning.css">
         <title>Account</title>
         <jsp:include page="/ConnServlet" flush="true"/>
     </head>
+    <!-- get the type of the account and clear all error message first -->
     <%
         Validator validate = new Validator();
         Customer customer = (Customer) session.getAttribute("customer");
-        PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
-        Payment payment = paymentManager.searchPaymentDetail(customer.getCustomerID());
-        Staff staff = (Staff) session.getAttribute("staff");
+        Staff staff = (Staff) session.getAttribute("staff");      
         session.setAttribute("passUpdate", "");
+        String idErr = (String) session.getAttribute("idErr");
         validate.clear(session);
-
+        
     %>
     <body>
         <div class="header">
@@ -45,21 +44,6 @@
                                     <button type="submit"  class="btn btn-danger">Log Out</button>
                                 </form>
                             </div>
-                        </li>
-
-                        <li>
-                            <form action="CreatePayment.jsp">
-                                <%session.setAttribute("customer", customer);%>
-                                <body onload = "check()">
-                                    <button class="btn btn-primary" type="submit" id="submit" disabled>Create Payment</button>
-                            </form>
-                        </li>
-                        <li>
-                            <form action="Viewpayment.jsp">
-                                <%session.setAttribute("customer", customer);%>
-                                <button class="btn btn-secondary" type="submit">View Payment</button>
-
-                            </form>
                         </li>
                     </ul>
                 </div>
@@ -83,7 +67,7 @@
     <div>
         <table>
             <tr>
-                <td>
+                <td> <!-- lead to update details screen -->
                     <form action="UpdateScreen.jsp" method="post">
                         <%session.setAttribute("customer", customer);
                             session.setAttribute("staff", null);
@@ -92,7 +76,7 @@
                         <button type="submit" class="btn btn-success">Update Details</button>
                     </form>
                 </td>
-                <td>
+                <td><!-- lead to update password screen -->
                     <form method="post" action="PassUpdateScreen.jsp">
                         <%session.setAttribute("customer", customer);
                             session.setAttribute("staff", null);
@@ -103,7 +87,7 @@
             </tr>
         </table>
     </div>
-    <div class="position-fixed bottom-0 end-0">
+    <div class="position-fixed bottom-0 end-0"><!-- delete account -->
         <form action="AccountDeleteServlet" method="post">
             <%session.setAttribute("customer", customer);
                 session.setAttribute("staff", null);
@@ -127,7 +111,7 @@
     <div>
         <table>
             <tr>
-                <td>
+                <td><!-- lead to update details screen -->
                     <form action="UpdateScreen.jsp" method="post">
                         <%session.setAttribute("staff", staff);
                             session.setAttribute("customer", null);
@@ -136,14 +120,14 @@
                         <button class="btn btn-success" type="submit">Update Details</button>          
                     </form>
                 </td>
-                <td>
+                <td><!-- lead to staff create screen -->
                     <form action="StaffRegisterScreen.jsp">
                         <input class="btn btn-success" type="submit" value="Staff Register" />
                     </form>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td><!-- lead to update password screen -->
                     <form method="post" action="PassUpdateScreen.jsp">
                         <%session.setAttribute("staff", staff);
                             session.setAttribute("customer", null);
@@ -151,12 +135,24 @@
                         <button class="btn btn-warning" type="submit">Change Password</button>
                     </form>
                 </td>
+
             </tr>
-
-        </table>
-
+        </table>     
     </div>
-    <div class="position-fixed bottom-0 end-0">
+    <div style="padding-right:10px; padding-top: 10px">
+        <form action="FindCustomerServlet" method="post">
+            <%if (idErr.equals("idErr")) {%>
+            <button class="btn btn-success" type="submit">Find</button><input type="text" class="errorField" name="customerID">
+            <p class="error">Invalid format!</p>
+            <%} else if (idErr.equals("notFound")) {%>
+            <button class="btn btn-success" type="submit">Find</button><input type="text" class="errorField" name="customerID">
+            <p class="error">Account Not Found!</p>
+            <%} else {%>
+            <button class="btn btn-success" type="submit">Find</button><input type="text" name="customerID">
+            <%}%>
+        </form>
+    </div>
+    <div class="position-fixed bottom-0 end-0"><!-- Delete account -->
         <form action="AccountDeleteServlet" method="post">
             <%session.setAttribute("staff", staff);
                 session.setAttribute("customer", null);
@@ -165,16 +161,6 @@
         </form>
     </div>
     <%}%>
-
-    <script>
-        var send = document.getElementById("submit");
-        function check(){
-            if (payment === null) {
-                send.disabled = false;
-            } 
-        }
-        ;
-    </script>
 </body>
 
 </html>

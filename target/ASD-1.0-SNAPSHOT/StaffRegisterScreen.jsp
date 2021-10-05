@@ -14,6 +14,7 @@
         <jsp:include page="/ConnServlet" flush="true"/>
         <title>Staff Register</title>
     </head>
+    <!-- Get all the error message if have. -->
     <%
         String emailErr = (String) session.getAttribute("emailErr");
         String passErr = (String) session.getAttribute("passErr");
@@ -89,6 +90,7 @@
 
                     <tr><td><a href="navBar.jsp" class="btn btn-secondary">Cancel</a></td><td><button type="submit" name="register" class="btn btn-success">Sign Up</button></td></tr>
                 </table> 
+                    <!-- indicate the account type is staff -->
                 <%
                     session.setAttribute("customerCreate", "");
                     session.setAttribute("staffCreate", "true");

@@ -37,8 +37,8 @@ public class AccountUpdateServlet extends HttpServlet {
         boolean passChecked = true;
 
         try {
-            validate.clear(session);
-            if (passUpdate.equals("")) {
+            validate.clear(session);//set all the error message to null
+            if (passUpdate.equals("")) {//check if the user want to update password or other details
                 String Email = request.getParameter("Email");
                 String FName = request.getParameter("FName");
                 String LName = request.getParameter("LName");
@@ -46,7 +46,7 @@ public class AccountUpdateServlet extends HttpServlet {
                 String Address = request.getParameter("Address");
                 String DOB = request.getParameter("DOB");
 
-                    if (Email.isEmpty()) {
+                    if (Email.isEmpty()) {//validate email
                         session.setAttribute("emailErr", "empty");
                         checked = false;
                     } else if (!validate.validateEmail(Email)) {
@@ -54,7 +54,7 @@ public class AccountUpdateServlet extends HttpServlet {
                         checked = false;
                     }
 
-                    if (customer != null) {
+                    if (customer != null) {// check if email sxist
                         if (!Email.equals(customer.getCustomerEmail())) {
                             if (manager.CustomerExist(Email) || manager.StaffExist(Email)) {
                                 session.setAttribute("emailErr", "existed");
@@ -70,37 +70,37 @@ public class AccountUpdateServlet extends HttpServlet {
                         }
                     }
 
-                    if (FName.isEmpty() && LName.isEmpty()) {
+                    if (FName.isEmpty() && LName.isEmpty()) {//validate FName and LName 
                         session.setAttribute("nameErr", "empty");
                         checked = false;
-                    } else if (!FName.isEmpty() || !LName.isEmpty()) {
+                    } else if (!FName.isEmpty() || !LName.isEmpty()) {//both FName and LName can not be empty
                         if (!validate.validateName(FName) || !validate.validateName(LName)) {
                             session.setAttribute("nameErr", "nameErr");
                             checked = false;
                         }
                     }
 
-                    if (!PhoneNum.isEmpty()) {
+                    if (!PhoneNum.isEmpty()) {//validate phone number format
                         if (!validate.validatePhone(PhoneNum)) {
                             session.setAttribute("phoneErr", "phoneErr");
                             checked = false;
                         }
                     }
 
-                    if (!Address.isEmpty()) {
+                    if (!Address.isEmpty()) {//validate address format
                         if (!validate.validateAddress(Address)) {
                             session.setAttribute("addressErr", "addressErr");
                             checked = false;
                         }
                     }
 
-                    if (!validate.validateDate(DOB)) {
+                    if (!validate.validateDate(DOB)) {//validate DOB
                         session.setAttribute("dateErr", "dateErr");
                         checked = false;
                     }
                
 
-                if (checked) {
+                if (checked) {//update customer or staff account
                     if (customer != null) {
                         int ID = customer.getCustomerID();
                         manager.updateCustomer(ID, Email, FName, LName, PhoneNum, Address, DOB);
@@ -122,19 +122,19 @@ public class AccountUpdateServlet extends HttpServlet {
                 String Password0 = request.getParameter("Password0");//current password
                 String Password = request.getParameter("Password");//new password
                 String Password2 = request.getParameter("Password2");//retype new passsword
-                if (!validate.checkEmpty(Password, Password2)) {
+                if (!validate.checkEmpty(Password, Password2)) {//password can not be empty
                     if (!validate.validatePassword(Password) && !validate.validatePassword(Password2)) {
                         session.setAttribute("passErr", "passErr");
                         passChecked = false;
                     }
-                    if (!Password.equals(Password2)) {
+                    if (!Password.equals(Password2)) {//retype password and password must match
                         session.setAttribute("passErr", "noMatch");
                         passChecked = false;
                     }
                     if (passChecked) {
                         if (customer != null) {
                             String truePassword = manager.FindCustomerPassViaID(customer.getCustomerID());
-                            if (truePassword.equals(Password0)) {
+                            if (truePassword.equals(Password0)) {//check the current password of user
                                 manager.updateCustomerPass(customer.getCustomerID(), Password);
                                 customer.setCustomerPassword(Password);
                                 request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
@@ -144,7 +144,7 @@ public class AccountUpdateServlet extends HttpServlet {
                             }
                         } else if (staff != null) {
                             String truePassword = manager.FindStaffPassViaID(staff.getStaffID());
-                            if (truePassword.equals(Password0)) {
+                            if (truePassword.equals(Password0)) {//check the current password of user
                                 manager.updateStaffPass(staff.getStaffID(), Password);
                                 staff.setStaffPassword(Password);
                                 request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);

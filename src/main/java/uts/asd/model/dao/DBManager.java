@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import uts.asd.model.Customer;
+import uts.asd.model.Item;
 import uts.asd.model.Staff;
 //import uts.asd.model.Staff;
 
@@ -25,7 +26,7 @@ public class DBManager {
         st = conn.createStatement();
     }
 
-    public Customer FindCustomerViaID(int customerID) throws SQLException {
+    public Customer FindCustomerViaID(int customerID) throws SQLException {//find customer via ID
         //setup the select sql query string     
         String fetch = "select * from ASD.\"CUSTOMER\" where  \"Customer ID\"=" + customerID;
         //execute this query using the statement field       
@@ -35,18 +36,19 @@ public class DBManager {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String customerEmail = rs.getString(2);
+            String customerPassword = rs.getString(3);
             String customerFName = rs.getString(4);
             String customerLName = rs.getString(5);
             String customerPhoneNum = rs.getString(6);
             String customerAddress = rs.getString(7);
             String customerDOB = rs.getString(8);
-            return new Customer(ID, customerEmail, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
+            return new Customer(ID, customerEmail,customerPassword, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
         }
 
         return null;
     }
 
-    public String FindCustomerPassViaID(int customerID) throws SQLException {
+    public String FindCustomerPassViaID(int customerID) throws SQLException {//find the customer password via their ID
         //setup the select sql query string     
         String fetch = "select \"Customer Password\" from ASD.\"CUSTOMER\" where  \"Customer ID\"=" + customerID;
         //execute this query using the statement field       
@@ -60,7 +62,7 @@ public class DBManager {
         return null;
     }
 
-    public Customer FindCustomer(int customerID, String customerPassword) throws SQLException {
+    public Customer FindCustomer(int customerID, String customerPassword) throws SQLException {//find all information about customer using ID and password
         //setup the select sql query string     
         String fetch = "select * from ASD.\"CUSTOMER\" where  \"Customer ID\"=" + customerID + "AND \"Customer Password\"='" + customerPassword + "'";
         //execute this query using the statement field       
@@ -83,7 +85,7 @@ public class DBManager {
         return null;
     }
 
-    public Customer FindCustomer2(String customerEmail, String customerPassword) throws SQLException {
+    public Customer FindCustomer2(String customerEmail, String customerPassword) throws SQLException {//find all information about customer via email and password (login)
         String fetch = "select * from ASD.\"CUSTOMER\" where  \"Customer Email\"='" + customerEmail + "'AND \"Customer Password\"='" + customerPassword + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
@@ -98,14 +100,14 @@ public class DBManager {
                 String customerPhoneNum = rs.getString(6);
                 String customerAddress = rs.getString(7);
                 String customerDOB = rs.getString(8);
-                int customerPoint=rs.getInt(9);
-                return new Customer(ID,customerPoint, customerEmail, password, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
+                int customerPoint = rs.getInt(9);
+                return new Customer(ID, customerPoint, customerEmail, password, customerFName, customerLName, customerPhoneNum, customerAddress, customerDOB);
             }
         }
         return null;
     }
 
-    public int FindCustomerID(String customerEmail, String customerPassword) throws SQLException {
+    public int FindCustomerID(String customerEmail, String customerPassword) throws SQLException {//retreive customer ID
         String fetch = "select * from ASD.\"CUSTOMER\" where  \"Customer Email\"='" + customerEmail + "'AND \"Customer Password\"='" + customerPassword + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
@@ -121,7 +123,7 @@ public class DBManager {
         return -1;
     }
 
-    public boolean CustomerExist(String customerEmail) throws SQLException {
+    public boolean CustomerExist(String customerEmail) throws SQLException {//check if the email is already used to register
         String fetch = "select * from ASD.\"CUSTOMER\" where  \"Customer Email\"='" + customerEmail + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
@@ -135,7 +137,7 @@ public class DBManager {
         return false;
     }
 
-    public boolean StaffExist(String staffEmail) throws SQLException {
+    public boolean StaffExist(String staffEmail) throws SQLException {// check if the email is already used to register
         String fetch = "select * from ASD.\"STAFF\" where  \"Staff Email\"='" + staffEmail + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
@@ -149,7 +151,7 @@ public class DBManager {
         return false;
     }
 
-    public int FindStaffID(String staffEmail, String staffPassword) throws SQLException {
+    public int FindStaffID(String staffEmail, String staffPassword) throws SQLException {//find the staff ID using email and password
         String fetch = "select * from ASD.\"STAFF\" where  \"Staff Email\"='" + staffEmail + "'AND \"Staff Password\"='" + staffPassword + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
@@ -165,7 +167,7 @@ public class DBManager {
         return -1;
     }
 
-    public String FindStaffPassViaID(int staffID) throws SQLException {
+    public String FindStaffPassViaID(int staffID) throws SQLException {//find staff's password via ID
         //setup the select sql query string     
         String fetch = "select \"Staff Password\" from ASD.\"STAFF\" where  \"Staff ID\"=" + staffID;
         //execute this query using the statement field       
@@ -180,7 +182,7 @@ public class DBManager {
         return null;
     }
 
-    public Staff FindStaff(int staffID, String staffPassword) throws SQLException {
+    public Staff FindStaff(int staffID, String staffPassword) throws SQLException {//find staff information via ID or password
         //setup the select sql query string     
         String fetch = "select * from ASD.\"STAFF\" where  \"Staff ID\"=" + staffID + "AND \"Staff Password\"='" + staffPassword + "'";
         //execute this query using the statement field       
@@ -204,7 +206,7 @@ public class DBManager {
         return null;
     }
 
-    public Staff FindStaff2(String staffEmail, String staffPassword) throws SQLException {
+    public Staff FindStaff2(String staffEmail, String staffPassword) throws SQLException {//find staff information via email or password
         String fetch = "select * from ASD.\"STAFF\" where  \"Staff Email\"='" + staffEmail + "'AND \"Staff Password\"='" + staffPassword + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
@@ -228,8 +230,6 @@ public class DBManager {
 
     public void addCustomer(String customerEmail, String customerPassword, String customerFName,
             String customerLName, String customerPhoneNum, String customerAddress, String customerDOB) throws SQLException {//code for add-operation       
-
-        //String columns1 = "INSERT INTO QUY.\"SHIPMENT\"(\"Order ID\",\"Shipment Method\",\"Shipment Address\",\"Delivery Date\")";
         String columns = "insert into ASD.\"CUSTOMER\"(\"Customer Email\",\"Customer Password\",\"Customer Firstname\",\"Customer Lastname\", \"Customer PhoneNum\",\"Customer Address\",\"Customer DOB\")";
         String values = "VALUES('" + customerEmail + "','" + customerPassword + "','" + customerFName + "','" + customerLName + "','" + customerPhoneNum + "','" + customerAddress + "','" + customerDOB + "')";
         st.executeUpdate(columns + values);
@@ -242,9 +242,15 @@ public class DBManager {
         st.executeUpdate(update);
     }
 
-    public void updateCustomerPass(int staffID, String staffPassword) throws SQLException {//code for add-operation       
+    public void updateCustomerPass(int customerID, String customerPassword) throws SQLException {//code for add-operation       
         //update sql command
-        String update = "UPDATE ASD.STAFF SET \"Staff Password\"='" + staffPassword + "'where \"Staff ID\"=" + staffID;
+        String update = "UPDATE ASD.CUSTOMER SET \"Customer Password\"='" + customerPassword + "'where \"Customer ID\"=" + customerID;
+        st.executeUpdate(update);
+    }
+
+    public void updateCustomerPoint(int customerID, int point) throws SQLException {//code for add-operation       
+        //update sql command
+        String update = "UPDATE ASD.CUSTOMER SET \"Customer Point\"='" + point + "'where \"Staff ID\"=" + customerID;
         st.executeUpdate(update);
     }
 
@@ -256,7 +262,6 @@ public class DBManager {
 
     public void addStaff(String staffEmail, String staffPassword, String staffFName,
             String staffLName, String staffPhoneNum, String staffAddress, String staffDOB, String staffRole) throws SQLException {//code for add-operation           
-        //String columns1 = "INSERT INTO QUY.\"SHIPMENT\"(\"Order ID\",\"Shipment Method\",\"Shipment Address\",\"Delivery Date\")";
         String columns = "insert into ASD.\"STAFF\"(\"Staff Email\",\"Staff Password\",\"Staff Firstname\",\"Staff Lastname\", \"Staff PhoneNum\",\"Staff Address\",\"Staff DOB\",\"Staff Role\")";
         String values = "VALUES('" + staffEmail + "','" + staffPassword + "','" + staffFName + "','" + staffLName + "','" + staffPhoneNum + "','" + staffAddress + "','" + staffDOB + "','" + staffRole + "')";
         st.executeUpdate(columns + values);
@@ -275,10 +280,16 @@ public class DBManager {
         st.executeUpdate(update);
     }
 
+    public void updateStaffRole(int staffID, String role) throws SQLException {//code for add-operation       
+        //update sql command
+        String update = "UPDATE ASD.STAFF SET \"Staff Role\"='" + role + "'where \"Staff ID\"=" + staffID;
+        st.executeUpdate(update);
+    }
+
     public void deleteStaff(int staffID) throws SQLException {
         //code for delete-operation   
         String delete = "DELETE FROM ASD.\"STAFF\" WHERE \"Staff ID\"=" + staffID;
         st.executeUpdate(delete);
     }
-
+    
 }

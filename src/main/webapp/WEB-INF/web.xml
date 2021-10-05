@@ -25,6 +25,10 @@
         <servlet-name>AccountLogoutServlet</servlet-name>
         <servlet-class>uts.asd.controller.AccountLogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FindCustomerServlet</servlet-name>
+        <servlet-class>uts.asd.controller.FindCustomerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -48,6 +52,10 @@
     <servlet-mapping>
         <servlet-name>AccountLogoutServlet</servlet-name>
         <url-pattern>/AccountLogoutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindCustomerServlet</servlet-name>
+        <url-pattern>/FindCustomerServlet</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>PaymentServlet</servlet-name>
