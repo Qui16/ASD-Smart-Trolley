@@ -35,19 +35,18 @@ public class QuyTest {
         conn = connector.openConnection();
         manager = new DBManager(conn);
 
-        //System.out.println("I'm doing something to setup the system ready for the test");
+        
     }
 
 //This method will be called after each test
     @After
     public void Teardown() throws ClassNotFoundException, SQLException {
         connector.closeConnection();       
-        //System.out.println("I'm doing something to tidy up after the test");
+        
     }
 
     @Test
     public void TestCustomerLogin() throws ClassNotFoundException, SQLException {
-        //System.out.println("I'm a test doing some stuff");
         Customer customer1=manager.FindCustomer2("test9@gmail.com", "Quy!1234");
         Customer customer2=manager.FindCustomer2("test9@gmail/", "Quy!1234");
         Customer customer3=manager.FindCustomer2("test9@gmail.com", "Quy!124");
@@ -59,7 +58,6 @@ public class QuyTest {
 
     @Test
     public void TestStaffLogin() throws ClassNotFoundException, SQLException {
-        //System.out.println("I'm another test doing some stuff");
         Staff staff1=manager.FindStaff2("test4@gmail.com", "Quy!1235");
         Staff staff2=manager.FindStaff2("test4@gmail/", "Quy!1235");
         Staff staff3=manager.FindStaff2("test4@gmail.com", "Quy!135");
