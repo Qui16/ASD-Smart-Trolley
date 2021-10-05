@@ -48,6 +48,7 @@ public class QuyTest {
     @Test
     public void TestCustomerLogin() throws ClassNotFoundException, SQLException {
         Customer customer1=manager.FindCustomer2("test9@gmail.com", "Quy!1234");
+        System.out.println(customer1.getCustomerAddress());
         Customer customer2=manager.FindCustomer2("test9@gmail/", "Quy!1234");
         Customer customer3=manager.FindCustomer2("test9@gmail.com", "Quy!124");
         Assert.assertNotNull(customer1);
