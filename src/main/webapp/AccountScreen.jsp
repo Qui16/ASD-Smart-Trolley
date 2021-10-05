@@ -45,6 +45,20 @@
                                 </form>
                             </div>
                         </li>
+                        <li>
+                            <form action="CreatePayment.jsp">
+                                <%session.setAttribute("customer", customer);%>
+                                <body onload = "check()">
+                                    <button class="btn btn-primary" type="submit" id="submit" >Create Payment</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="Viewpayment.jsp">
+                                <%session.setAttribute("customer", customer);%>
+                                <button class="btn btn-secondary" type="submit">View Payment</button>
+
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </nav>
