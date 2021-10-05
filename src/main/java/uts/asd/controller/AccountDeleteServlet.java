@@ -32,7 +32,7 @@ public class AccountDeleteServlet extends HttpServlet {
         Customer customer= (Customer) session.getAttribute("customer");
         DBManager manager = (DBManager) session.getAttribute("manager");
         try {
-            if(staff!=null){
+            if(staff!=null){//check whether the account want to be deleted is customer or staff account
             manager.deleteStaff(staff.getStaffID());
             session.setAttribute("staff", staff);
             request.getRequestDispatcher("navBar.jsp").forward(request, response);

@@ -38,6 +38,7 @@
                 </div>
             </nav>
         </div>
+         <!-- get the type of the account and clear all error message first -->
         <%
             Validator validate = new Validator();
             Customer customer = (Customer) session.getAttribute("customer");
@@ -62,7 +63,7 @@
     <div>
         <table>
             <tr>
-                <td>
+                <td> <!-- lead to update details screen -->
                     <form action="UpdateScreen.jsp" method="post">
                         <%session.setAttribute("customer", customer);
                             session.setAttribute("staff", null);
@@ -71,7 +72,7 @@
                         <button type="submit" class="btn btn-success">Update Details</button>
                     </form>
                 </td>
-                <td>
+                <td><!-- lead to update password screen -->
                     <form method="post" action="PassUpdateScreen.jsp">
                         <%session.setAttribute("customer", customer);
                             session.setAttribute("staff", null);
@@ -82,7 +83,7 @@
             </tr>
         </table>
     </div>
-    <div class="position-fixed bottom-0 end-0">
+    <div class="position-fixed bottom-0 end-0"><!-- delete account -->
         <form action="AccountDeleteServlet" method="post">
             <%session.setAttribute("customer", customer);
                 session.setAttribute("staff", null);
@@ -106,7 +107,7 @@
     <div>
         <table>
             <tr>
-                <td>
+                <td><!-- lead to update details screen -->
                     <form action="UpdateScreen.jsp" method="post">
                         <%session.setAttribute("staff", staff);
                             session.setAttribute("customer", null);
@@ -115,14 +116,14 @@
                         <button class="btn btn-success" type="submit">Update Details</button>          
                     </form>
                 </td>
-                <td>
+                <td><!-- lead to staff create screen -->
                     <form action="StaffRegisterScreen.jsp">
                         <input class="btn btn-success" type="submit" value="Staff Register" />
                     </form>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td><!-- lead to update password screen -->
                     <form method="post" action="PassUpdateScreen.jsp">
                         <%session.setAttribute("staff", staff);
                             session.setAttribute("customer", null);
@@ -133,7 +134,7 @@
             </tr>
         </table>     
     </div>
-    <div class="position-fixed bottom-0 end-0">
+    <div class="position-fixed bottom-0 end-0"><!-- Delete account -->
         <form action="AccountDeleteServlet" method="post">
             <%session.setAttribute("staff", staff);
                 session.setAttribute("customer", null);

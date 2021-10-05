@@ -47,7 +47,7 @@ public class AccountCreateServlet extends HttpServlet {
         Validator validate = new Validator();
         DBManager manager = (DBManager) session.getAttribute("manager");
         try {
-            validate.clear(session);
+            validate.clear(session);//check the format
                 if (customerCreate.equals("true")) {
                     if (manager.CustomerExist(Email) || manager.StaffExist(Email)) {
                         session.setAttribute("emailErr", "existed");
@@ -55,7 +55,7 @@ public class AccountCreateServlet extends HttpServlet {
                     }
 
                 } else if (staffCreate.equals("true")) {
-                    if (manager.CustomerExist(Email) || manager.StaffExist(Email)) {
+                    if (manager.CustomerExist(Email) || manager.StaffExist(Email)) {//check if email exist
                         session.setAttribute("emailErr", "existed");
                         checked = false;
                     }
@@ -65,25 +65,25 @@ public class AccountCreateServlet extends HttpServlet {
                     session.setAttribute("emailErr", "empty");
                     checked = false;
                 } else if (!validate.validateEmail(Email)) {
-                    session.setAttribute("emailErr", "emailErr");
+                    session.setAttribute("emailErr", "emailErr");//check the format
                     checked = false;
                 }
 
-                if (DOB.equals("")) {
+                if (DOB.equals("")) {//take current date if user did not choose DOB
                     LocalDate date = LocalDate.now();
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     DOB = date.format(formatter);
                 }
 
-                if (!validate.validatePassword(Password) || !validate.validatePassword(Password2) ) {
+                if (!validate.validatePassword(Password) || !validate.validatePassword(Password2) ) {//validate password format
                     session.setAttribute("passErr", "passErr");
                     checked = false;
                 }
-                if (!Password.equals(Password2)) {
+                if (!Password.equals(Password2)) {//check if password and retype password matched
                     session.setAttribute("passErr", "noMatch");
                     checked = false;
                 }
-                if (!FName.isEmpty() || !LName.isEmpty()) {
+                if (!FName.isEmpty() || !LName.isEmpty()) {//both FName and LName can not be empty
                     if (!validate.validateName(FName) || !validate.validateName(LName)) {
                         session.setAttribute("nameErr", "nameErr");
                         checked = false;
@@ -93,26 +93,26 @@ public class AccountCreateServlet extends HttpServlet {
                     checked = false;
                 }
 
-                if (!PhoneNum.isEmpty()) {
+                if (!PhoneNum.isEmpty()) {//validate phone number format
                     if (!validate.validatePhone(PhoneNum)) {
                         session.setAttribute("phoneErr", "phoneErr");
                         checked = false;
                     }
                 }
 
-                if (!Address.isEmpty()) {
+                if (!Address.isEmpty()) {//validate address format
                     if (!validate.validateAddress(Address)) {
                         session.setAttribute("addressErr", "addressErr");
                         checked = false;
                     }
                 }
 
-                if (!validate.validateDate(DOB)) {
+                if (!validate.validateDate(DOB)) {//validate DOB format
                     session.setAttribute("dateErr", "dateErr");
                     checked = false;
                 }
                 
-                if (checked) {
+                if (checked) {//check whether the account create is for customer or staff
                     if (customerCreate.equals("true")) {
                     manager.addCustomer(Email, Password, FName, LName, PhoneNum, Address, DOB);
                     int ID = manager.FindCustomerID(Email, Password);

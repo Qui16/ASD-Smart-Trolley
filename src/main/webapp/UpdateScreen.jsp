@@ -32,6 +32,7 @@
             </nav>
         </div>
         <h3>Update Profile</h3>
+        <!-- Get all the error message. -->
         <%
             Customer customer = (Customer) session.getAttribute("customer");
             Staff staff = (Staff) session.getAttribute("staff");
@@ -41,7 +42,6 @@
             String phoneErr = (String) session.getAttribute("phoneErr");
             String addressErr = (String) session.getAttribute("addressErr");
             String dateErr = (String) session.getAttribute("dateErr");
-            String existErr = (String) session.getAttribute("existErr");
         %>
         <%if (customer != null) {%>
         <div>

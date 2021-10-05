@@ -20,7 +20,7 @@ public class AccountLogoutServlet extends HttpServlet {
      @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession();//get the current session
         session.invalidate();
         request.getRequestDispatcher("navBar.jsp").forward(request, response);
     }

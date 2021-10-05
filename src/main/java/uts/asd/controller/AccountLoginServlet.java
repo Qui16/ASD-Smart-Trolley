@@ -24,44 +24,40 @@ import uts.asd.controller.Validator;
  * @author quyda
  */
 public class AccountLoginServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    HttpSession session = request.getSession();
-    String email=request.getParameter("Email");
-    String password=request.getParameter("Password");
-    DBManager manager=(DBManager) session.getAttribute("manager");
-    Validator validate= new Validator();
-    validate.clear(session);
-    try{
-    if((validate.validateEmail(email)) && (validate.validatePassword(password)) && !validate.checkEmpty(email, password) ){
-    Staff staff=manager.FindStaff2(email,password);
-    Customer customer=manager.FindCustomer2(email,password);
-        if(staff!=null){
-            session.setAttribute("staff",staff);
-            session.setAttribute("customer",null);
-            request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
-        }
-        else if(customer!=null){
-            session.setAttribute("customer",customer);
-            session.setAttribute("staff",null);
-            request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
-        }
-        else{
-            session.setAttribute("authentication","unknow");
-            request.getRequestDispatcher("login.jsp").include(request, response);   
-        }
-        }
-    else{
-        
-        session.setAttribute("authentication","invalid");
-        request.getRequestDispatcher("login.jsp").include(request, response);
-    }
-    
-    }
-    catch(SQLException ex){
-    request.getRequestDispatcher("navBar.jsp").include(request, response);
-    Logger.getLogger(AccountCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
+        HttpSession session = request.getSession();
+        String email = request.getParameter("Email");
+        String password = request.getParameter("Password");
+        DBManager manager = (DBManager) session.getAttribute("manager");
+        Validator validate = new Validator();
+        validate.clear(session);
+        try {
+            if ((validate.validateEmail(email)) && (validate.validatePassword(password)) && !validate.checkEmpty(email, password)) {//email and password can not be null and must be in correct format
+                Staff staff = manager.FindStaff2(email, password);
+                Customer customer = manager.FindCustomer2(email, password);
+                if (staff != null) {//determine the login information is for staff or customer
+                    session.setAttribute("staff", staff);
+                    session.setAttribute("customer", null);
+                    request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
+                } else if (customer != null) {
+                    session.setAttribute("customer", customer);
+                    session.setAttribute("staff", null);
+                    request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
+                } else {
+                    session.setAttribute("authentication", "unknow");
+                    request.getRequestDispatcher("login.jsp").include(request, response);
+                }
+            } else {
+                session.setAttribute("authentication", "invalid");
+                request.getRequestDispatcher("login.jsp").include(request, response);
+            }
+
+        } catch (SQLException ex) {
+            request.getRequestDispatcher("navBar.jsp").include(request, response);
+            Logger.getLogger(AccountCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
