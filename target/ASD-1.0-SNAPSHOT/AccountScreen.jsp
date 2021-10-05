@@ -17,6 +17,14 @@
         <title>Account</title>
         <jsp:include page="/ConnServlet" flush="true"/>
     </head>
+    <!-- get the type of the account and clear all error message first -->
+        <%
+            Validator validate = new Validator();
+            Customer customer = (Customer) session.getAttribute("customer");
+            Staff staff = (Staff) session.getAttribute("staff");
+            session.setAttribute("passUpdate", "");
+            validate.clear(session);
+        %>
     <body>
         <div class="header">
             <div class="header-right">
@@ -38,14 +46,7 @@
                 </div>
             </nav>
         </div>
-         <!-- get the type of the account and clear all error message first -->
-        <%
-            Validator validate = new Validator();
-            Customer customer = (Customer) session.getAttribute("customer");
-            Staff staff = (Staff) session.getAttribute("staff");
-            session.setAttribute("passUpdate", "");
-            validate.clear(session);
-        %>
+         
         <%if (customer != null) {%>
     </div>
     <div style="padding-left:20px">

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import uts.asd.model.Customer;
+import uts.asd.model.Item;
 import uts.asd.model.Staff;
 //import uts.asd.model.Staff;
 
@@ -245,8 +246,8 @@ public class DBManager {
         String update = "UPDATE ASD.CUSTOMER SET \"Customer Password\"='" + customerPassword + "'where \"Customer ID\"=" + customerID;
         st.executeUpdate(update);
     }
-    
-     public void updateCustomerPoint(int customerID, int point) throws SQLException {//code for add-operation       
+
+    public void updateCustomerPoint(int customerID, int point) throws SQLException {//code for add-operation       
         //update sql command
         String update = "UPDATE ASD.CUSTOMER SET \"Customer Point\"='" + point + "'where \"Staff ID\"=" + customerID;
         st.executeUpdate(update);
@@ -277,7 +278,7 @@ public class DBManager {
         String update = "UPDATE ASD.STAFF SET \"Staff Password\"='" + staffPassword + "'where \"Staff ID\"=" + staffID;
         st.executeUpdate(update);
     }
-    
+
     public void updateStaffRole(int staffID, String role) throws SQLException {//code for add-operation       
         //update sql command
         String update = "UPDATE ASD.STAFF SET \"Staff Role\"='" + role + "'where \"Staff ID\"=" + staffID;
@@ -289,5 +290,5 @@ public class DBManager {
         String delete = "DELETE FROM ASD.\"STAFF\" WHERE \"Staff ID\"=" + staffID;
         st.executeUpdate(delete);
     }
-
+    
 }
