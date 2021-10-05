@@ -34,6 +34,8 @@
        private DBConnector db;
 
        private DBManager manager;
+       
+       private PaymentManager paymentManager;
 
        private Connection conn;
 
@@ -72,6 +74,7 @@
            try {
 
                manager = new DBManager(conn);
+               paymentManager = new PaymentManager(conn);
 
            } catch (SQLException ex) {
 
@@ -81,7 +84,8 @@
 
            //export the DB manager to the view-session (JSPs)
 
-           session.setAttribute("manager",manager);           
+           session.setAttribute("manager",manager);
+           session.setAttribute("paymentManager",paymentManager);            
 
        }   
 

@@ -101,7 +101,9 @@ public class PaymentManager {
 
     //Add a payment-data into the database - used in Payment_CreateServlet
     public void addPayment(int OrderId, String paymentMethod, double OrderPrice, String cardNumber, String expiryDate, String cvv, String nameOnCard, String datePaid) throws SQLException {
-        String columns = "INSERT INTO ASD.PAYMENT(ORDER_ID, PAYMENT_METHOD, ORDER_LINE_PRICE, CREDIT_CARD_NO, EXPIRY_DATE, SECURITY_NO, OWNER_NAME, DATE_PAID)";
+        //String columns = "insert into ASD.\"PAYMENT\"(\"ORDER_ID\", \"PAYMENT_METHOD\", \"TOTAL_PRICE\", \"CREDIT_CARD_NO\", \"EXPIRY_DATE\", \"SECURITY_NO\", \"OWNER_NAME\", \"DATE_PAID\")";
+        //String values = "VALUES ('" + OrderId + "','" + paymentMethod + "','" + OrderPrice + "','" + cardNumber + "','" + expiryDate + "','" + cvv + "','" + nameOnCard + "','" + datePaid + "')";
+        String columns = "INSERT INTO ASD.PAYMENT(ORDER_ID, PAYMENT_METHOD, TOTAL_PRICE, CREDIT_CARD_NO, EXPIRY_DATE, SECURITY_NO, OWNER_NAME, DATE_PAID)";
         String values = "VALUES (" + OrderId + ",'" + paymentMethod + "'," + OrderPrice + ",'" + cardNumber + "','" + expiryDate + "','" + cvv + "','" + nameOnCard + "','" + datePaid + "')";
         st.executeUpdate(columns + values);
     }
