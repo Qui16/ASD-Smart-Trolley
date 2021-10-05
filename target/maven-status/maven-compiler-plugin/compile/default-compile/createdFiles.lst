@@ -3,8 +3,10 @@ uts\asd\model\ScanCart.class
 uts\asd\model\dao\DBConnector.class
 uts\asd\model\dao\DB.class
 uts\asd\controller\ConnServlet.class
+uts\asd\controller\CreatePaymentServlet.class
 uts\asd\model\Item.class
 uts\asd\model\Payment.class
+uts\asd\controller\DeletePaymentServlet.class
 uts\asd\controller\AccountUpdateServlet.class
 uts\asd\controller\AccountDeleteServlet.class
 uts\asd\model\dao\PaymentManager.class

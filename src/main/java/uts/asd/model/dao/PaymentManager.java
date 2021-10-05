@@ -78,22 +78,19 @@ public class PaymentManager {
         return null;
     }
     
-    public Payment searchPayment(int PAY_ID, String datePaid) throws SQLException {       
-       String fetch = "select * from ASD.PAYMENT WHERE PAY_ID= " + PAY_ID + " AND DATE_PAID='" + datePaid + "'";
+    public Payment searchPaymentDetail(int UserID) throws SQLException {       
+       String fetch = "select * from ASD.PAYMENT_DETAIL WHERE CUSTOMER_ID= " + UserID ;
        ResultSet rs = st.executeQuery(fetch);
        
        while(rs.next()){
-           int payment_Id = rs.getInt(1);
-           String date_Paid = rs.getString(9);
-           if(payment_Id == PAY_ID && date_Paid.equals(datePaid)){
-               int orderId = rs.getInt(2);
-                String paymentMethod  = rs.getString(3);
-                double price = rs.getDouble(4);
-                String cardNumber = rs.getString(5);
-                String cvv = rs.getString(7);
-                String expiryDate = rs.getString(6);
-                String nameOnCard = rs.getString(8);
-                return new Payment(payment_Id, orderId, paymentMethod,price, cardNumber, expiryDate,  cvv, nameOnCard, datePaid);
+           int user_Id = rs.getInt(1);
+           if(user_Id == UserID){
+                String paymentMethod  = rs.getString(2);
+                String cardNumber = rs.getString(3);
+                String cvv = rs.getString(4);
+                String expiryDate = rs.getString(5);
+                String nameOnCard = rs.getString(6);
+                return new Payment(paymentMethod, cardNumber, expiryDate,  cvv, nameOnCard);
                 }
            }
        return null;   
@@ -101,10 +98,14 @@ public class PaymentManager {
 
     //Add a payment-data into the database - used in Payment_CreateServlet
     public void addPayment(int OrderId, String paymentMethod, double OrderPrice, String cardNumber, String expiryDate, String cvv, String nameOnCard, String datePaid) throws SQLException {
-        //String columns = "insert into ASD.\"PAYMENT\"(\"ORDER_ID\", \"PAYMENT_METHOD\", \"TOTAL_PRICE\", \"CREDIT_CARD_NO\", \"EXPIRY_DATE\", \"SECURITY_NO\", \"OWNER_NAME\", \"DATE_PAID\")";
-        //String values = "VALUES ('" + OrderId + "','" + paymentMethod + "','" + OrderPrice + "','" + cardNumber + "','" + expiryDate + "','" + cvv + "','" + nameOnCard + "','" + datePaid + "')";
         String columns = "INSERT INTO ASD.PAYMENT(ORDER_ID, PAYMENT_METHOD, TOTAL_PRICE, CREDIT_CARD_NO, EXPIRY_DATE, SECURITY_NO, OWNER_NAME, DATE_PAID)";
         String values = "VALUES (" + OrderId + ",'" + paymentMethod + "'," + OrderPrice + ",'" + cardNumber + "','" + expiryDate + "','" + cvv + "','" + nameOnCard + "','" + datePaid + "')";
+        st.executeUpdate(columns + values);
+    }
+    
+    public void addPaymentDetail(int UserId, String paymentMethod, String cardNumber, String expiryDate, String cvv, String nameOnCard) throws SQLException {
+        String columns = "INSERT INTO ASD.PAYMENT_DETAIL(CUSTOMER_ID, PAYMENT_METHOD, CREDIT_CARD_NO, EXPIRY_DATE, SECURITY_NO, OWNER_NAME)";
+        String values = "VALUES (" + UserId + ",'" + paymentMethod + "','" + cardNumber + "','" + expiryDate + "','" + cvv + "','" + nameOnCard + "')";
         st.executeUpdate(columns + values);
     }
 
@@ -122,11 +123,9 @@ public class PaymentManager {
     }
 
     //delete a payment from database - used in Payment_DeleteServlet
-    public void deletePayment(int PAY_ID) throws SQLException {
-        String delete1 = "DELETE FROM ASD.PAYMENT WHERE PAY_ID=" + PAY_ID + "";
-        String delete2 = "DELETE FROM ASD.PAYMENT_HISTORY WHERE PAY_ID=" + PAY_ID + "";
+    public void deletePaymentDetail(int UserId) throws SQLException {
+        String delete1 = "DELETE FROM ASD.PAYMENT_DETAIL WHERE CUSTOMER_ID=" + UserId ;
         st.executeUpdate(delete1);
-        st.executeUpdate(delete2);
     }
 
     //shows the list of payment based on userId -- Used in Payment_ShowHistoryServlet

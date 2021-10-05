@@ -7,6 +7,8 @@
 <%@page import="uts.asd.controller.Validator"%>
 <%@page import="uts.asd.model.Staff"%>
 <%@page import="uts.asd.model.Customer"%>
+<%@page import="uts.asd.model.Payment"%>
+<%@page import="uts.asd.model.dao.PaymentManager"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +19,16 @@
         <title>Account</title>
         <jsp:include page="/ConnServlet" flush="true"/>
     </head>
+    <%
+        Validator validate = new Validator();
+        Customer customer = (Customer) session.getAttribute("customer");
+        PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
+        Payment payment = paymentManager.searchPaymentDetail(customer.getCustomerID());
+        Staff staff = (Staff) session.getAttribute("staff");
+        session.setAttribute("passUpdate", "");
+        validate.clear(session);
+
+    %>
     <body>
         <div class="header">
             <div class="header-right">
@@ -34,17 +46,26 @@
                                 </form>
                             </div>
                         </li>
+
+                        <li>
+                            <form action="CreatePayment.jsp">
+                                <%session.setAttribute("customer", customer);%>
+                                <body onload = "check()">
+                                    <button class="btn btn-primary" type="submit" id="submit" disabled>Create Payment</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="Viewpayment.jsp">
+                                <%session.setAttribute("customer", customer);%>
+                                <button class="btn btn-secondary" type="submit">View Payment</button>
+
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </nav>
         </div>
-        <%
-            Validator validate = new Validator();
-            Customer customer = (Customer) session.getAttribute("customer");
-            Staff staff = (Staff) session.getAttribute("staff");
-            session.setAttribute("passUpdate", "");
-            validate.clear(session);
-        %>
+
         <%if (customer != null) {%>
     </div>
     <div style="padding-left:20px">
@@ -131,7 +152,9 @@
                     </form>
                 </td>
             </tr>
-        </table>     
+
+        </table>
+
     </div>
     <div class="position-fixed bottom-0 end-0">
         <form action="AccountDeleteServlet" method="post">
@@ -142,6 +165,16 @@
         </form>
     </div>
     <%}%>
+
+    <script>
+        var send = document.getElementById("submit");
+        function check(){
+            if (payment === null) {
+                send.disabled = false;
+            } 
+        }
+        ;
+    </script>
 </body>
 
 </html>

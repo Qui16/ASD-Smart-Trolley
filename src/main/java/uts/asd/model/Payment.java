@@ -52,7 +52,15 @@ public class Payment implements Serializable{
         this.datePaid = datePaid;
     }
     
-    
+    public Payment(String paymentMethod, String cardNumber, String expiryDate, String cvv, String nameOnCard) {
+        //this.paymentId = paymentId;
+        //this.orderId = orderId;
+        this.paymentMethod = paymentMethod;
+        this.cardNumber = cardNumber;
+        this.nameOnCard = nameOnCard;
+        this.cvv = cvv;
+        this.expiryDate = expiryDate;
+    }
     public Integer getPaymentId() {
         return PAY_ID;
     }

@@ -57,6 +57,22 @@
         <servlet-name>PaymentServlet</servlet-name>
         <url-pattern>/PaymentServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CreatePaymentServlet</servlet-name>
+        <servlet-class>uts.asd.controller.CreatePaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreatePaymentServlet</servlet-name>
+        <url-pattern>/CreatePaymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <servlet-class>uts.asd.controller.DeletePaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <url-pattern>/DeletePaymentServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
 
