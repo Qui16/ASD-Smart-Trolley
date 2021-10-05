@@ -49,7 +49,11 @@ public class QuyTest {
     public void TestCustomerLogin() throws ClassNotFoundException, SQLException {
         //System.out.println("I'm a test doing some stuff");
         Customer customer1=manager.FindCustomer2("test9@gmail.com", "Quy!1234");
+        Customer customer2=manager.FindCustomer2("test9@gmail/", "Quy!1234");
+        Customer customer3=manager.FindCustomer2("test9@gmail.com", "Quy!124");
         Assert.assertNotNull(customer1);
+        Assert.assertNull(customer2);
+        Assert.assertNull(customer3);
         
     }
 
@@ -57,6 +61,10 @@ public class QuyTest {
     public void TestStaffLogin() throws ClassNotFoundException, SQLException {
         //System.out.println("I'm another test doing some stuff");
         Staff staff1=manager.FindStaff2("test4@gmail.com", "Quy!1235");
+        Staff staff2=manager.FindStaff2("test4@gmail/", "Quy!1235");
+        Staff staff3=manager.FindStaff2("test4@gmail.com", "Quy!135");
         Assert.assertNotNull(staff1);
+        Assert.assertNull(staff2);
+        Assert.assertNull(staff3);
     }
 }
