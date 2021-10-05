@@ -240,9 +240,15 @@ public class DBManager {
         st.executeUpdate(update);
     }
 
-    public void updateCustomerPass(int staffID, String staffPassword) throws SQLException {//code for add-operation       
+    public void updateCustomerPass(int customerID, String customerPassword) throws SQLException {//code for add-operation       
         //update sql command
-        String update = "UPDATE ASD.STAFF SET \"Staff Password\"='" + staffPassword + "'where \"Staff ID\"=" + staffID;
+        String update = "UPDATE ASD.CUSTOMER SET \"Customer Password\"='" + customerPassword + "'where \"Customer ID\"=" + customerID;
+        st.executeUpdate(update);
+    }
+    
+     public void updateCustomerPoint(int customerID, int point) throws SQLException {//code for add-operation       
+        //update sql command
+        String update = "UPDATE ASD.CUSTOMER SET \"Customer Point\"='" + point + "'where \"Staff ID\"=" + customerID;
         st.executeUpdate(update);
     }
 
@@ -269,6 +275,12 @@ public class DBManager {
     public void updateStaffPass(int staffID, String staffPassword) throws SQLException {//code for add-operation       
         //update sql command
         String update = "UPDATE ASD.STAFF SET \"Staff Password\"='" + staffPassword + "'where \"Staff ID\"=" + staffID;
+        st.executeUpdate(update);
+    }
+    
+    public void updateStaffRole(int staffID, String role) throws SQLException {//code for add-operation       
+        //update sql command
+        String update = "UPDATE ASD.STAFF SET \"Staff Role\"='" + role + "'where \"Staff ID\"=" + staffID;
         st.executeUpdate(update);
     }
 
