@@ -81,6 +81,14 @@
         <servlet-name>DeletePaymentServlet</servlet-name>
         <url-pattern>/DeletePaymentServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PaymentUpdateServlet</servlet-name>
+        <servlet-class>uts.asd.controller.PaymentUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentUpdateServlet</servlet-name>
+        <url-pattern>/PaymentUpdateServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
 

@@ -112,7 +112,7 @@ public class PaymentManager {
     //Update a payment details in the database - used in Payment_UpdateServlet
     public void updatePaymentDetail(int USER_ID,  String paymentMethod, String cardNumber, String expiryDate, String cvv, String nameOnCard) throws SQLException {
         String update = "UPDATE ASD.PAYMENT_DETAIL SET PAYMENT_METHOD='" + paymentMethod + "', CREDIT_CARD_NO='"
-                + cardNumber + "', EXPIRY_DATE='" + expiryDate + "', SECURITY_NO ='" + cvv + "',  OWNER_NAME='" + nameOnCard + "' WHERE PAY_ID = " + USER_ID + "";
+                + cardNumber + "', EXPIRY_DATE='" + expiryDate + "', SECURITY_NO ='" + cvv + "',  OWNER_NAME='" + nameOnCard + "' WHERE CUSTOMER_ID = " + USER_ID + "";
         st.executeUpdate(update);
     }
     

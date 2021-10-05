@@ -27,7 +27,7 @@
         String expiryDate = payment.getExpiryDate();   
     %>
     <div class="container-fluid">
-        <form action="CreatePayment.jsp" method="post">
+        <form action="UpdatePayment.jsp" method="post">
             <table class="table table-responsive" id="users">
                 <tr><td>Customer Id:#</td><td>${customer.customerID}</td></tr>
                 <tr><td>Payment Method:</td><td><%= paymentMethod%></td></tr>

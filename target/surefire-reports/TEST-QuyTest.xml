@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="QuyTest" time="0.229" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="QuyTest" time="0.179" tests="2" errors="0" skipped="0" failures="0">
   <properties>
+    <property name="netbeans.deploy" value="true"/>
     <property name="java.specification.version" value="14"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
@@ -16,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-14\bin"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=D:\Download\NetBeans-12.0\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dnetbeans.deploy=true -Dnetbeans.deploy.clientUrlPart=/navBar.jsp -Dmaven.ext.class.path=D:\Download\NetBeans-12.0\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 package"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="D:\Download\NetBeans-12.0\netbeans\java\maven\bin\.."/>
     <property name="sun.cpu.endian" value="little"/>
@@ -32,6 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="netbeans.deploy.clientUrlPart" value="/navBar.jsp"/>
     <property name="java.runtime.version" value="14+36-1461"/>
     <property name="user.name" value="casio"/>
     <property name="path.separator" value=";"/>
@@ -58,6 +60,6 @@
     <property name="library.jansi.path" value="D:\Download\NetBeans-12.0\netbeans\java\maven\bin\..\lib\jansi-native"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="TestStaffLogin" classname="QuyTest" time="0.165"/>
-  <testcase name="TestCustomerLogin" classname="QuyTest" time="0.008"/>
+  <testcase name="TestStaffLogin" classname="QuyTest" time="0.126"/>
+  <testcase name="TestCustomerLogin" classname="QuyTest" time="0.006"/>
 </testsuite>
