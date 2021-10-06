@@ -49,13 +49,13 @@
                             <form action="CreatePayment.jsp">
                                 <%session.setAttribute("customer", customer);%>
                                 <body onload = "check()">
-                                    <button class="btn btn-primary" type="submit" id="submit" >Create Payment</button>
+                                    <button class="btn btn-light" type="submit" id="submit" ><h3>Create Payment</h3></button>
                             </form>
                         </li>
                         <li>
                             <form action="Viewpayment.jsp">
                                 <%session.setAttribute("customer", customer);%>
-                                <button class="btn btn-secondary" type="submit">View Payment</button>
+                                <button class="btn btn-light" type="submit"><h3>View Payment</h3></button>
 
                             </form>
                         </li>
