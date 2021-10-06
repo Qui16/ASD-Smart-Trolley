@@ -10,7 +10,7 @@ steps:
 - task: SqlDacpacDeploymentOnMachineGroup@0
   inputs:
     TaskType: 'sqlQuery'
-    SqlFile: ' $(System.DefaultWorkingDirectory)\ASD-Smart-Trolley\src\main\webapp\dbdbTable.sql'
+    SqlFile: ' $(System.DefaultWorkingDirectory)\ASD-Smart-Trolley\src\main\webapp\db\dbTable.sql'
     ServerName: 'localhost'
     DatabaseName: 'ASD'
     AuthScheme: 'sqlServerAuthentication'
