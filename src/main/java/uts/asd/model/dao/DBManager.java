@@ -299,4 +299,18 @@ public class DBManager {
         st.executeUpdate(columns + values);
     }
     
+    // delete item from database
+    public void deleteItem(String name) throws SQLException {
+        //code for delete-operation   
+        String delete = "DELETE FROM ASD.\"Items\" WHERE \"Name\"=" + name;
+        st.executeUpdate(delete);
+    }
+    
+    // update item in database
+    public void updateItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
+        String update = "UPDATE ASD.Items SET \"Item Name\"='" + name + "', \"Item Price\"='" + price + "',\"Item Quantity\"='" + quantity + "',\"Item ReceivedDate\"='" + date + "', \"Item Region\"='" + region + "',\"Item Description\"='" + description + "'where \"Item ID\"=" + ID;
+        st.executeUpdate(update);
+    }
+    
+    
 }
