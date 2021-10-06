@@ -7,13 +7,15 @@ pool:
 steps:
 
 
-- task: SqlDacpacDeploymentOnMachineGroup@0 
+- task: SqlDacpacDeploymentOnMachineGroup@0
   inputs:
     TaskType: 'sqlQuery'
     SqlFile: '\src\main\webapp\db\dbTable.sql'
     ServerName: 'localhost'
     DatabaseName: 'ASD'
-    AuthScheme: 'windowsAuthentication'
+    AuthScheme: 'sqlServerAuthentication'
+    SqlUsername: 'asd'
+    SqlPassword: '123'
   
 - task: Maven@3
   inputs:
