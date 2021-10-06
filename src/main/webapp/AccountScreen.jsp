@@ -65,7 +65,6 @@
         </div>
 
         <%if (customer != null) {%>
-    </div>
     <div style="padding-left:20px">
         <h1>Customer Profile</h1>
         <p><span class="tag">Customer ID: </span> ${customer.customerID}</p>

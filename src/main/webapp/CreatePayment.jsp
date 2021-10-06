@@ -6,10 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.asd.model.Customer"%>
+<%@page import="uts.asd.model.Payment"%>
+<%@page import="uts.asd.model.dao.PaymentManager"%>
 <!DOCTYPE html>
 <html>
     <%
         Customer customer = (Customer) session.getAttribute("customer");
+        PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
+        Payment payment = paymentManager.searchPaymentDetail(customer.getCustomerID());
     %>
     <head>
         <link rel="stylesheet" href="./css/style.css" />
@@ -17,6 +21,7 @@
         <title>Create Payment Page</title>
     </head>
     <body>
+        
         
         <form action="CreatePaymentServlet" method="post">
             <table class="table table-responsive">

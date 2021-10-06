@@ -38,10 +38,16 @@ public class CreatePaymentServlet extends HttpServlet {
 
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         Customer customer = (Customer) session.getAttribute("customer");
+        
         //ScanCart orders = (ScanCart) session.getAttribute("order");
         validator.clear(session);
 
         try {
+            Payment payment = paymentManager.searchPaymentDetail(customer.getCustomerID());
+            if (payment != null) {
+                request.getRequestDispatcher("CreatePaymentError.jsp").forward(request, response);
+            }
+            else{
 
             //payment = manager.searchPayment(payment_Id, datePaid);
             //if (payment != null) {
@@ -68,7 +74,7 @@ public class CreatePaymentServlet extends HttpServlet {
             //paymentManager.addHistory(user.getCustomerID(), payment_Id, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);
 
             request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
-            //}
+            }
         } catch (SQLException | NullPointerException ex) {
             request.getRequestDispatcher("Payment.jsp").include(request, response);
             Logger.getLogger(AccountCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
