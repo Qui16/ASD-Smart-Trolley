@@ -292,4 +292,11 @@ public class DBManager {
         st.executeUpdate(delete);
     }
     
+    // add item to database
+    public void addItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
+        String columns = "insert into ASD.\"Items\"(\"Item ID\",\"Item Name\",\"Item Price\",\"Item Quantity\", \"Item ReceivedDate\",\"Item Region\",\"Item Description\")";
+        String values = "VALUES('" + ID + "','" + name + "','" + price + "','" + quantity + "','" + date + "','" + region + "','" + description + "')";
+        st.executeUpdate(columns + values);
+    }
+    
 }
