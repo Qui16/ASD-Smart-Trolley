@@ -1,4 +1,11 @@
 trigger:
+- task: SqlDacpacDeploymentOnMachineGroup@0
+  inputs:
+    TaskType: 'sqlQuery'
+    SqlFile: 'dbTable'
+    ServerName: 'localhost'
+    DatabaseName: 'ASD'
+    AuthScheme: 'windowsAuthentication'
 - main
 
 pool:
