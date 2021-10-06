@@ -21,7 +21,12 @@
         <title>Create Payment Page</title>
     </head>
     <body>
-        
+        <% if (payment != null ) {%>
+        <h3>Sorry, you already have a payment detail.</h3>
+        <h3>Each customer only have one payment detail</h3>
+        <p>Click <a href="AccountScreen.jsp" > here </a> to go back to account page.</p>
+
+    <%}  else { %>
         
         <form action="CreatePaymentServlet" method="post">
             <table class="table table-responsive">
@@ -60,6 +65,7 @@
             };
         </script>
         <jsp:include page="/ConnServlet" flush="true"/>
+        <% } %>
     </body>
 </html>
 

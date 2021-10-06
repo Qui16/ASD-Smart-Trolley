@@ -20,6 +20,13 @@
         Customer customer = (Customer) session.getAttribute("customer");
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         Payment payment = paymentManager.searchPaymentDetail(customer.getCustomerID());
+    %>
+    <% if (payment == null ) {%>
+        <p>Sorry, you don't have a payment detail.</p>
+        <p>Click <a href="AccountScreen.jsp" > here </a> to go back to account page.</p>
+
+    <%}  else { %>
+    <%    
         String paymentMethod = payment.getCardNumber();
         String cardNumber = payment.getCardNumber();
         String cvv = payment.getCvv();
@@ -43,7 +50,8 @@
         <form action="DeletePaymentServlet" method="post">
             <input type="submit" value="Delete" />
         </form>
-    </div>        
+    </div>
+    <% } %>
 </body>
 </html>
 
