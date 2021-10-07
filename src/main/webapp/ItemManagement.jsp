@@ -153,14 +153,7 @@
                 <div class="col-3">
                     <h2>Remove product</h2>
                     <div class="input-group mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Select product</option>
-                            <option value="1">Milk 1L</option>
-                            <option value="2">Milk 2L</option>
-                            <option value="3">Cookie Choc</option>
-                            <option value="3">Roasted Chicken</option>
-                            <option value="3">Sandwhich</option>                            
-                        </select>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 </div>
