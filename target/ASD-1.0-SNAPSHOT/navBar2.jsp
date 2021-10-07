@@ -1,3 +1,8 @@
+ <%@page import="uts.asd.controller.Validator"%>
+<%
+        Validator validate = new Validator();
+        validate.clear(session);
+ %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./index.jsp">Smart Trolley</a>
