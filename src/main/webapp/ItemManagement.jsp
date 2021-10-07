@@ -4,6 +4,8 @@
     Author     : Jack Hennessy
 --%>
 
+<%@page import="uts.asd.model.dao.DBManager"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.asd.model.*"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,6 +21,12 @@
     </head>
     <%
       String existErr = (String) session.getAttribute("existErr");
+      DBManager manager = (DBManager) session.getAttribute("manager");
+      ArrayList<Item> items = (ArrayList<Item>) manager.GetItems();
+      System.out.println("!!!!!!! items is: " + items);
+      
+      
+      
     %>
 
     <header>
@@ -61,63 +69,24 @@
                                     <b>Item description</b>
                                 </th>
                             </tr>
-                            <c:forEach var="item" items="${items}">
+                            
+                            
+                            <% if (items != null) {
+                                for (Item i : items) {%>
+                            
                                 <tr>
-                                    <td><c:out value="${items.id}" /></td>
-                                    <td><c:out value="${items.name}" /></td>
-                                    <td><c:out value="${items.price}" /></td>
-                                    <td><c:out value="$${items.quantity}" /></td>
-                                    <td><c:out value="${items.date}" /></td>
-                                    <td><c:out value="${items.region}" /></td>
-                                    <td><c:out value="${items.description}" /></td>
+                                    <td value="<%= i.getId()%>" /><%= i.getId() %></td>
+                                    <td value="<%= i.getName()%>" /><%= i.getName() %></td>
+                                    <td value="<%= i.getPrice()%>" /><%= i.getPrice() %></td>
+                                    <td value="<%= i.getQuantity()%>" /><%= i.getQuantity() %></td>
+                                    <td value="<%= i.getReceiveDate()%>" /><%= i.getReceiveDate() %></td>
+                                    <td value="<%= i.getRegion()%>" /><%= i.getRegion() %></td>
+                                    <td value="<%= i.getDescription()%>" /><%= i.getDescription() %></td>
                                 </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Milk 1L</td>
-                                    <td>$1.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Fresh Milk</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Milk 2L</td>
-                                    <td>$2.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Fresh Milk</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Cookie Choc</td>
-                                    <td>$7.54</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>QLD</td>
-                                    <td>Chocolate Cookies</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Roasted Chic</td>
-                                    <td>$10</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Roasted Chicken</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Sandwhich</td>
-                                    <td>$1.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Sandwhich</td>
-                                </tr>
-                            </c:forEach>
+                                <%}
+                                    }
+                            %>
+                            
                         </table>
                     </div>
                 </div>
@@ -127,27 +96,31 @@
                     <h2>Add/update product</h2>
                     <div class="mb-3">
                         <label for="exampleFormControlInput0" class="form-label">ID</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput0" placeholder="Enter product ID">
+                        <input type="text" class="form-control" name="ID" id="exampleFormControlInput0" placeholder="Enter product ID">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
+                        <input type="text" class="form-control" name="name" placeholder="Enter product name">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput4" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput4" placeholder="Enter product price">
+                        <input type="text" class="form-control" name="price" id="exampleFormControlInput4" placeholder="Enter product price">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput2" class="form-label">Region</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Enter product region">
+                        <input type="text" class="form-control" name="region" id="exampleFormControlInput2" placeholder="Enter product region">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Quantity</label>
+                        <input type="text" class="form-control" name="quantity" id="exampleFormControlInput2" placeholder="Enter product quantity">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput3" class="form-label">Received date</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput3">
+                        <input type="text" class="form-control" name="date" id="exampleFormControlInput3">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </div>
