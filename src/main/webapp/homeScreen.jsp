@@ -11,12 +11,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Smart Trolly DashBoard Page</title>
     </head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Smart Trolly DashBoard Page</title>
+    </head>
     <body>
-        <h1>Smart Trolly DashBoard</h1>
+        <h1>Welcome to the Smart Trolly DashBoard Page</h1>
+        <h2>Select a function to use</h2>
         <div>
-            <a href="itemList.jsp">List of items</a>
-            <a href="cartSummary.jsp">Summary of cart</a>
-            <a href="addItem.jsp">Add Item</a>
+            <a href="listProduct.jsp">List of items</a>
+            <a href="Cart.jsp">Summary of cart</a>
             <a href="scanItem.jsp">Scan Item</a>
         </div>
     </body>
