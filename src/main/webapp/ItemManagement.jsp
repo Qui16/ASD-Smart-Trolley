@@ -153,7 +153,7 @@
                 </div>
                 </form>
                 
-                <form action="DeleteServlet" method="post">
+                <form action="DeleteItemServlet" method="post">
                 <div class="col-3">
                     <h2>Remove product</h2>
                     <div class="input-group mb-3">
