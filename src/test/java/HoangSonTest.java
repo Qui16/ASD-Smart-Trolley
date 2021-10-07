@@ -114,4 +114,56 @@ public class HoangSonTest {
         PaymentHistory payment2 = paymentManager.searchPaymentHistory(142,"18/05/2021");
         Assert.assertEquals("3216549870987654",payment2.getCardNumber());
     }
+    
+    @Test
+    public void TestValidate() throws ClassNotFoundException, SQLException {
+        boolean check;
+        //sucessful test case
+        check=validate.checkEmpty("","");
+        Assert.assertTrue(check);
+        check=validate.checkEmpty("test1","");
+        Assert.assertTrue(check);
+        check=validate.checkEmpty("","test2");
+        Assert.assertTrue(check);
+        check=validate.validateID("1000");
+        Assert.assertTrue(check);
+        check=validate.validateEmail("test@gmail.com");
+        Assert.assertTrue(check);
+        check=validate.validateName("Kevin Murphy");
+        Assert.assertTrue(check);
+        check=validate.validatePhone("0123456789");
+        Assert.assertTrue(check);
+        check=validate.validatePassword("Qu!123456");
+        Assert.assertTrue(check);
+        check=validate.validateAddress("299 Lakemba st");
+        Assert.assertTrue(check);
+        check=validate.validateDate("2020-09-09");     
+        Assert.assertTrue(check);
+        
+        //fail test case
+        check=validate.checkEmpty("test1","test2");
+        Assert.assertFalse(check);
+        check=validate.validateID("");
+        Assert.assertFalse(check);
+        check=validate.validateID("1000/");
+        Assert.assertFalse(check);
+        check=validate.validateEmail("test@gmail.com/");
+        Assert.assertFalse(check);
+        check=validate.validateEmail("");
+        Assert.assertFalse(check);
+        check=validate.validateName("Kevin Murphy/");
+        Assert.assertFalse(check);
+        check=validate.validateName("Kevin/ Murphy");
+        Assert.assertFalse(check);
+        check=validate.validatePhone("0123456789/");
+        Assert.assertFalse(check);
+        check=validate.validatePhone("012345678");
+        Assert.assertFalse(check);
+        check=validate.validatePassword("Q!12");
+        Assert.assertFalse(check);
+        check=validate.validateAddress("299/ Lakemba st");
+        Assert.assertFalse(check);
+        check=validate.validateDate("202009-09");     
+        Assert.assertFalse(check);
+    }
 }
