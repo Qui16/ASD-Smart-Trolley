@@ -18,7 +18,7 @@ public class DbCon {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException{
         if(connection == null){
             Class.forName("org.apache.derby.jdbc.ClientDriver");
-            connection=DriverManager.getConnection("jdbc:derby://localhost:1527/ASD1","clintin","abc123");
+            connection=DriverManager.getConnection("jdbc:derby://localhost:1527/ASD","asd","123");
             System.out.print("connected");
         }
         return connection;

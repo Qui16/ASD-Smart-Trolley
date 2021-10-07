@@ -22,15 +22,15 @@ CREATE TABLE "PAYMENT" (
 
 
 
-CREATE TABLE Items (
-"Item ID" int not null ,
-"Item Name" varchar(255) not null,
-"Item Price" float not null,
-"Item Quantity" int not null,
-"Item ReceivedDate" date ,
-"Item Region" varchar(255),
-"Item Description" varchar(255),
-primary key ("Item ID")
+CREATE TABLE ITEMS(
+"ID" int not null ,
+"Name" varchar(255) not null,
+"Price" float not null,
+"Quantity" int not null,
+"ReceivedDate" date ,
+"Region" varchar(255),
+"Description" varchar(255),
+primary key ("ID")
 );
 
 CREATE TABLE Customer (
@@ -159,7 +159,7 @@ values
 ('December.Murphy@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12'),
 ('test4@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12');
 
-insert into Items("Item ID", "Item Name","Item Price","Item Quantity","Item ReceivedDate", "Item Region", "Item Description")
+insert into ITEMS("ID", "Name","Price","Quantity","ReceivedDate", "Region", "Description")
 values
 (1, 'Milk 1L',1.36,100,'2020-04-16','NSW','Fresh Milk'),
 (2, 'Milk 2L',2.36,100,'2020-04-16','NSW','Fresh Milk'),

@@ -31,7 +31,7 @@ public class ProductDao {
         List<Product> products = new ArrayList<Product>();
 
         try {
-            query = "select * from CLINTIN.ITEMS";
+            query = "select * from ASD.ITEMS";
             pst = this.con.prepareStatement(query);
             rs = pst.executeQuery();
 
@@ -59,7 +59,7 @@ public class ProductDao {
         try {
             if (cartList.size() > 0) {
                 for (Cart item : cartList) {
-                    query = "select * from CLINTIN.ITEMS where ID=?";
+                    query = "select * from ASD.ITEMS where ID=?";
                     pst = this.con.prepareStatement(query);
                     pst.setInt(1, item.getId());
                     rs = pst.executeQuery();
@@ -86,7 +86,7 @@ public class ProductDao {
         try {
             if (cartList.size() > 0) {
                 for (Cart item : cartList) {
-                    query = "select Price from CLINTIN.ITEMS where id=?";
+                    query = "select * from ASD.ITEMS where id=?";
                     pst = this.con.prepareStatement(query);
                     pst.setInt(1, item.getId());
                     rs = pst.executeQuery();

@@ -4,7 +4,28 @@
     Author     : casio
 --%>
 
+<%@page import="uts.asd.model.dao.ProductDao"%>
+<%@page import="uts.asd.model.dao.DbCon"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="uts.asd.model.Cart"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+    DecimalFormat dcf = new DecimalFormat("#.##");
+    request.setAttribute("dcf", dcf);
+
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    List<Cart> cartProduct = null;
+    if (cart_list != null) {
+        ProductDao pDao = new ProductDao(DbCon.getConnection());        
+        double total = pDao.getTotalCartPrice(cart_list);
+        request.setAttribute("cart_list", cart_list);
+        request.setAttribute("total", total);
+    }
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +38,7 @@
         <form action="PaymentServlet" method="post">
             <table class="table table-responsive">
                 
-                <tr><td>Amount :500$</td></tr>
+                <tr><td>Amount : $ ${(total>0)?dcf.format(total):0}</td></tr>
                 
                 <tr>
                     <td>
