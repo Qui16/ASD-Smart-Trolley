@@ -64,6 +64,10 @@ public class TestDB {
         System.out.println("User deleted successfully");
     }
 
+    private void testDeleteItem() throws SQLException {
+        manager.deleteItem("test");
+    }
+    
     private String read(String prompt) {
         System.out.print(prompt+": ");
         
@@ -84,7 +88,7 @@ public class TestDB {
         while ((c = read("Command [c/r/u/d/f/x]").charAt(0)) != 'x') {
             switch (c) {
                 case 'c':                                  
-                    testCreate();                  
+                    testDeleteItem();                  
                     break;
                 case 'r':
                     testFind();

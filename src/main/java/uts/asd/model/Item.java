@@ -10,31 +10,29 @@ package uts.asd.model;
  * @author 61451
  */
 public class Item {
-    private String id;
+    private int id;
     private String name;
-    private String price;
-    private String quantity;
+    private float price;
+    private int quantity;
     private String receiveDate;
     private String region;
-    private String category;
     private String description;
     
-    public Item(String id, String name, String price, String quantity, String receiveDate, String region, String category, String description) {
+    public Item(int id, String name, float price, int quantity, String receiveDate, String region, String description) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.receiveDate = receiveDate;
         this.region = region;
-        this.category = category;
         this.description = description;
     }
     
-    public String getId() {
+    public int getId() {
         return id;
     }
     
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -46,19 +44,19 @@ public class Item {
         this.name = name;
     }
     
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
     
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
     }
     
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
     
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     
@@ -76,14 +74,6 @@ public class Item {
     
     public void setRegion(String region) {
         this.region = region;
-    }
-    
-    public String getCategory() {
-        return category;
-    }
-    
-    public void setCategory(String category) {
-        this.category = category;
     }
     
     public String getDescription() {

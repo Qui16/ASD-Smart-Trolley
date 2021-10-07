@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import uts.asd.model.Customer;
 import uts.asd.model.Item;
 import uts.asd.model.Staff;
@@ -290,6 +291,60 @@ public class DBManager {
         //code for delete-operation   
         String delete = "DELETE FROM ASD.\"STAFF\" WHERE \"Staff ID\"=" + staffID;
         st.executeUpdate(delete);
+    }
+    
+    // add item to database
+    public void addItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
+        String columns = "insert into ASD.\"ITEMS\"(\"Item ID\",\"Item Name\",\"Item Price\",\"Item Quantity\", \"Item ReceivedDate\",\"Item Region\",\"Item Description\")";
+        String values = "VALUES("+ ID+",'" + name + "'," + price + ","+ quantity +",'" + date + "','" + region + "','" + description + "')";
+        st.executeUpdate(columns + values);
+    }
+    
+    // delete item from database
+    public void deleteItem(String name) throws SQLException {
+        //code for delete-operation   
+        String delete = "DELETE FROM ASD.\"ITEMS\" WHERE \"Item Name\"='"+ name+"'";
+        st.executeUpdate(delete);
+    }
+    
+    // update item in database
+    // change .Items to .ITEMS
+    public void updateItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
+        String update = "UPDATE ASD.ITEMS SET \"Item Name\"='" + name + "', \"Item Price\"=" + price + ",\"Item Quantity\"=" + quantity + ",\"Item ReceivedDate\"='" + date + "', \"Item Region\"='" + region + "',\"Item Description\"='" + description + "'where \"Item ID\"=" + ID;
+        st.executeUpdate(update);
+    }
+    
+    // check if an item exists
+    public boolean ItemExist(String name) throws SQLException {
+        String fetch = "select * from ASD.\"ITEMS\" where  \"Item Name\"='" + name + "'";
+        ResultSet rs = st.executeQuery(fetch);
+        //add the results to a ResultSet       
+        //search the ResultSet for a user using the parameters
+        while (rs.next()) {
+            String checkName = rs.getString(2);
+            if (checkName.equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    // list all items
+    public ArrayList<Item> GetItems() throws SQLException {
+        // setup the select sql query string     
+        String fetch = "select * from ASD.\"Items";
+        // execute this query     
+        ResultSet rs = st.executeQuery(fetch);
+        // add the results to a ResultSet       
+        // loop the results and add each item to the list
+        
+        ArrayList<Item> list = new ArrayList<Item>();
+        
+        while (rs.next()) {
+            Item temp = new Item(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7));
+            list.add(temp);
+        }
+        return list;
     }
     
 }

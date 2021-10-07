@@ -125,6 +125,10 @@
                 <div class="col-3">
                     <h2>Add/update product</h2>
                     <div class="mb-3">
+                        <label for="exampleFormControlInput0" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput0" placeholder="Enter product ID">
+                    </div>
+                    <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Name</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
                     </div>
@@ -138,7 +142,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput3" class="form-label">Received date</label>
-                        <input type="date" class="form-control" id="exampleFormControlInput3">
+                        <input type="text" class="form-control" id="exampleFormControlInput3">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
