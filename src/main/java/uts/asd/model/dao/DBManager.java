@@ -294,15 +294,15 @@ public class DBManager {
     
     // add item to database
     public void addItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
-        String columns = "insert into ASD.\"Items\"(\"Item ID\",\"Item Name\",\"Item Price\",\"Item Quantity\", \"Item ReceivedDate\",\"Item Region\",\"Item Description\")";
-        String values = "VALUES('" + ID + "','" + name + "','" + price + "','" + quantity + "','" + date + "','" + region + "','" + description + "')";
+        String columns = "insert into ASD.\"ITEMS\"(\"Item ID\",\"Item Name\",\"Item Price\",\"Item Quantity\", \"Item ReceivedDate\",\"Item Region\",\"Item Description\")";
+        String values = "VALUES("+ ID+",'" + name + "'," + price + ","+ quantity +",'" + date + "','" + region + "','" + description + "')";
         st.executeUpdate(columns + values);
     }
     
     // delete item from database
     public void deleteItem(String name) throws SQLException {
         //code for delete-operation   
-        String delete = "DELETE FROM ASD.\"Items\" WHERE \"Name\"=" + name;
+        String delete = "DELETE FROM ASD.\"ITEMS\" WHERE \"Item Name\"='"+ name+"'";
         st.executeUpdate(delete);
     }
     
