@@ -47,10 +47,10 @@ public class CreatePaymentServlet extends HttpServlet {
                     session.setAttribute("cardNoErr", "cardNoErr");
                     checked = false;
                 }
-            if (!validator.validateExp(expiryDate)) {//validate expiry date format
-                    session.setAttribute("expErr", "expErr");
-                    checked = false;
-                }
+            //if (!validator.validateExp(expiryDate)) {//validate expiry date format
+                    //session.setAttribute("expErr", "expErr");
+                    //checked = false;
+                //}
             if (!validator.validateCVV(cvv)) {//validate cvv format
                     session.setAttribute("cvvErr", "cvvErr");
                     checked = false;

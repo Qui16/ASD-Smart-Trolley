@@ -69,10 +69,10 @@ public class PaymentManager {
             if (paymentId == PAY_ID && date_Paid.equals(datePaid)) {
                 int orderId = Integer.parseInt(rs.getString(3));
                 String paymentMethod = rs.getString(4);
-                double orderPrice = Double.parseDouble(rs.getString(5));
+                double totalPrice = Double.parseDouble(rs.getString(5));
                 String cardNumber = rs.getString(6);
                 String nameOnCard = rs.getString(7);
-                return new PaymentHistory(userId, paymentId, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, date_Paid);
+                return new PaymentHistory(userId, paymentId, orderId, paymentMethod, totalPrice, cardNumber, nameOnCard, date_Paid);
             }
         }
         return null;
@@ -130,7 +130,7 @@ public class PaymentManager {
 
     //shows the list of payment based on userId -- Used in Payment_ShowHistoryServlet
     public ArrayList<PaymentHistory> fetchHistory(int userId) throws SQLException {
-        String fetch = "SELECT * FROM ASD.PAYMENT_HISTORY WHERE USER_ID = " + userId + "";
+        String fetch = "SELECT * FROM ASD.PAYMENT_HISTORY WHERE CUSTOMER_ID = " + userId + "";
         ArrayList<PaymentHistory> temp = new ArrayList();
         ResultSet rs = st.executeQuery(fetch);
         
@@ -138,17 +138,17 @@ public class PaymentManager {
             int paymentId = Integer.parseInt(rs.getString(2));
             int orderId = Integer.parseInt(rs.getString(3));
             String paymentMethod = rs.getString(4);
-            double orderPrice = Double.parseDouble(rs.getString(5));
+            double totalPrice = Double.parseDouble(rs.getString(5));
             String cardNumber = rs.getString(6);
             String nameOnCard = rs.getString(7);
             String datePaid = rs.getString(8);
-            temp.add(new PaymentHistory(userId, paymentId, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid));
+            temp.add(new PaymentHistory(userId, paymentId, orderId, paymentMethod, totalPrice, cardNumber, nameOnCard, datePaid));
         }
         return temp;
     }
     
     public void addHistory(int userId, int paymentId, int orderId, String paymentMethod, double orderPrice,  String cardNumber, String nameOnCard, String datePaid) throws SQLException {
-        String columns = "INSERT INTO ASD.PAYMENT_HISTORY(USER_ID, PAY_ID, ORDER_ID, PAYMENT_METHOD, ORDER_LINE_PRICE, CREDIT_CARD_NO, OWNER_NAME, DATE_PAID)";
+        String columns = "INSERT INTO ASD.PAYMENT_HISTORY(CUSTOMER_ID, PAY_ID, ORDER_ID, PAYMENT_METHOD, TOTAL_PRICE, CREDIT_CARD_NO, OWNER_NAME, DATE_PAID)";
         String values = "VALUES (" + userId + ","  + paymentId + "," + orderId + ",'" + paymentMethod + "'," + orderPrice + ",'" + cardNumber + "','" + nameOnCard + "','" + datePaid + "')";
         st.executeUpdate(columns + values);
     }

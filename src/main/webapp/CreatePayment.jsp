@@ -20,7 +20,6 @@
     %>
     <head>
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <script src="js/bootstrap.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <title>Create Payment Page</title>
     </head>
@@ -69,11 +68,7 @@
                 <%} else {%>
                 <tr><td>Card Number</td><td><input type="text" name="cardNumber" required=""/></td></tr>
                 <%}%>
-                <%if (expErr.equals("expErr")) {%>
-                <tr><td>Expiry Date</td><td><input class="errorField" type="text" name="expiryDate" required=""/></td><td class="error">Invalid format!</td></tr>
-                <%} else {%>
                 <tr><td>Expiry Date</td><td><input type="text" name="expiryDate" required=""/></td></tr>
-                <%}%>
                 <%if (cvvErr.equals("cvvErr")) {%>
                 <tr><td>CVV</td><td><input class="errorField" type="text" name="cvv"/></td><td class="error">Invalid format!</td></tr>
                 <%} else {%>

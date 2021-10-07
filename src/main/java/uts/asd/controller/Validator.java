@@ -26,7 +26,7 @@ public class Validator implements Serializable {
     private final String idPattern= "[0-9]+";
     private final String cardNoPattern = "[0-9]{16}";
     private final String cvvPattern = "[0-9]{3}";
-    private final String expPattern = "^(1[0-2]|0[1-9])-(1[0-3]|0[0-9])$";
+    private final String expPattern = "/^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])$/";
     public Validator() {
     }
     

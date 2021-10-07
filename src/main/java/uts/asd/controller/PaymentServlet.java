@@ -36,23 +36,14 @@ public class PaymentServlet extends HttpServlet {
         String nameOnCard = request.getParameter("nameOnCard");
         String expiryDate = request.getParameter("expiryDate");
         String datePaid = request.getParameter("datePaid");
-
+        String check = request.getParameter("check");
 
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
-        //Customer user = (Customer) session.getAttribute("user");
-        //ScanCart orders = (ScanCart) session.getAttribute("order");
+        Customer customer = (Customer) session.getAttribute("customer");
         validator.clear(session);
 
         try {
 
-            //payment = manager.searchPayment(payment_Id, datePaid);
-            //if (payment != null) {
-            //request.getRequestDispatcher("confirm_payment.jsp").include(request, response);
-            //} else {
-            //int order_Id = manager.getOrderId();
-            
-            //double orderPrice = orders.getTotalPrice();
-            //int order_Id = (int)session.getAttribute("orderId");
             int orderId = 119;
             double orderPrice = 500.0;
             //double orderPrice = manager.getPrice();
@@ -64,14 +55,11 @@ public class PaymentServlet extends HttpServlet {
             System.out.println(datePaid);
             System.out.println(orderId);
             System.out.println(orderPrice);
-            //session.setAttribute("INVOICE_ID", invoice_Id);
-            //session.setAttribute("PAY_ID", payment_Id);
             paymentManager.addPayment(orderId, paymentMethod, orderPrice, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
             
             Payment payment = new Payment(paymentMethod, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
-            //int payment_Id = paymentManager.getPaymentId(cardNumber);
-            //payment = paymentManager.searchPayment(payment_Id, datePaid);
-            //paymentManager.addHistory(user.getCustomerID(), payment_Id, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);
+            int payment_Id = paymentManager.getPaymentId(cardNumber);
+            paymentManager.addHistory(customer.getCustomerID(), payment_Id, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);
             session.setAttribute("payment", payment);
 
             request.getRequestDispatcher("ConfirmPayment.jsp").forward(request, response);

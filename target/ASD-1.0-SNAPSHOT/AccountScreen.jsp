@@ -59,6 +59,18 @@
 
                             </form>
                         </li>
+                        <li>
+                            <form action="Payment.jsp">
+                                <%session.setAttribute("customer", customer);%>
+                                <button class="btn btn-light" type="submit"><h3>Make Payment</h3></button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="PaymentHistoryServlet" method="post">
+                                <%session.setAttribute("customer", customer);%>
+                                <button class="btn btn-light" type="submit"><h3>Show Payment History</h3></button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </nav>

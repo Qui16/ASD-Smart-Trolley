@@ -26,7 +26,7 @@
                 <ul class="menu">
                     <li><a href="./index.jsp">Home</a></li>
                     <li><a href="./listProduct.jsp">Browse</a></li>
-                    <li><a href="./Payment.jsp">Checkout</a></li>
+                    <li><a href="./PaymentAnonymous.jsp">Checkout</a></li>
 
                     <div class="search-container">
                         <form action="">

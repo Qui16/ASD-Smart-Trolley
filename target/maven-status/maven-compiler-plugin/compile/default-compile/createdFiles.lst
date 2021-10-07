@@ -17,6 +17,7 @@ uts\asd\controller\ItemServlet.class
 uts\asd\model\PaymentHistory.class
 uts\asd\model\dao\DBConnector.class
 uts\asd\model\dao\DB.class
+uts\asd\controller\PaymentHistoryServlet.class
 uts\asd\model\Item.class
 uts\asd\controller\AccountDeleteServlet.class
 uts\asd\model\dao\PaymentManager.class
