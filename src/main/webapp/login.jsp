@@ -26,7 +26,7 @@
             </form>
         </div>
         <div class="position-absolute top-0 end-0">
-            <form action="navBar.jsp" method="post">
+            <form action="index.jsp" method="post">
                     <input class="btn btn-warning" name="login" type="submit" value="Log in as guest">
             </form>
         </div>
