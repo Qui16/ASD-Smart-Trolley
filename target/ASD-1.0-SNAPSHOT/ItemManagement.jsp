@@ -4,6 +4,8 @@
     Author     : Jack Hennessy
 --%>
 
+<%@page import="uts.asd.model.dao.DBManager"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.asd.model.*"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,6 +21,12 @@
     </head>
     <%
       String existErr = (String) session.getAttribute("existErr");
+      DBManager manager = (DBManager) session.getAttribute("manager");
+      ArrayList<Item> items = (ArrayList<Item>) manager.GetItems();
+      System.out.println("!!!!!!! items is: " + items);
+      
+      
+      
     %>
 
     <header>
@@ -61,63 +69,24 @@
                                     <b>Item description</b>
                                 </th>
                             </tr>
-                            <c:forEach var="item" items="${items}">
+                            
+                            
+                            <% if (items != null) {
+                                for (Item i : items) {%>
+                            
                                 <tr>
-                                    <td><c:out value="${items.id}" /></td>
-                                    <td><c:out value="${items.name}" /></td>
-                                    <td><c:out value="${items.price}" /></td>
-                                    <td><c:out value="$${items.quantity}" /></td>
-                                    <td><c:out value="${items.date}" /></td>
-                                    <td><c:out value="${items.region}" /></td>
-                                    <td><c:out value="${items.description}" /></td>
+                                    <td value="<%= i.getId()%>" /><%= i.getId() %></td>
+                                    <td value="<%= i.getName()%>" /><%= i.getName() %></td>
+                                    <td value="<%= i.getPrice()%>" /><%= i.getPrice() %></td>
+                                    <td value="<%= i.getQuantity()%>" /><%= i.getQuantity() %></td>
+                                    <td value="<%= i.getReceiveDate()%>" /><%= i.getReceiveDate() %></td>
+                                    <td value="<%= i.getRegion()%>" /><%= i.getRegion() %></td>
+                                    <td value="<%= i.getDescription()%>" /><%= i.getDescription() %></td>
                                 </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Milk 1L</td>
-                                    <td>$1.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Fresh Milk</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Milk 2L</td>
-                                    <td>$2.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Fresh Milk</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Cookie Choc</td>
-                                    <td>$7.54</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>QLD</td>
-                                    <td>Chocolate Cookies</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Roasted Chic</td>
-                                    <td>$10</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Roasted Chicken</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Sandwhich</td>
-                                    <td>$1.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Sandwhich</td>
-                                </tr>
-                            </c:forEach>
+                                <%}
+                                    }
+                            %>
+                            
                         </table>
                     </div>
                 </div>

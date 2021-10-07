@@ -23,6 +23,7 @@
 /Users/jackhennessy/Documents/UTS/ASD/ASD-Smart-Trolley/src/main/java/uts/asd/controller/FindCustomerServlet.java
 /Users/jackhennessy/Documents/UTS/ASD/ASD-Smart-Trolley/src/main/java/uts/asd/controller/AccountUpdateServlet.java
 /Users/jackhennessy/Documents/UTS/ASD/ASD-Smart-Trolley/src/main/java/uts/asd/controller/TestDB.java
+/Users/jackhennessy/Documents/UTS/ASD/ASD-Smart-Trolley/src/main/java/uts/asd/controller/ListItemsServlet.java
 /Users/jackhennessy/Documents/UTS/ASD/ASD-Smart-Trolley/src/main/java/uts/asd/model/Item.java
 /Users/jackhennessy/Documents/UTS/ASD/ASD-Smart-Trolley/src/main/java/uts/asd/controller/DeleteItemServlet.java
 /Users/jackhennessy/Documents/UTS/ASD/ASD-Smart-Trolley/src/main/java/uts/asd/controller/QuantityServlet.java
