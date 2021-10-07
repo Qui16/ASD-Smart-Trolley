@@ -35,7 +35,7 @@ public class CreatePaymentServlet extends HttpServlet {
         String cvv = request.getParameter("cvv");
         String nameOnCard = request.getParameter("nameOnCard");
         String expiryDate = request.getParameter("expiryDate");
-
+        boolean checked = true;
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         Customer customer = (Customer) session.getAttribute("customer");
         
@@ -43,37 +43,34 @@ public class CreatePaymentServlet extends HttpServlet {
         validator.clear(session);
 
         try {
-            Payment payment = paymentManager.searchPaymentDetail(customer.getCustomerID());
-            if (payment != null) {
-                request.getRequestDispatcher("CreatePaymentError.jsp").forward(request, response);
-            }
-            else{
-
-            //payment = manager.searchPayment(payment_Id, datePaid);
-            //if (payment != null) {
-            //request.getRequestDispatcher("confirm_payment.jsp").include(request, response);
-            //} else {
-            //int order_Id = manager.getOrderId();
-            
+            if (!validator.validateCardNo(cardNumber)) {//validate card number format
+                    session.setAttribute("cardNoErr", "cardNoErr");
+                    checked = false;
+                }
+            if (!validator.validateExp(expiryDate)) {//validate expiry date format
+                    session.setAttribute("expErr", "expErr");
+                    checked = false;
+                }
+            if (!validator.validateCVV(cvv)) {//validate cvv format
+                    session.setAttribute("cvvErr", "cvvErr");
+                    checked = false;
+                }
+            if(checked){
+   
             //double orderPrice = orders.getTotalPrice();
             //int order_Id = (int)session.getAttribute("orderId");
             int UserId = customer.getCustomerID();
             //double orderPrice = manager.getPrice();
-            System.out.println(cardNumber);
-            System.out.println(paymentMethod);
-            System.out.println(cvv);
-            System.out.println(nameOnCard);
-            System.out.println(expiryDate);
-            System.out.println(UserId);
             //session.setAttribute("INVOICE_ID", invoice_Id);
             //session.setAttribute("PAY_ID", payment_Id);
             paymentManager.addPaymentDetail(UserId, paymentMethod, cardNumber, expiryDate, cvv, nameOnCard);
-            
             //int payment_Id = paymentManager.getPaymentId(cardNumber);
             //payment = paymentManager.searchPayment(payment_Id, datePaid);
             //paymentManager.addHistory(user.getCustomerID(), payment_Id, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);
-
             request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
+            }
+            else{
+                request.getRequestDispatcher("CreatePayment.jsp").include(request, response);
             }
         } catch (SQLException | NullPointerException ex) {
             request.getRequestDispatcher("Payment.jsp").include(request, response);

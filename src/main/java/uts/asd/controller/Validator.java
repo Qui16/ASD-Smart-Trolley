@@ -24,7 +24,9 @@ public class Validator implements Serializable {
     private final String phoneNumPattern = "[0-9]{10}";//10 digits format
     private final String addressPattern = "([A-Za-z0-9]+)((\\s)([A-za-z0-9\\s])+)*";// 10 Canterbury st
     private final String idPattern= "[0-9]+";
-
+    private final String cardNoPattern = "[0-9]{16}";
+    private final String cvvPattern = "[0-9]{3}";
+    private final String expPattern = "^(1[0-2]|0[1-9])-(1[0-3]|0[0-9])$";
     public Validator() {
     }
     
@@ -65,7 +67,19 @@ public class Validator implements Serializable {
     public boolean validateAddress(String address) {
         return validate(addressPattern, address);
     }
-
+    
+    public boolean validateCardNo(String cardNo) {
+        return validate(cardNoPattern, cardNo);
+    }
+    
+    public boolean validateCVV(String CVV) {
+        return validate(cvvPattern, CVV);
+    }
+    
+    public boolean validateExp(String exp) {
+        return validate(expPattern, exp);
+    }
+    
     public static void clear(HttpSession session) { 
         session.setAttribute("idErr", "1");
         session.setAttribute("emailErr", "1");
@@ -76,5 +90,8 @@ public class Validator implements Serializable {
         session.setAttribute("dateErr", "1");
         session.setAttribute("updated", "1");
         session.setAttribute("authentication", "1");
+        session.setAttribute("cardNoErr", "1");
+        session.setAttribute("cvvErr", "1");
+        session.setAttribute("expErr", "1");
     }
 }
