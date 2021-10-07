@@ -10,12 +10,10 @@
  */
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.faces.validator.Validator;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import uts.asd.model.Customer;
 import uts.asd.model.Payment;
 import uts.asd.model.PaymentHistory;
 import uts.asd.model.dao.DBConnector;
@@ -27,7 +25,6 @@ public class HoangSonTest {
 
     private DBConnector connector;
     private Connection conn;
-    private DBManager manager;
     private PaymentManager paymentManager;
     private uts.asd.controller.Validator validate = new uts.asd.controller.Validator();
 
@@ -37,7 +34,6 @@ public class HoangSonTest {
 
         connector = new DBConnector();
         conn = connector.openConnection();
-        manager = new DBManager(conn);
         paymentManager = new PaymentManager(conn);
         uts.asd.controller.Validator validate = new uts.asd.controller.Validator();
 
