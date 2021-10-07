@@ -52,6 +52,7 @@ public class ItemServlet extends HttpServlet {
 
             } else {
                 // create a new item
+                System.out.println("***********" + ID + name + price + quantity +"*************");
                 manager.addItem(Integer.valueOf(ID), name, Float.valueOf(price), Integer.valueOf(quantity), date, region, description);
             }
         } catch (SQLException ex) {

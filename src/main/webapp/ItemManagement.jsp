@@ -127,27 +127,31 @@
                     <h2>Add/update product</h2>
                     <div class="mb-3">
                         <label for="exampleFormControlInput0" class="form-label">ID</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput0" placeholder="Enter product ID">
+                        <input type="text" class="form-control" name="ID" id="exampleFormControlInput0" placeholder="Enter product ID">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
+                        <input type="text" class="form-control" name="name" placeholder="Enter product name">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput4" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput4" placeholder="Enter product price">
+                        <input type="text" class="form-control" name="price" id="exampleFormControlInput4" placeholder="Enter product price">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput2" class="form-label">Region</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Enter product region">
+                        <input type="text" class="form-control" name="region" id="exampleFormControlInput2" placeholder="Enter product region">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput2" class="form-label">Quantity</label>
+                        <input type="text" class="form-control" name="quantity" id="exampleFormControlInput2" placeholder="Enter product quantity">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput3" class="form-label">Received date</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput3">
+                        <input type="text" class="form-control" name="date" id="exampleFormControlInput3">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </div>
