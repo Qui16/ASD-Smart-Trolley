@@ -346,5 +346,59 @@ public class DBManager {
         }
         return list;
     }
+
+        public ArrayList<Item> fetchItem() throws SQLException {
+             String fetch = "select * from ASD.\"Items";
+             ResultSet rs = st.executeQuery(fetch);
+             ArrayList<Item> temp = new ArrayList();
+
+             while(rs.next()){
+            int searchItemID = rs.getInt(1);
+            String searchItemName = rs.getString(2);
+            float searchItemPrice = rs.getFloat(3);
+            int searchItemQuantity = rs.getInt(4);
+            String searchItemReceiveDate = rs.getString(5);
+            String searchItemRegion = rs.getString(6);
+            String searchItemDescription = rs.getString(7);
+            temp.add(new Item(searchItemID, searchItemName, searchItemPrice, searchItemQuantity, searchItemReceiveDate, searchItemRegion, searchItemDescription));
+             }
+            return temp;
+     }
+    
+    public ArrayList<Item> fetchItembyID(String id) throws SQLException {
+             String fetch = "select * from ASD.\"ITEMS\" where  \"Item ID\"='" + id + "'";
+             ResultSet rs = st.executeQuery(fetch);
+             ArrayList<Item> temp = new ArrayList();
+
+             while(rs.next()){
+                 String name = rs.getString(2);
+                 String price = rs.getString(3);
+                 String quantity = rs.getString(4);
+                 String receiveDate = rs.getString(5);
+                 String region = rs.getString(6);
+                 String description = rs.getString(7);
+                 temp.add(new Item(Integer.valueOf(ID), name, Float.valueOf(price), Integer.valueOf(quantity), quantity, receiveDate, region, description));
+             }
+            return temp;
+     }
+    
+    public ArrayList<Item> fetchItembyName(String name) throws SQLException {
+             String fetch = "select * from ASDUSER.ITEMS WHERE NAME='" + name + "'";
+             ResultSet rs = st.executeQuery(fetch);
+             ArrayList<Item> temp = new ArrayList();
+
+             while(rs.next()){
+                 String id = rs.getString(1);
+                 String price = rs.getString(3);
+                 String quantity = rs.getString(4);
+                 String receiveDate = rs.getString(5);
+                 String region = rs.getString(6);
+                 String description = rs.getString(7);
+                 temp.add(new Item(Integer.valueOf(ID), name, Float.valueOf(price), Integer.valueOf(quantity), quantity, receiveDate, region, description));
+             }
+            return temp;
+     }
+    
+}
     
 }
