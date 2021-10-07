@@ -308,14 +308,15 @@ public class DBManager {
     }
     
     // update item in database
+    // change .Items to .ITEMS
     public void updateItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
-        String update = "UPDATE ASD.Items SET \"Item Name\"='" + name + "', \"Item Price\"='" + price + "',\"Item Quantity\"='" + quantity + "',\"Item ReceivedDate\"='" + date + "', \"Item Region\"='" + region + "',\"Item Description\"='" + description + "'where \"Item ID\"=" + ID;
+        String update = "UPDATE ASD.ITEMS SET \"Item Name\"='" + name + "', \"Item Price\"=" + price + ",\"Item Quantity\"=" + quantity + ",\"Item ReceivedDate\"='" + date + "', \"Item Region\"='" + region + "',\"Item Description\"='" + description + "'where \"Item ID\"=" + ID;
         st.executeUpdate(update);
     }
     
     // check if an item exists
     public boolean ItemExist(String name) throws SQLException {
-        String fetch = "select * from ASD.\"Items\" where  \"Item Name\"='" + name + "'";
+        String fetch = "select * from ASD.\"ITEMS\" where  \"Item Name\"='" + name + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
         //search the ResultSet for a user using the parameters
@@ -340,10 +341,8 @@ public class DBManager {
         ArrayList<Item> list = new ArrayList<Item>();
         
         while (rs.next()) {
-            
             Item temp = new Item(rs.getInt(1), rs.getString(2), rs.getFloat(3), rs.getInt(4), rs.getString(5), rs.getString(6), rs.getString(7));
             list.add(temp);
-            
         }
         return list;
     }
