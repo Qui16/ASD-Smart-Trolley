@@ -70,9 +70,9 @@
                 <%}%>
                 <tr><td>Expiry Date</td><td><input type="text" name="expiryDate" required=""/></td></tr>
                 <%if (cvvErr.equals("cvvErr")) {%>
-                <tr><td>CVV</td><td><input class="errorField" type="text" name="cvv"/></td><td class="error">Invalid format!</td></tr>
+                <tr><td>CVV</td><td><input class="errorField" type="password" name="cvv"/></td><td class="error">Invalid format!</td></tr>
                 <%} else {%>
-                <tr><td>CVV</td><td><input type="text" name="cvv"/></td></tr>
+                <tr><td>CVV</td><td><input type="password" name="cvv"/></td></tr>
                 <%}%>
                 <tr><td>Name On Card</td><td><input type="text" name="nameOnCard" required=""/></td></tr>
                 <tr><td>Agree to Terms of Service</td><td><input type="checkbox" name="tos" id="tos"/></td></tr>

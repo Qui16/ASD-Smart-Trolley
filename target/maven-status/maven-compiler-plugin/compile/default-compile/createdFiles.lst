@@ -1,7 +1,6 @@
 uts\asd\model\ScanCart.class
 uts\asd\controller\ConnServlet.class
 uts\asd\controller\QuantityServlet.class
-uts\asd\controller\ListItemsServlet.class
 uts\asd\controller\CreatePaymentServlet.class
 uts\asd\model\Payment.class
 uts\asd\controller\DeletePaymentServlet.class
