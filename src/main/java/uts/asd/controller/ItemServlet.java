@@ -23,6 +23,11 @@ public class ItemServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+            // same form is used for adding/updating items
+            // when form is submitted check if that item exists, if not create a new item
+            // otherwise update that item
+        
             HttpSession session = request.getSession();
             
             String customer_name=request.getParameter("customer_name");

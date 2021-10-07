@@ -33,8 +33,8 @@
                     <td><input type="text" id="quantity" name="quantity"> </td>
                 </tr>
                  <tr>
-                    <td><label for="receiveDate">ReceiveDate:</label> </td>
-                    <td><input type="text" id="receiveDate" name="receiveDate"> </td>
+                    <td><label for="receiveDate">Received Date:</label> </td>
+                    <td><input type="text" id="receivedDate" name="receiveDate"> </td>
                 </tr>
                 <tr>
                     <td><label for="region">Region:</label> </td>
