@@ -60,6 +60,12 @@
                             </form>
                         </li>
                         <li>
+                            <form action="index.jsp">
+                                <%session.setAttribute("customer", customer);%>
+                                <button class="btn btn-light" type="submit"><h3>Product</h3></button>
+                            </form>
+                        </li>
+                        <li>
                             <form action="Payment.jsp">
                                 <%session.setAttribute("customer", customer);%>
                                 <button class="btn btn-light" type="submit"><h3>Make Payment</h3></button>

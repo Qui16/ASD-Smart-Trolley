@@ -36,7 +36,6 @@ public class PaymentServlet extends HttpServlet {
         String nameOnCard = request.getParameter("nameOnCard");
         String expiryDate = request.getParameter("expiryDate");
         String datePaid = request.getParameter("datePaid");
-        String check = request.getParameter("check");
 
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         Customer customer = (Customer) session.getAttribute("customer");

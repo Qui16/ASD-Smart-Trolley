@@ -9,6 +9,7 @@ C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\da
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\ConnServlet.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Cart.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\ItemServlet.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\RemoveFromCartServlet.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Payment.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Customer.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\AccountCreateServlet.java
@@ -22,6 +23,10 @@ C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controll
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\PaymentHistory.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\Validator.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\Item.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\dao\DbCon.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\dao\DB.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\dao\ProductDao.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\AddToCartServlet.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\AccountLogoutServlet.java
+C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\controller\QuantityServlet.java
 C:\Users\casio\Documents\GitHub\ASD-Smart-Trolley\src\main\java\uts\asd\model\ScanCart.java
