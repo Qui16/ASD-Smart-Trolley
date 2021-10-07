@@ -8,8 +8,13 @@ pool:
 steps:
 - task: SqlDacpacDeploymentOnMachineGroup@0
   inputs:
-    TaskType: 'sqlQuery'
-    SqlFile: 'D:\a\1\s\src\main\webapp\db\dbTable.sql'
+    TaskType: 'sqlInline'
+    InlineSql: |
+      USE [main]
+        GO
+        IF NOT EXISTS (SELECT name FROM main.sys.databases WHERE name = N'ASD')
+        CREATE DATABASE [ASD]
+        GO
     ServerName: 'localhost'
     DatabaseName: 'ASD'
     AuthScheme: 'windowsAuthentication'
