@@ -12,27 +12,30 @@
         <title>Scan Item Page</title>
     </head>
     <body>
-        <h1>Scan Item here</h1>
-        
-        <h2>Or Input the Item id, name, and price here</h2>
-        <form action="cartSummary.jsp" method="POST">
-            <table>
-                <tr>
-                    <td><label for="id">ID:</label> </td>
-                    <td><input type="text" id="id" name="id"></td>
-                </tr>
-                <tr>
-                <tr>
-                    <td><label for="name">Name:</label> </td>
-                    <td><input type="text" id="name" name="name"></td>
-                </tr>
-                <tr>
-                    <td><label for="price">Price:</label> </td>
-                    <td><input type="text" id="price" name="price"> </td>
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h3>Item Scan Page</h3>
+                </div>
+            </div>
+        </div>
+        <%
+            String existItemErr = (String) session.getAttribute("existItemErr");
+        %>
+        <div class="container">
+            <h1>Scan Item <span id="message"> <%=(existItemErr != null ? existItemErr : "")%> </span></h1>
+            <form action="SearchItemListServlet" method="get">
+            <table class="tablecenter">
+                <tr><td>Code (ID):</td><td><input type="text" placeholder="Enter Code (id)" name="id" required></td></tr>
+                <tr><td>Name:</td><td><input type="name" placeholder="Enter name (not required)" name="name"></td></tr>
+                <tr><td></td>
+                    <td>
+                        <a href="homeScreen.jsp" class="tableButton">Cancel</a>
+                        <input class="tableButton" type="submit" value="Search">
+                    </td>
                 </tr>
             </table>
-            <input type="submit" value="add item to cart">
-            
-        </form>
+            </form>
+        </div>
     </body>
 </html>

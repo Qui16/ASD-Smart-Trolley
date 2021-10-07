@@ -123,6 +123,7 @@
                 </div>
 
                 <div class="col-3">
+                    <form action="ItemServlet" method="post">
                     <h2>Add/update product</h2>
                     <div class="mb-3">
                         <label for="exampleFormControlInput0" class="form-label">ID</label>
@@ -150,13 +151,19 @@
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </div>
+                </form>
+                
+                <form action="DeleteServlet" method="post">
                 <div class="col-3">
                     <h2>Remove product</h2>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
+                        <input type="text" name="delete" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 </div>
+                </form>
+                
+                <jsp:include page="/ConnServlet" flush="true"/>
             </div>
 
         </div>
