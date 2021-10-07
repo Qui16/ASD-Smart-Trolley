@@ -26,7 +26,7 @@ public class SearchItemListServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
          HttpSession session = request.getSession();
          
-         String id = request.getString("id");
+         String id = request.getParameter("id");
          String name = request.getParameter("name");
          DBManager manager = (DBManager) session.getAttribute("manager");
          ArrayList<Item> items = new ArrayList<Item>();
