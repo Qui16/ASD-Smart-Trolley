@@ -27,7 +27,7 @@
 
     <body>
         <div class="title">
-            <h1>Item management</h1>
+            <h1>Sales management</h1>
         </div>
 
         <div class="container">
@@ -36,7 +36,7 @@
 
                 <div class="col-6">
                     <div class="productList">
-                        <h2>Product list</h2>
+                        <h2>Payment list</h2>
                         <table class="table">
                             <tr>
                                 <th>
@@ -122,46 +122,6 @@
                     </div>
                 </div>
 
-                <div class="col-3">
-                    <form action="ItemServlet" method="post">
-                    <h2>Add/update product</h2>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput0" class="form-label">ID</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput0" placeholder="Enter product ID">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput4" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput4" placeholder="Enter product price">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput2" class="form-label">Region</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Enter product region">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput3" class="form-label">Received date</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput3">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
-                </div>
-                </form>
-                
-                <form action="DeleteItemServlet" method="post">
-                <div class="col-3">
-                    <h2>Remove product</h2>
-                    <div class="input-group mb-3">
-                        <input type="text" name="delete" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </div>
-                </div>
-                </form>
                 
                 <jsp:include page="/ConnServlet" flush="true"/>
             </div>
