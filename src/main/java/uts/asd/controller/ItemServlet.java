@@ -36,16 +36,24 @@ public class ItemServlet extends HttpServlet {
             HttpSession session = request.getSession();
             DBManager manager = (DBManager) session.getAttribute("manager");
             
-            int ID = request.getParameter("ID");
+            String ID = request.getParameter("ID");
             String name = request.getParameter("name");
-            float price = request.getParameter("price");
-            int quantity = request.getParameter("quantity");
+            String price = request.getParameter("price");
+            String quantity = request.getParameter("quantity");
             String date = request.getParameter("date");
             String region = request.getParameter("region");
             String description = request.getParameter("description");
             
         try {
-            manager.addItem(ID, name, price, quantity, date, region, description);
+            // check if item already exists
+            if (manager.ItemExist(name)) {
+                // update item
+                manager.updateItem(Integer.valueOf(ID), name, Float.valueOf(price), Integer.valueOf(quantity), date, region, description);
+
+            } else {
+                // create a new item
+                manager.addItem(Integer.valueOf(ID), name, Float.valueOf(price), Integer.valueOf(quantity), date, region, description);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ItemServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
