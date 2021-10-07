@@ -10,7 +10,7 @@ steps:
 - task: SqlDacpacDeploymentOnMachineGroup@0
   inputs:
     TaskType: 'sqlQuery'
-    SqlFile: '\D:\a\1\s\src\main\webapp\db\dbTable.sql'
+    SqlFile: 'D:\a\1\s\src\main\webapp\db\dbTable.sql'
     ServerName: 'localhost'
     DatabaseName: 'ASD'
     AuthScheme: 'sqlServerAuthentication'
