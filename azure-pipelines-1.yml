@@ -1,0 +1,31 @@
+trigger:
+
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- task: SqlDacpacDeploymentOnMachineGroup@0
+  inputs:
+    TaskType: 'sqlInline'
+    InlineSql: |
+      USE [main]
+        GO
+        IF NOT EXISTS (SELECT name FROM main.sys.databases WHERE name = N'ASD')
+        CREATE DATABASE [ASD]
+        GO
+    ServerName: 'localhost'
+    DatabaseName: 'ASD'
+    AuthScheme: 'windowsAuthentication'
+  
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
