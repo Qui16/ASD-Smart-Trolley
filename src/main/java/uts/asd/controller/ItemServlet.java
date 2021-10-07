@@ -7,12 +7,17 @@ package uts.asd.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import uts.asd.model.Item;
+import uts.asd.model.dao.DBManager;
 
 /**
  *
@@ -29,10 +34,21 @@ public class ItemServlet extends HttpServlet {
             // otherwise update that item
         
             HttpSession session = request.getSession();
+            DBManager manager = (DBManager) session.getAttribute("manager");
             
-            String customer_name=request.getParameter("customer_name");
+            int ID = request.getParameter("ID");
+            String name = request.getParameter("name");
+            float price = request.getParameter("price");
+            int quantity = request.getParameter("quantity");
+            String date = request.getParameter("date");
+            String region = request.getParameter("region");
+            String description = request.getParameter("description");
             
-            session.setAttribute("customer_name",customer_name);
+        try {
+            manager.addItem(ID, name, price, quantity, date, region, description);
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
             request.getRequestDispatcher("ItemManagement.jsp").forward(request,response);
     }
