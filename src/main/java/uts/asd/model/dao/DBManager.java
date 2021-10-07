@@ -295,7 +295,7 @@ public class DBManager {
     
     // add item to database
     public void addItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
-        String columns = "insert into ASD.\"ITEMS\"(\"Item ID\",\"Item Name\",\"Item Price\",\"Item Quantity\", \"Item ReceivedDate\",\"Item Region\",\"Item Description\")";
+        String columns = "insert into ASD.\"ITEMS\"(\"ID\",\"Name\",\"Price\",\"Quantity\", \"ReceivedDate\",\"Region\",\"Description\")";
         String values = "VALUES("+ ID+",'" + name + "'," + price + ","+ quantity +",'" + date + "','" + region + "','" + description + "')";
         st.executeUpdate(columns + values);
     }
@@ -303,20 +303,20 @@ public class DBManager {
     // delete item from database
     public void deleteItem(String name) throws SQLException {
         //code for delete-operation   
-        String delete = "DELETE FROM ASD.\"ITEMS\" WHERE \"Item Name\"='"+ name+"'";
+        String delete = "DELETE FROM ASD.\"ITEMS\" WHERE \"Name\"='"+ name+"'";
         st.executeUpdate(delete);
     }
     
     // update item in database
     // change .Items to .ITEMS
     public void updateItem(int ID, String name, float price, int quantity, String date, String region, String description) throws SQLException {      
-        String update = "UPDATE ASD.ITEMS SET \"Item Name\"='" + name + "', \"Item Price\"=" + price + ",\"Item Quantity\"=" + quantity + ",\"Item ReceivedDate\"='" + date + "', \"Item Region\"='" + region + "',\"Item Description\"='" + description + "'where \"Item ID\"=" + ID;
+        String update = "UPDATE ASD.ITEMS SET \"Name\"='" + name + "', \"Price\"=" + price + ",\"Quantity\"=" + quantity + ",\"ReceivedDate\"='" + date + "', \"Region\"='" + region + "',\"Description\"='" + description + "'where \"ID\"=" + ID;
         st.executeUpdate(update);
     }
     
     // check if an item exists
     public boolean ItemExist(String name) throws SQLException {
-        String fetch = "select * from ASD.\"ITEMS\" where  \"Item Name\"='" + name + "'";
+        String fetch = "select * from ASD.\"ITEMS\" where  \"Name\"='" + name + "'";
         ResultSet rs = st.executeQuery(fetch);
         //add the results to a ResultSet       
         //search the ResultSet for a user using the parameters
@@ -332,7 +332,7 @@ public class DBManager {
     // list all items
     public ArrayList<Item> GetItems() throws SQLException {
         // setup the select sql query string     
-        String fetch = "select * from ASD.\"Items";
+        String fetch = "select * from ASD.ITEMS";
         // execute this query     
         ResultSet rs = st.executeQuery(fetch);
         // add the results to a ResultSet       

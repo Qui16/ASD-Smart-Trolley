@@ -68,6 +68,11 @@ public class TestDB {
         manager.deleteItem("test");
     }
     
+    private void testAddItem() throws SQLException {
+//        manager.updateItem(9, "test2", 12, 100, "2021-1-21", "Aus", "update success!");
+        manager.GetItems();
+    }
+    
     private String read(String prompt) {
         System.out.print(prompt+": ");
         
@@ -98,6 +103,9 @@ public class TestDB {
                     break;
                 case 'd':
                     testDelete();
+                    break;
+                case 'j':
+                    testAddItem();
                     break;
                 default:
                     help();
