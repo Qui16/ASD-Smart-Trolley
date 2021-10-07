@@ -10,6 +10,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+- task: SqlDacpacDeploymentOnMachineGroup@0
+  inputs:
+    TaskType: 'sqlQuery'
+    SqlFile: '$(System.DefaultWorkingDirectory)/**/.sql'
+    ServerName: 'localhost'
+    DatabaseName: 'ASD'
+    AuthScheme: 'sqlServerAuthentication'
+    SqlUsername: 'asd'
+    SqlPassword: '123'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
