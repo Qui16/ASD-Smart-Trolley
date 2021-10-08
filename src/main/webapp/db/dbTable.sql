@@ -157,7 +157,8 @@ values
 ('October.Murphy@gmail.com','103','Otobers','Murphy','0415651708','299 Macqueries field st','2021-07-12'),
 ('November.Murphy@gmail.com','103','November','Murphy','0415651708','Wollongong st','2021-07-12'),
 ('December.Murphy@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12'),
-('test4@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12');
+('test4@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12'),
+('test5@gmail.com','Quy!1234','December','Murphy','0415651708','Arthur st','2021-07-12');
 
 insert into ITEMS("ID", "Name","Price","Quantity","ReceivedDate", "Region", "Description")
 values
