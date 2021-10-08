@@ -20,9 +20,13 @@
         <title>Item management</title>
     </head>
     <%
+      System.out.println("1");
       String existErr = (String) session.getAttribute("existErr");
+      System.out.println("2");
       DBManager manager = (DBManager) session.getAttribute("manager");
+      System.out.println("3");
       ArrayList<Item> items = (ArrayList<Item>) manager.GetItems();
+      System.out.println("4");
       System.out.println("!!!!!!! items is: " + items);
       
       
