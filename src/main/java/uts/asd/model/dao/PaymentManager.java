@@ -16,6 +16,7 @@ import uts.asd.model.PaymentHistory;
 /**
  *
  * @author casio
+ * Contain all payment database method
  */
 public class PaymentManager {
 

@@ -2,6 +2,8 @@
     Document   : ConfirmPayment
     Created on : 10 Sep 2021, 11:41:41
     Author     : casio
+    Using to check the payment deatil before pay
+    
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
