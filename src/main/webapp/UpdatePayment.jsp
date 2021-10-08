@@ -10,6 +10,9 @@
 <html>
     <%
         Customer customer = (Customer) session.getAttribute("customer");
+        String cardNoErr = (String) session.getAttribute("cardNoErr");
+        String cvvErr = (String) session.getAttribute("cvvErr");
+        String expErr = (String) session.getAttribute("expErr");
     %>
     <head>
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -49,9 +52,17 @@
                         </select>                                   
                     </td>
                 </tr>
+                <%if (cardNoErr.equals("cardNoErr")) {%>
+                <tr><td>Card Number</td><td><input class="errorField" type="text" name="cardNumber" required=""/></td><td class="error">Invalid format!</td></tr>
+                <%} else {%>
                 <tr><td>Card Number</td><td><input type="text" name="cardNumber" required=""/></td></tr>
+                <%}%>
                 <tr><td>Expiry Date</td><td><input type="text" name="expiryDate" required=""/></td></tr>
-                <tr><td>CVV</td><td><input type="text" name="cvv"/></td></tr>
+                <%if (cvvErr.equals("cvvErr")) {%>
+                <tr><td>CVV</td><td><input class="errorField" type="password" name="cvv"/></td><td class="error">Invalid format!</td></tr>
+                <%} else {%>
+                <tr><td>CVV</td><td><input type="password" name="cvv"/></td></tr>
+                <%}%>
                 <tr><td>Name On Card</td><td><input type="text" name="nameOnCard" required=""/></td></tr>
                 <tr><td>Agree to Terms of Service</td><td><input type="checkbox" name="tos" id="tos"/></td></tr>
                 <tr><td>

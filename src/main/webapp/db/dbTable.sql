@@ -157,7 +157,8 @@ values
 ('October.Murphy@gmail.com','103','Otobers','Murphy','0415651708','299 Macqueries field st','2021-07-12'),
 ('November.Murphy@gmail.com','103','November','Murphy','0415651708','Wollongong st','2021-07-12'),
 ('December.Murphy@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12'),
-('test4@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12');
+('test4@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12'),
+('test5@gmail.com','Quy!1234','December','Murphy','0415651708','Arthur st','2021-07-12');
 
 insert into ITEMS("ID", "Name","Price","Quantity","ReceivedDate", "Region", "Description")
 values
@@ -166,3 +167,11 @@ values
 (3, 'Cookie Choc',7.54,100,'2020-04-16','QLD','Chocolate Cookies'),
 (4, 'Rosted Chic',10,100,'2020-04-16','NSW','Roasted Chicken'),
 (5, 'Sandwich',1.36,100,'2020-04-16','NSW','Sandwich');
+
+INSERT INTO PAYMENT_DETAIL(CUSTOMER_ID,PAYMENT_METHOD,CREDIT_CARD_NO,EXPIRY_DATE,SECURITY_NO,OWNER_NAME)
+VALUES
+(1011, 'card', '1593574862019537', '09/30', '321', 'HoangSon');
+
+INSERT INTO PAYMENT_HISTORY(CUSTOMER_ID,PAY_ID,ORDER_ID,PAYMENT_METHOD,TOTAL_PRICE,CREDIT_CARD_NO,OWNER_NAME,DATE_PAID)
+VALUES
+(1011, 'card', '1593574862019537', '09/30', '321', 'HoangSon');

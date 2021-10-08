@@ -103,7 +103,7 @@
                 </tr>
                 <tr><td>Card Number:</td><td><input type="text" name="cardNumber" value="<%=cardNumber%>"></td></tr>
                 <tr><td>Expiry Date:</td><td><input type="text" name="expiryDate" value="<%=expiryDate%>"></td></tr>
-                <tr><td>CVV:</td><td><input type="text" name="cvv" value="<%=cvv%>"></td></tr>
+                <tr><td>CVV:</td><td><input type="password" name="cvv" value="<%=cvv%>"></td></tr>
                 <tr><td>Name On Card:</td><td><input type="text" name="nameOnCard" value="<%=nameOnCard%>"></td></tr>
                 <tr><td>Agree to Terms of Service</td><td><input type="checkbox" name="tos" id="tos"/></td></tr>
                 <tr><td>
