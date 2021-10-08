@@ -60,7 +60,7 @@ public class QuyTest {
 
     @Test
     public void TestStaffLogin() throws ClassNotFoundException, SQLException {
-        Staff staff1=manager.FindStaff2("test4@gmail.com", "Quy!1234");
+        Staff staff1=manager.FindStaff2("test4@gmail.com","Quy!1234");
         Staff staff2=manager.FindStaff2("test4@gmail/", "Quy!1235");
         Staff staff3=manager.FindStaff2("test4@gmail.com", "Quy!135");
         Assert.assertNotNull(staff1);
