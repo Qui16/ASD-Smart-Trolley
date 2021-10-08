@@ -35,14 +35,14 @@
 
     <body>
         <div class="title">
-            <h1>Item management</h1>
+            <h1 style="position: relative; left: 40%; padding-bottom: 2%;">Item management</h1>
         </div>
 
         <div class="container">
             <!-- main content div -->
-            <div class="row align-items-start">
+            <div class="row">
 
-                <div class="col-6">
+                <div class="col-sm">
                     <div class="productList">
                         <h2>Product list</h2>
                         <table class="table">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
 
-                <div class="col-3">
+                <div class="col-sm">
                     <form action="ItemServlet" method="post">
                     <h2>Add/update product</h2>
                     <div class="mb-3">

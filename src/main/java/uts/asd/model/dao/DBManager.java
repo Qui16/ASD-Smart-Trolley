@@ -12,7 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import uts.asd.model.Customer;
 import uts.asd.model.Item;
+import uts.asd.model.Payment;
 import uts.asd.model.Staff;
+
 //import uts.asd.model.Staff;
 
 /**
@@ -346,6 +348,26 @@ public class DBManager {
         }
         return list;
     }
+    
+        // list all orders
+//    public ArrayList<Payment> GetPayments() throws SQLException {
+//        // setup the select sql query string     
+//        String fetch = "select * from ASD.PAYMENT";
+//        // execute this query     
+//        ResultSet rs = st.executeQuery(fetch);
+//        // add the results to a ResultSet       
+//        // loop the results and add each item to the list
+//        
+//        ArrayList<Payment> list = new ArrayList<Payment>();
+//        
+//        while (rs.next()) {
+//            Payment temp = new Payment(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getFloat(4), rs.getString(5), 
+//            rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9) );
+//            list.add(temp);
+//        }
+//        return list;
+//    }
+    
 }
 
         
