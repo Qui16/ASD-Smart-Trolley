@@ -113,6 +113,9 @@
                 <configuration>
                     <includes>
                         <include>QuyTest.java</include>
+                        <include>HoangSonTest.java</include>
+                        <include>JackTest.java</include>
+                        <include>TriHoangTest.java</include>
                     </includes>
                 </configuration>
             </plugin>
