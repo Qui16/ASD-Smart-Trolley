@@ -23,6 +23,7 @@ import uts.asd.controller.Validator;
  *
  * @author quyda
  */
+// this servlet take input information from login screen, validate it, compare to inforamtion in database
 public class AccountLoginServlet extends HttpServlet {
 
     @Override

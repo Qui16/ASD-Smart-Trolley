@@ -21,6 +21,7 @@ import uts.asd.model.Staff;
  *
  * @author quyda
  */
+// All Database operation 
 public class DBManager {
 
     private Statement st;

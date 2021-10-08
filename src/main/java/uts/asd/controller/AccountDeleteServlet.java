@@ -22,6 +22,7 @@ import uts.asd.model.dao.DBManager;
  *
  * @author quyda
  */
+// this servlet take information of the account, find it in databse and delete it
 public class AccountDeleteServlet extends HttpServlet {
 
     @Override

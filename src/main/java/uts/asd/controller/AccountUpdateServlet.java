@@ -22,6 +22,7 @@ import uts.asd.model.dao.DBManager;
  *
  * @author quyda
  */
+// this servlet take input information from update screen, validate it and decide whether to save it to databse or return an error message
 public class AccountUpdateServlet extends HttpServlet {
 
     @Override

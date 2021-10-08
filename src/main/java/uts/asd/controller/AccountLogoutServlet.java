@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author quyda
  */
+// this servlet take current session information and invalidate it
 public class AccountLogoutServlet extends HttpServlet {
      @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

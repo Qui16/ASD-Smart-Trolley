@@ -26,6 +26,7 @@ import uts.asd.model.Staff;
  *
  * @author quyda
  */
+// this servlet take input information from either customer or staff register screen, validate it and decide whether to save it to databse or return an error message
 public class AccountCreateServlet extends HttpServlet {
 
     @Override
