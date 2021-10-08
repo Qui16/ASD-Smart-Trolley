@@ -63,7 +63,7 @@
                 </ul>
             </div>
         </nav>
-        <% if (customer != null ) {%>
+        <% if (customer != null ) {%><!-- if user is a customer -->
         <%    
             String paymentMethod = payment.getPaymentMethod();
             String cardNumber = payment.getCardNumber();
@@ -77,7 +77,7 @@
                 <tr><td>Customer Id:#</td><td>${customer.customerID}</td></tr>
                 <tr><td>Amount : $</td><td><input type="text" name="totalPrice" value= ${(total>0)?dcf.format(total):0} readonly/></td></tr>
                 <tr><td>Payment Method:</td><td><input type="text" name="paymentMethod" value="<%=paymentMethod%>"></td></tr>
-                <td>
+                <td><!-- get current date -->
                         <p id ="datetime"></p>
                         <body onload = "currentDate()">
                             <input id="date" type="hidden" name="datePaid">
@@ -100,7 +100,7 @@
                         }
                         </script>
                     </td>
-                </tr>
+                </tr><!-- get all the data need for the payment-->
                 <tr><td>Card Number:</td><td><input type="text" name="cardNumber" value="<%=cardNumber%>"></td></tr>
                 <tr><td>Expiry Date:</td><td><input type="text" name="expiryDate" value="<%=expiryDate%>"></td></tr>
                 <tr><td>CVV:</td><td><input type="password" name="cvv" value="<%=cvv%>"></td></tr>
@@ -122,7 +122,7 @@
                 }
             };
         </script>
-                <%}  else { %>
+                <%}  else { %><!-- if user is an anonymous user -->
         <form action="PaymentServlet" method="post">
             <table class="table table-responsive">
                 
@@ -137,7 +137,7 @@
                             <option value="other">Other</option>                                                                
                         </select>                                   
                     </td>
-                    <td>
+                    <td><!-- get current date -->
                         <p id ="datetime"></p>
                         <body onload = "currentDate()">
                             <input id="date" type="hidden" name="datePaid">
@@ -149,7 +149,7 @@
                         }
                         </script>
                     </td>
-                </tr>
+                </tr><!-- get all the data need for the payment-->
                 <tr><td>Card Number</td><td><input type="text" name="cardNumber" required=""/></td></tr>
                 <tr><td>Expiry Date</td><td><input type="text" name="expiryDate" required=""/></td></tr>
                 <tr><td>CVV</td><td><input type="text" name="cvv"/></td></tr>

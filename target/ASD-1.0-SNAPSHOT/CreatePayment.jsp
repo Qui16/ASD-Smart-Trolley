@@ -10,6 +10,7 @@
 <%@page import="uts.asd.model.dao.PaymentManager"%>
 <!DOCTYPE html>
 <html>
+    <!-- Get the error message and object need from the session -->
     <%
         Customer customer = (Customer) session.getAttribute("customer");
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
@@ -41,7 +42,7 @@
                 </ul>
             </div>
         </nav>
-        <% if (payment != null ) {%>
+        <% if (payment != null ) {%> <!-- if the customer already have payment detail out put the warning and link to go back-->
         <h3>Sorry, you already have a payment detail.</h3>
         <h3>Each customer only have one payment detail</h3>
         <p>Click <a href="AccountScreen.jsp" > here </a> to go back to account page.</p>
@@ -55,23 +56,23 @@
                 
                 <tr>
                     <td>
-                        <select class="select" type="text" name="paymentMethod">
+                        <select class="select" type="text" name="paymentMethod"><!-- get payment method input -->
                             <option value="empty">Payment Method</option>
                             <option value="card">Credit Card</option>
                             <option value="cash">Cash</option>
                             <option value="other">Other</option>                                                                
                         </select>                                   
                     </td>
-                </tr>
+                </tr><!-- output error message if the format not correct -->
                 <%if (cardNoErr.equals("cardNoErr")) {%>
                 <tr><td>Card Number</td><td><input class="errorField" type="text" name="cardNumber" required=""/></td><td class="error">Invalid format!</td></tr>
-                <%} else {%>
-                <tr><td>Card Number</td><td><input type="text" name="cardNumber" required=""/></td></tr>
-                <%}%>
+                <%} else {%><!-- get the card number input -->
+                <tr><td>Card Number</td><td><input type="text" name="cardNumber" required=""/></td></tr><!-- get card number input -->
+                <%}%><!-- get the expiry date input -->
                 <tr><td>Expiry Date</td><td><input type="text" name="expiryDate" required=""/></td></tr>
-                <%if (cvvErr.equals("cvvErr")) {%>
+                <%if (cvvErr.equals("cvvErr")) {%><!-- output error message if the format not correct -->
                 <tr><td>CVV</td><td><input class="errorField" type="password" name="cvv"/></td><td class="error">Invalid format!</td></tr>
-                <%} else {%>
+                <%} else {%><!-- get the cvv input -->
                 <tr><td>CVV</td><td><input type="password" name="cvv"/></td></tr>
                 <%}%>
                 <tr><td>Name On Card</td><td><input type="text" name="nameOnCard" required=""/></td></tr>
@@ -81,7 +82,7 @@
                     </td></tr>
             </table>
         </form>
-        <script>
+        <script><!-- must to aggree to term of services to enable the pay button -->
             var checker = document.getElementById("tos");
             var send = document.getElementById("submit");
             this.onchange = function () {
