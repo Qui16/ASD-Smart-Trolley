@@ -37,7 +37,6 @@ public class ListItemsServlet extends HttpServlet {
             HttpSession session = request.getSession();
             DBManager manager = (DBManager) session.getAttribute("manager");
             
-            String toDelete = request.getParameter("delete");
             
         try {
             // check if item already exists

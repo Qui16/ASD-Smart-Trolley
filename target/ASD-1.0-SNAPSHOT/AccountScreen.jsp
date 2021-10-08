@@ -45,33 +45,33 @@
                                 </form>
                             </div>
                         </li>
-                        <li><!-- Pass the data to the create payment page-->
+                        <li>
                             <form action="CreatePayment.jsp">
                                 <%session.setAttribute("customer", customer);%>
                                 <body onload = "check()">
                                     <button class="btn btn-light" type="submit" id="submit" ><h3>Create Payment</h3></button>
                             </form>
                         </li>
-                        <li><!-- Go to view payment page -->
+                        <li>
                             <form action="Viewpayment.jsp">
                                 <%session.setAttribute("customer", customer);%>
                                 <button class="btn btn-light" type="submit"><h3>View Payment</h3></button>
 
                             </form>
                         </li>
-                        <li><!-- Go to product page -->
+                        <li>
                             <form action="index.jsp">
                                 <%session.setAttribute("customer", customer);%>
                                 <button class="btn btn-light" type="submit"><h3>Product</h3></button>
                             </form>
                         </li>
-                        <li><!-- Go to payment page -->
+                        <li>
                             <form action="Payment.jsp">
                                 <%session.setAttribute("customer", customer);%>
                                 <button class="btn btn-light" type="submit"><h3>Make Payment</h3></button>
                             </form>
                         </li>
-                        <li><!-- Go to show payment history page -->
+                        <li>
                             <form action="PaymentHistoryServlet" method="post">
                                 <%session.setAttribute("customer", customer);%>
                                 <button class="btn btn-light" type="submit"><h3>Show Payment History</h3></button>

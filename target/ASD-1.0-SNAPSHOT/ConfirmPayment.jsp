@@ -47,7 +47,7 @@
         id = customer.getCustomerID();
     } %>
     <div class="container-fluid">
-        <form action="Payment.jsp" method="post"><!-- show all the data of the payment  -->
+        <form action="Payment.jsp" method="post">
             <table class="table table-responsive" id="users">
                 <tr><td>Customer Id:#</td><td><%= id%></td></tr>
                 <tr><td>Order Id:#</td><td>${orderId}</td></tr>

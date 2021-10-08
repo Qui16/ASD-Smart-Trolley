@@ -4,6 +4,8 @@
     Author     : Jack Hennessy
 --%>
 
+<%@page import="uts.asd.model.dao.DBManager"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.asd.model.*"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,6 +21,9 @@
     </head>
     <%
       String existErr = (String) session.getAttribute("existErr");
+      DBManager manager = (DBManager) session.getAttribute("manager");
+      ArrayList<Payment> payments = (ArrayList<Payment>) manager.GetPayments();
+      
     %>
 
     <header>
@@ -27,101 +32,71 @@
 
     <body>
         <div class="title">
-            <h1>Sales management</h1>
+            <h1 style="position: relative; left: 40%; padding-bottom: 2%;">Sales Management</h1>
         </div>
 
         <div class="container">
             <!-- main content div -->
-            <div class="row align-items-start">
+            <div class="row">
 
-                <div class="col-6">
+                <div class="col-sm">
                     <div class="productList">
                         <h2>Payment list</h2>
                         <table class="table">
                             <tr>
                                 <th>
-                                    <b>Product ID</b>
+                                    <b>Payment ID</b>
                                 </th>
                                 <th>
-                                    <b>Product Name</b>
+                                    <b>Order ID</b>
                                 </th>
                                 <th>
-                                    <b>Price</b>
+                                    <b>Payment Method</b>
                                 </th>     
                                 <th>
-                                    <b>Quantity</b>
+                                    <b>Price</b>
                                 </th>
                                 <th>
-                                    <b>Received date</b>
+                                    <b>CVV</b>
                                 </th>
                                 <th>
-                                    <b>Region</b>
+                                    <b>Card Name</b>
                                 </th>
                                 <th>
-                                    <b>Item description</b>
+                                    <b>Expiry Date</b>
+                                </th>
+                                <th>
+                                    <b>Date Paid</b>
                                 </th>
                             </tr>
-                            <c:forEach var="item" items="${items}">
+                            
+                            
+                            <% if (payments != null) {
+                                for (Payment i : payments) {%>
+                            
                                 <tr>
-                                    <td><c:out value="${items.id}" /></td>
-                                    <td><c:out value="${items.name}" /></td>
-                                    <td><c:out value="${items.price}" /></td>
-                                    <td><c:out value="$${items.quantity}" /></td>
-                                    <td><c:out value="${items.date}" /></td>
-                                    <td><c:out value="${items.region}" /></td>
-                                    <td><c:out value="${items.description}" /></td>
+                                    <td><%= i.getPaymentId() %></td>
+                                    <td><%= i.getOrderId() %></td>
+                                    <td><%= i.getPaymentMethod() %></td>
+                                    <td><%= i.getPrice() %></td>
+                                    <td><%= i.getCvv() %></td>
+                                    <td><%= i.getNameOnCard() %></td>
+                                    <td><%= i.getExpiryDate() %></td>
+                                    <td><%= i.getDatePaid() %></td>
+                                    
+                                    
                                 </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>Milk 1L</td>
-                                    <td>$1.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Fresh Milk</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Milk 2L</td>
-                                    <td>$2.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Fresh Milk</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Cookie Choc</td>
-                                    <td>$7.54</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>QLD</td>
-                                    <td>Chocolate Cookies</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Roasted Chic</td>
-                                    <td>$10</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Roasted Chicken</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Sandwhich</td>
-                                    <td>$1.36</td>
-                                    <td>100</td>
-                                    <td>2020-04-16</td>
-                                    <td>NSW</td>
-                                    <td>Sandwhich</td>
-                                </tr>
-                            </c:forEach>
+                                <%}
+                                    }
+                            %>
+                            
                         </table>
                     </div>
                 </div>
 
+                
+                
+                
                 
                 <jsp:include page="/ConnServlet" flush="true"/>
             </div>
