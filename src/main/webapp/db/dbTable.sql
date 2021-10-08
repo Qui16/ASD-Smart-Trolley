@@ -157,8 +157,7 @@ values
 ('October.Murphy@gmail.com','103','Otobers','Murphy','0415651708','299 Macqueries field st','2021-07-12'),
 ('November.Murphy@gmail.com','103','November','Murphy','0415651708','Wollongong st','2021-07-12'),
 ('December.Murphy@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12'),
-('test4@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12'),
-('test5@gmail.com','Quy!1234','December','Murphy','0415651708','Arthur st','2021-07-12');
+('test4@gmail.com','Quy!1235','December','Murphy','0415651708','Arthur st','2021-07-12');
 
 insert into ITEMS("ID", "Name","Price","Quantity","ReceivedDate", "Region", "Description")
 values
@@ -170,8 +169,8 @@ values
 
 INSERT INTO PAYMENT_DETAIL(CUSTOMER_ID,PAYMENT_METHOD,CREDIT_CARD_NO,EXPIRY_DATE,SECURITY_NO,OWNER_NAME)
 VALUES
-(1011, 'card', '1593574862019537', '09/30', '321', 'HoangSon');
+(1009, 'card', '1593574862019537', '09/30', '321', 'HoangSon');
 
 INSERT INTO PAYMENT_HISTORY(CUSTOMER_ID,PAY_ID,ORDER_ID,PAYMENT_METHOD,TOTAL_PRICE,CREDIT_CARD_NO,OWNER_NAME,DATE_PAID)
 VALUES
-(1011, 'card', '1593574862019537', '09/30', '321', 'HoangSon');
+(1009,110,119,'card',500, '1593574862019537', 'HoangSon', '18/05/2021');

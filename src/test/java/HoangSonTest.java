@@ -49,8 +49,8 @@ public class HoangSonTest {
 
     @Test
     public void TestCreateSavePaymentDetail() throws ClassNotFoundException, SQLException {
-        paymentManager.addPaymentDetail(1022, "card", "1593574862019537", "09/30", "321", "HoangSon");
-        Payment payment1 = paymentManager.searchPaymentDetail(1022);
+        paymentManager.addPaymentDetail(1009, "card", "1593574862019537", "09/30", "321", "HoangSon");
+        Payment payment1 = paymentManager.searchPaymentDetail(1009);
         Payment payment2 = paymentManager.searchPaymentDetail(1030);
         Payment payment3 = paymentManager.searchPaymentDetail(10232);
         Assert.assertNotNull(payment1);
@@ -60,24 +60,24 @@ public class HoangSonTest {
     
     @Test
     public void TestDeletePaymentDetail() throws ClassNotFoundException, SQLException {
-        paymentManager.addPaymentDetail(1022, "card", "1593574862019537", "09/30", "321", "HoangSon");
-        paymentManager.deletePaymentDetail(1022);
-        Payment payment1 = paymentManager.searchPaymentDetail(1022);
-        paymentManager.addPaymentDetail(1020, "card", "3216549870987654", "08/15", "123", "HoangSon");
+        paymentManager.addPaymentDetail(1009, "card", "1593574862019537", "09/30", "321", "HoangSon");
+        paymentManager.deletePaymentDetail(1009);
+        Payment payment1 = paymentManager.searchPaymentDetail(1009);
+        paymentManager.addPaymentDetail(1010, "card", "3216549870987654", "08/15", "123", "HoangSon");
         paymentManager.deletePaymentDetail(1011);
-        Payment payment2 = paymentManager.searchPaymentDetail(1020);
+        Payment payment2 = paymentManager.searchPaymentDetail(1010);
         Assert.assertNull(payment1);
         Assert.assertNotNull(payment2);
     }
     
     @Test
     public void TestUpdatePaymentDetail() throws ClassNotFoundException, SQLException {
-        paymentManager.addPaymentDetail(1022, "card", "1593574862019537", "09/30", "321", "HoangSon");
-        paymentManager.updatePaymentDetail(1022, "card", "8529637410456321", "09/30", "321", "HoangSon");
-        Payment payment1 = paymentManager.searchPaymentDetail(1022);
-        paymentManager.addPaymentDetail(1020, "card", "3216549870987654", "08/15", "123", "HoangSon");
-        paymentManager.updatePaymentDetail(1022, "card", "3216549870987654", "09/26", "321", "HoangSon");
-        Payment payment2 = paymentManager.searchPaymentDetail(1020);
+        paymentManager.addPaymentDetail(1009, "card", "1593574862019537", "09/30", "321", "HoangSon");
+        paymentManager.updatePaymentDetail(1009, "card", "8529637410456321", "09/30", "321", "HoangSon");
+        Payment payment1 = paymentManager.searchPaymentDetail(1009);
+        paymentManager.addPaymentDetail(1010, "card", "3216549870987654", "08/15", "123", "HoangSon");
+        paymentManager.updatePaymentDetail(1009, "card", "3216549870987654", "09/26", "321", "HoangSon");
+        Payment payment2 = paymentManager.searchPaymentDetail(1010);
         Assert.assertEquals("8529637410456321", payment1.getCardNumber());
         Assert.assertNotEquals("8529637410456321", payment2.getCardNumber());
     }
@@ -88,18 +88,18 @@ public class HoangSonTest {
         int paymentID1 = paymentManager.getPaymentId("1593574862019537");
         paymentManager.addPayment(119,"card",500, "3216549870987654", "08/15", "321", "HoangSon", "18/05/2021");
         int paymentID2 = paymentManager.getPaymentId("3216549870987654");
-        Assert.assertEquals(146, paymentID1);
-        Assert.assertNotEquals(142, paymentID2);
+        Assert.assertEquals(120, paymentID1);
+        Assert.assertNotEquals(125, paymentID2);
     }
     
     @Test
     public void TestShowPaymentHistory1() throws ClassNotFoundException, SQLException {
         paymentManager.addPayment(119,"card",500, "1593574862019537", "09/30", "321", "HoangSon", "18/05/2021");
-        paymentManager.addHistory(1022,143,119,"card",500, "1593574862019537", "HoangSon", "18/05/2021");
-        PaymentHistory payment1 = paymentManager.searchPaymentHistory(143,"18/05/2021");
+        paymentManager.addHistory(1009,110,119,"card",500, "1593574862019537", "HoangSon", "18/05/2021");
+        PaymentHistory payment1 = paymentManager.searchPaymentHistory(110,"18/05/2021");
         paymentManager.addPayment(119,"card",500, "8529637410456321", "08/15", "123", "HoangSon", "18/05/2021");
-        paymentManager.addHistory(1022,140,119,"card",500, "8529637410456321", "HoangSon", "18/05/2021");
-        PaymentHistory payment2 = paymentManager.searchPaymentHistory(140,"18/05/2021");
+        paymentManager.addHistory(1009,105,119,"card",500, "8529637410456321", "HoangSon", "18/05/2021");
+        PaymentHistory payment2 = paymentManager.searchPaymentHistory(105,"18/05/2021");
         Assert.assertNotEquals("8529637410456321", payment1.getCardNumber());
         Assert.assertEquals("8529637410456321", payment2.getCardNumber());
     }
@@ -107,7 +107,7 @@ public class HoangSonTest {
     @Test(expected = NullPointerException.class)
     public void TestShowPaymentHistory2() throws ClassNotFoundException, SQLException {
         paymentManager.addPayment(119,"card",500, "3216549870987654", "08/15", "321", "HoangSon", "18/05/2021");
-        PaymentHistory payment2 = paymentManager.searchPaymentHistory(142,"18/05/2021");
+        PaymentHistory payment2 = paymentManager.searchPaymentHistory(109,"18/05/2021");
         Assert.assertEquals("3216549870987654",payment2.getCardNumber());
     }
     
