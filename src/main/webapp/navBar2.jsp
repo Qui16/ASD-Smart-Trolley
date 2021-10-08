@@ -1,10 +1,7 @@
 <%@page import="uts.asd.controller.Validator"%>
 <html>
 </head>
-<%
-    Validator validate = new Validator();
-    validate.clear(session);
-%>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">

@@ -4,6 +4,7 @@
     Author     : quyda
 --%>
 
+<%@page import="uts.asd.controller.Validator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -22,6 +23,8 @@
         String phoneErr = (String) session.getAttribute("phoneErr");
         String addressErr = (String) session.getAttribute("addressErr");
         String dateErr = (String) session.getAttribute("dateErr");
+        Validator validate = new Validator();
+        validate.clear(session);
     %>
     <body>
         <h1>Sign Up</h1>
