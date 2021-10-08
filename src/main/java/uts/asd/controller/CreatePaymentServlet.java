@@ -39,34 +39,21 @@ public class CreatePaymentServlet extends HttpServlet {
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         Customer customer = (Customer) session.getAttribute("customer");
         
-        //ScanCart orders = (ScanCart) session.getAttribute("order");
         validator.clear(session);
 
-        try {
+        try {//check if the cardnumber is in the correct format
             if (!validator.validateCardNo(cardNumber)) {//validate card number format
                     session.setAttribute("cardNoErr", "cardNoErr");
                     checked = false;
-                }
-            //if (!validator.validateExp(expiryDate)) {//validate expiry date format
-                    //session.setAttribute("expErr", "expErr");
-                    //checked = false;
-                //}
+                }//check if the cvv is in the correct format
             if (!validator.validateCVV(cvv)) {//validate cvv format
                     session.setAttribute("cvvErr", "cvvErr");
                     checked = false;
                 }
             if(checked){
-   
-            //double orderPrice = orders.getTotalPrice();
-            //int order_Id = (int)session.getAttribute("orderId");
+                //add payment to payment detail database
             int UserId = customer.getCustomerID();
-            //double orderPrice = manager.getPrice();
-            //session.setAttribute("INVOICE_ID", invoice_Id);
-            //session.setAttribute("PAY_ID", payment_Id);
             paymentManager.addPaymentDetail(UserId, paymentMethod, cardNumber, expiryDate, cvv, nameOnCard);
-            //int payment_Id = paymentManager.getPaymentId(cardNumber);
-            //payment = paymentManager.searchPayment(payment_Id, datePaid);
-            //paymentManager.addHistory(user.getCustomerID(), payment_Id, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);
             request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
             }
             else{

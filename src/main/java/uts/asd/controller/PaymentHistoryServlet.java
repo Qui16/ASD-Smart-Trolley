@@ -42,7 +42,7 @@ public class PaymentHistoryServlet extends HttpServlet {
                 session.setAttribute("history", history);
                 request.getRequestDispatcher("PaymentHistory.jsp").include(request,response);
             }
-            else {
+            else {//add payment to payment history database
                 ArrayList<PaymentHistory> history = paymentManager.fetchHistory(UserId);
                 session.setAttribute("history", history);
                 request.getRequestDispatcher("PaymentHistory.jsp").include(request,response);

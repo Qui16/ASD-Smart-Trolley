@@ -29,7 +29,7 @@
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav><!-- tell the user payment success -->
         <h3>Your Payment is Successful!</h3>
     </body>
 </html>

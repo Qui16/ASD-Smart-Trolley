@@ -55,7 +55,7 @@ public class PaymentServlet extends HttpServlet {
             System.out.println(orderId);
             System.out.println(orderPrice);
             paymentManager.addPayment(orderId, paymentMethod, orderPrice, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
-            
+            //add payment to payment and payment history database
             Payment payment = new Payment(paymentMethod, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
             int payment_Id = paymentManager.getPaymentId(cardNumber);
             paymentManager.addHistory(customer.getCustomerID(), payment_Id, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);

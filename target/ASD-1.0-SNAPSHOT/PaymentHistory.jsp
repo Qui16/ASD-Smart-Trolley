@@ -36,7 +36,7 @@
         Customer customer = (Customer) session.getAttribute("customer");
         %>
         <div class="container-fluid">
-        <table class="table table-bordered">
+        <table class="table table-bordered"><!-- show all the payment history of this customer -->
             <tr><td>Customer Id:#</td><td>${customer.customerID}</td></tr>
             <th>Payment Id</th>
             <th>Payment Method</th>

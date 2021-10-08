@@ -36,7 +36,7 @@
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav><!-- update the payment detail like create but send data to update servlet -->
         <form action="PaymentUpdateServlet" method="post">
             <table class="table table-responsive">
                 

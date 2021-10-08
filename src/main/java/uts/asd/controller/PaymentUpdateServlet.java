@@ -36,7 +36,7 @@ public class PaymentUpdateServlet extends HttpServlet {
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         Customer customer = (Customer) session.getAttribute("customer");
 
-        try {
+        try {//update payment detail to database
             int UserId = customer.getCustomerID();
             //int orderId = manager.getOrderId();
             //double orderPrice = manager.getPrice();

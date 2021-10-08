@@ -34,7 +34,7 @@ public class DeletePaymentServlet extends HttpServlet {
         System.out.println("UserId");
         
         
-        try{
+        try{//delete payment detail from database
             System.out.print(UserId);
             paymentManager.deletePaymentDetail(UserId);
             //request.getRequestDispatcher("create_payment.jsp").include(request,response);
