@@ -12,6 +12,7 @@ import java.sql.SQLException;
  *
  * @author quyda
  */
+// establish a connection
 public class DBConnector extends DB {
     public DBConnector() throws ClassNotFoundException, SQLException{
     Class.forName(driver);

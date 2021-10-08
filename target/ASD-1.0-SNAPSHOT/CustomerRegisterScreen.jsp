@@ -8,6 +8,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    <!-- Register screen to create customer screen-->
     <head>
         <title>Customer Register</title>
         <link rel="stylesheet" href="./css/warning.css">
