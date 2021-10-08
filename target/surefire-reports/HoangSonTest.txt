@@ -1,4 +1,32 @@
 -------------------------------------------------------------------------------
 Test set: HoangSonTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.71 s - in HoangSonTest
+Tests run: 7, Failures: 1, Errors: 4, Skipped: 0, Time elapsed: 0.375 s <<< FAILURE! - in HoangSonTest
+TestUpdatePaymentDetail(HoangSonTest)  Time elapsed: 0.239 s  <<< ERROR!
+org.apache.derby.shared.common.error.DerbySQLIntegrityConstraintViolationException: INSERT on table 'PAYMENT_DETAIL' caused a violation of foreign key constraint 'DETAIL_FK' for key (1022).  The statement has been rolled back.
+	at HoangSonTest.TestUpdatePaymentDetail(HoangSonTest.java:75)
+Caused by: org.apache.derby.client.am.SqlException: INSERT on table 'PAYMENT_DETAIL' caused a violation of foreign key constraint 'DETAIL_FK' for key (1022).  The statement has been rolled back.
+	at HoangSonTest.TestUpdatePaymentDetail(HoangSonTest.java:75)
+
+TestShowPaymentHistory1(HoangSonTest)  Time elapsed: 0.013 s  <<< ERROR!
+java.sql.SQLSyntaxErrorException: 'TOTAL_PRICE' is not a column in table or VTI 'ASD.PAYMENT_HISTORY'.
+	at HoangSonTest.TestShowPaymentHistory1(HoangSonTest.java:98)
+Caused by: org.apache.derby.client.am.SqlException: 'TOTAL_PRICE' is not a column in table or VTI 'ASD.PAYMENT_HISTORY'.
+	at HoangSonTest.TestShowPaymentHistory1(HoangSonTest.java:98)
+
+TestMakePayment(HoangSonTest)  Time elapsed: 0.016 s  <<< FAILURE!
+java.lang.AssertionError: expected:<146> but was:<120>
+	at HoangSonTest.TestMakePayment(HoangSonTest.java:91)
+
+TestCreateSavePaymentDetail(HoangSonTest)  Time elapsed: 0.011 s  <<< ERROR!
+org.apache.derby.shared.common.error.DerbySQLIntegrityConstraintViolationException: INSERT on table 'PAYMENT_DETAIL' caused a violation of foreign key constraint 'DETAIL_FK' for key (1022).  The statement has been rolled back.
+	at HoangSonTest.TestCreateSavePaymentDetail(HoangSonTest.java:52)
+Caused by: org.apache.derby.client.am.SqlException: INSERT on table 'PAYMENT_DETAIL' caused a violation of foreign key constraint 'DETAIL_FK' for key (1022).  The statement has been rolled back.
+	at HoangSonTest.TestCreateSavePaymentDetail(HoangSonTest.java:52)
+
+TestDeletePaymentDetail(HoangSonTest)  Time elapsed: 0.009 s  <<< ERROR!
+org.apache.derby.shared.common.error.DerbySQLIntegrityConstraintViolationException: INSERT on table 'PAYMENT_DETAIL' caused a violation of foreign key constraint 'DETAIL_FK' for key (1022).  The statement has been rolled back.
+	at HoangSonTest.TestDeletePaymentDetail(HoangSonTest.java:63)
+Caused by: org.apache.derby.client.am.SqlException: INSERT on table 'PAYMENT_DETAIL' caused a violation of foreign key constraint 'DETAIL_FK' for key (1022).  The statement has been rolled back.
+	at HoangSonTest.TestDeletePaymentDetail(HoangSonTest.java:63)
+
