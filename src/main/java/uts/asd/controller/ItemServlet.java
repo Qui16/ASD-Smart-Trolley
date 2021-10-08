@@ -35,6 +35,7 @@ public class ItemServlet extends HttpServlet {
         
             HttpSession session = request.getSession();
             DBManager manager = (DBManager) session.getAttribute("manager");
+            Validator validate = new Validator();
             
             String ID = request.getParameter("ID");
             String name = request.getParameter("name");
@@ -43,6 +44,12 @@ public class ItemServlet extends HttpServlet {
             String date = request.getParameter("date");
             String region = request.getParameter("region");
             String description = request.getParameter("description");
+            
+        
+        if (validate.validateName(name) && validate.validateID(ID) && validate.validateDate(date)
+            && validate.validateName(region)) {
+         
+        
             
         try {
             // check if item already exists
@@ -57,6 +64,10 @@ public class ItemServlet extends HttpServlet {
             }
         } catch (SQLException ex) {
             Logger.getLogger(ItemServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        } else {
+            System.out.println("Invalid input");
         }
             
             request.getRequestDispatcher("ItemManagement.jsp").forward(request,response);

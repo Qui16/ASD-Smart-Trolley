@@ -23,7 +23,7 @@ import uts.asd.model.dao.DBConnector;
 import uts.asd.model.dao.DBManager;
 
 
-public class JackTest {
+public class JackUnitTests {
 
     private DBConnector connector;
     private Connection conn;
