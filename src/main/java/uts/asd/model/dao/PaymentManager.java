@@ -159,14 +159,21 @@ public class PaymentManager {
             return 0;
         }
     }
+    
+    //add order to assigned USER
+    public void addOrder(double totalPrice, String datePaid) throws SQLException {
+        String columns = "INSERT INTO ASD.ORDERS(TOTAL_PRICE,ORDER_DATE)";
+        String values =  "VALUES (" + totalPrice + ",'" + datePaid + "')";
+        st.executeUpdate(columns + values);        
+    }
 
     //get the order id from database -- still develop
     public int getOrderId() throws SQLException {
         int orderId;
-        String fetch = "select MAX(ORDER_ID) FROM ASD.ORDER_LINE";
+        String fetch = "select MAX(ORDER_ID) FROM ASD.ORDERS";
         ResultSet rs = st.executeQuery(fetch);
         if (rs.next()) {
-            orderId = Integer.parseInt(rs.getString(3));
+            orderId = Integer.parseInt(rs.getString(1));
             return orderId;
         } else {
             return 0;

@@ -2,6 +2,7 @@
     Document   : PaymentSuccess
     Created on : 9 Sep 2021, 01:47:05
     Author     : casio
+    Page to confirm that the payment is successful
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

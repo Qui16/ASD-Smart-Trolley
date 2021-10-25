@@ -8,6 +8,7 @@ package uts.asd.model;
 /**
  *
  * @author casio
+ * This class
  */
 import java.io.Serializable;
 

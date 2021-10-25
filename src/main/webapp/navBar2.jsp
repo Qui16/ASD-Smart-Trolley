@@ -3,9 +3,9 @@
 <html>
 </head>
 <%
-    Validator validate = new Validator();
-    validate.clear(session);
-    Customer user = (Customer) session.getAttribute("user");
+    Validator validate1 = new Validator();
+    validate1.clear(session);
+    Customer customer = (Customer) session.getAttribute("customer");
 %>
 </head>
 <body>
@@ -25,16 +25,20 @@
 
                     
                         <%
-                            if (user != null) {
+                            if (customer != null) {
                         %>
-                        <li><a class="nav-link active" aria-current="page" href="./account.jsp">${user.firstName}'s Account</a></li>
+                        <li>
+                            <a class="nav-link" href="Cart.jsp">Cart<span class="badge badge-danger px-2">${ cart_list.size() }</span></a>
+                        </li>
+                        <li><a class="nav-link active" aria-current="page" href="./account.jsp">${customer.customerFName}'s Account</a></li>
                             <%
-                                if (user.isStaff()) {
+                                
+                                if (customer.isStaff()) {
                             %>
                         <li><a class="nav-link active" aria-current="page" href="./staff.jsp"> Staff Menu</a></li>
                             <%
                                 }
-                                if (user.isAdmin()) {
+                                if (customer.isAdmin()) {
                             %>
                         <li><a class="nav-link active" aria-current="page" href="./admin.jsp"> Admin Menu</a></li>
                             <%
@@ -53,7 +57,7 @@
                                 }
                             %>
                             <%
-                                if (user != null) {
+                                if (customer != null) {
                             %>
                         <li><a class="nav-link active" aria-current="page" href="LogoutServlet">Logout</a></li>
                             <%

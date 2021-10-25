@@ -20,6 +20,7 @@ import uts.asd.model.dao.PaymentManager;
 /**
  *
  * @author casio
+ * this servlet use receive data from payment to add new payment to database
  */
 public class CreatePaymentServlet extends HttpServlet {
 

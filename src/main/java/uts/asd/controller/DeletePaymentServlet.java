@@ -19,6 +19,7 @@ import uts.asd.model.dao.PaymentManager;
 /**
  *
  * @author casio
+ * This servlet use to delete the payment detail
  */
 public class DeletePaymentServlet extends HttpServlet {
     

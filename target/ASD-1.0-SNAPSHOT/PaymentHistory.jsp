@@ -2,6 +2,7 @@
     Document   : PaymentHistory
     Created on : 7 Oct 2021, 23:07:53
     Author     : casio
+    Page use to show the payment history of a customer
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
