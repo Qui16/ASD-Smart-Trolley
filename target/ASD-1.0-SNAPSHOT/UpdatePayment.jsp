@@ -2,6 +2,7 @@
     Document   : Update Payment
     Created on : 10 Sep 2021, 12:33:43
     Author     : casio
+    Page use to update payment detail
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -2,6 +2,7 @@
     Document   : Viewpayment
     Created on : 5 Oct 2021, 16:51:00
     Author     : casio
+    Page that display the payment detail of customer
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.asd.model.Customer"%>

@@ -20,6 +20,7 @@ import uts.asd.model.dao.PaymentManager;
 /**
  *
  * @author casio
+ * This servlet use to add payment and payment history to database
  */
 public class PaymentServlet extends HttpServlet {
 
@@ -36,29 +37,21 @@ public class PaymentServlet extends HttpServlet {
         String nameOnCard = request.getParameter("nameOnCard");
         String expiryDate = request.getParameter("expiryDate");
         String datePaid = request.getParameter("datePaid");
+        String totalPrice = request.getParameter("totalPrice");
 
         PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         Customer customer = (Customer) session.getAttribute("customer");
         validator.clear(session);
 
         try {
-
-            int orderId = 119;
-            double orderPrice = 500.0;
-            //double orderPrice = manager.getPrice();
-            System.out.println(cardNumber);
-            System.out.println(paymentMethod);
-            System.out.println(cvv);
-            System.out.println(nameOnCard);
-            System.out.println(expiryDate);
-            System.out.println(datePaid);
-            System.out.println(orderId);
-            System.out.println(orderPrice);
-            paymentManager.addPayment(orderId, paymentMethod, orderPrice, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
+            double str1 = Double.parseDouble(totalPrice);
+            paymentManager.addOrder(str1, datePaid);
+            int orderId = paymentManager.getOrderId();
+            paymentManager.addPayment(orderId, paymentMethod, str1, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
             //add payment to payment and payment history database
             Payment payment = new Payment(paymentMethod, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
             int payment_Id = paymentManager.getPaymentId(cardNumber);
-            paymentManager.addHistory(customer.getCustomerID(), payment_Id, orderId, paymentMethod, orderPrice, cardNumber, nameOnCard, datePaid);
+            paymentManager.addHistory(customer.getCustomerID(), payment_Id, orderId, paymentMethod, str1, cardNumber, nameOnCard, datePaid);
             session.setAttribute("payment", payment);
 
             request.getRequestDispatcher("ConfirmPayment.jsp").forward(request, response);

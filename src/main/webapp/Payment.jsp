@@ -2,6 +2,7 @@
     Document   : Payment
     Created on : 10 Sep 2021, 12:33:43
     Author     : casio
+    Page use to make Payment
 --%>
 
 <%@page import="uts.asd.model.dao.ProductDao"%>

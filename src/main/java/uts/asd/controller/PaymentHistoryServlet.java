@@ -23,6 +23,7 @@ import java.util.*;
 /**
  *
  * @author casio
+ * This servlet use to output all payment history of a customer to Payment History page
  */
 public class PaymentHistoryServlet extends HttpServlet {
     

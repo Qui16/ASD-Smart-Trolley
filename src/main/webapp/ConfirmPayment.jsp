@@ -8,6 +8,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.asd.model.Customer"%>
+<%@page import="uts.asd.model.dao.PaymentManager"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,12 +39,14 @@
     <%
         int id = 0;
         Customer customer = (Customer) session.getAttribute("customer");
+        PaymentManager paymentManager = (PaymentManager) session.getAttribute("paymentManager");
         String paymentMethod = request.getParameter("paymentMethod");
         String cardNumber = request.getParameter("cardNumber");
         String cvv = request.getParameter("cvv");
         String nameOnCard = request.getParameter("nameOnCard");
         String expiryDate = request.getParameter("expiryDate");
         String datePaid = request.getParameter("datePaid");
+        String totalPrice = request.getParameter("totalPrice");
     %>
     <% if (customer != null ) {
         id = customer.getCustomerID();
@@ -52,9 +55,9 @@
         <form action="Payment.jsp" method="post"><!-- show all the data of the payment  -->
             <table class="table table-responsive" id="users">
                 <tr><td>Customer Id:#</td><td><%= id%></td></tr>
-                <tr><td>Order Id:#</td><td>${orderId}</td></tr>
+                <tr><td>Payment Id:#</td><td><%= paymentManager.getPaymentId(cardNumber)%></td></tr>
                 <tr><td>Payment Method:</td><td><%= paymentMethod%></td></tr>
-                <tr><td>Amount :$</td><td><%= 500%></td></tr>
+                <tr><td>Amount :$</td><td> <%= totalPrice%></td></tr>
                 <tr><td>Date Paid:</td><td><%= datePaid%></td></tr>
                 <tr><td>Card Number:</td><td><%= cardNumber%></td></tr>
                 <tr><td>Expiry Date:</td><td><%= expiryDate%></td></tr>
