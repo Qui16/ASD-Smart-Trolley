@@ -59,7 +59,7 @@
                             <%
                                 if (customer != null) {
                             %>
-                        <li><a class="nav-link active" aria-current="page" href="LogoutServlet">Logout</a></li>
+                        <li><a class="nav-link active" aria-current="page" href="AccountLogoutServlet">Logout</a></li>
                             <%
                                 }
                             %>                    
