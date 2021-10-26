@@ -107,12 +107,14 @@ public class AccountUpdateServlet extends HttpServlet {
                         manager.updateCustomer(ID, Email, FName, LName, PhoneNum, Address, DOB);
                         customer = new Customer(ID,customer.getCustomerPoint(), Email, customer.getCustomerPassword(), FName, LName, PhoneNum, Address, DOB);
                         session.setAttribute("customer", customer);
+                        session.setAttribute("staff",null);
                         request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
                     } else if (staff != null) {
                         int ID = staff.getStaffID();
                         manager.updateStaff(ID, Email, FName, LName, PhoneNum, Address, DOB);
                         staff = new Staff(ID, Email, staff.getStaffPassword(), FName, LName, PhoneNum, Address, DOB,staff.getStaffRole());
                         session.setAttribute("staff", staff);
+                        session.setAttribute("customer", null);
                         request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
                     }
 

@@ -30,7 +30,7 @@
                         <li>
                             <a class="nav-link" href="Cart.jsp">Cart<span class="badge badge-danger px-2">${ cart_list.size() }</span></a>
                         </li>
-                        <li><a class="nav-link active" aria-current="page" href="./account.jsp">${customer.customerFName}'s Account</a></li>
+                        <li><a class="nav-link active" aria-current="page" href="./AccountScreen.jsp">${customer.customerFName}'s Account</a></li>
                             <%
                                 
                                 if (customer.isStaff()) {
@@ -59,7 +59,7 @@
                             <%
                                 if (customer != null) {
                             %>
-                        <li><a class="nav-link active" aria-current="page" href="LogoutServlet">Logout</a></li>
+                        <li><a class="nav-link active" aria-current="page" href="AccountLogoutServlet">Logout</a></li>
                             <%
                                 }
                             %>                    
