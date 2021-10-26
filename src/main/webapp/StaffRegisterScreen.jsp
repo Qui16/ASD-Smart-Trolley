@@ -26,6 +26,7 @@
         String dateErr = (String) session.getAttribute("dateErr");
         Validator validate = new Validator();
         validate.clear(session);
+        
     %>
     <body>
         <h1>Sign Up</h1>

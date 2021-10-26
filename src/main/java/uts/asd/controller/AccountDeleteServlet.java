@@ -36,12 +36,12 @@ public class AccountDeleteServlet extends HttpServlet {
             if(staff!=null){//check whether the account want to be deleted is customer or staff account
             manager.deleteStaff(staff.getStaffID());
             session.setAttribute("staff", staff);
-            request.getRequestDispatcher("navBar.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             else if(customer!=null){
             manager.deleteCustomer(customer.getCustomerID());
             session.setAttribute("customer", customer);
-            request.getRequestDispatcher("navBar.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         } catch (SQLException ex) {
             request.getRequestDispatcher("navBar.jsp").include(request, response);

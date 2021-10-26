@@ -119,14 +119,16 @@ public class AccountCreateServlet extends HttpServlet {
                     int ID = manager.FindCustomerID(Email, Password);
                     Customer customer = new Customer(ID, Email, Password,
                             FName, LName, PhoneNum, Address, DOB);
-                    session.setAttribute("customer", customer);                 
+                    session.setAttribute("customer", customer);          
+                    session.setAttribute("staff",null); 
                     request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
                     }else if (staffCreate.equals("true")) {
                         manager.addStaff(Email, Password, FName, LName, PhoneNum, Address, DOB,Role);
                     int ID = manager.FindStaffID(Email, Password);
                     Staff staff = new Staff(ID, Email, Password,
                             FName, LName, PhoneNum, Address, DOB,Role);
-                    session.setAttribute("staff", staff);                 
+                    session.setAttribute("staff", staff);  
+                    session.setAttribute("customer",null); 
                     request.getRequestDispatcher("AccountScreen.jsp").forward(request, response);
                     }
                     
