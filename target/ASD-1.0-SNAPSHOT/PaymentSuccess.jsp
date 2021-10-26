@@ -6,6 +6,33 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.asd.controller.Validator"%>
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="uts.asd.model.dao.DbCon"%>
+<%@page import="uts.asd.model.dao.ProductDao"%>
+<%@page import="java.util.List"%>
+<%@page import="uts.asd.model.*"%>
+<%@page import="java.util.ArrayList"%>
+<%
+    DecimalFormat dcf = new DecimalFormat("#.##");
+    request.setAttribute("dcf", dcf);
+
+    ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+    List<Cart> cartProduct = null;
+    if (cart_list != null) {
+        ProductDao pDao = new ProductDao(DbCon.getConnection());
+        cartProduct = pDao.getCartProducts(cart_list);
+        double total = pDao.getTotalCartPrice(cart_list);
+        request.setAttribute("cart_list", cart_list);
+        request.setAttribute("total", total);
+    }
+%>
+
+<%
+    Validator validate = new Validator();
+    validate.clear(session);
+    Customer user = (Customer) session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,5 +59,34 @@
             </div>
         </nav><!-- tell the user payment success -->
         <h3>Your Payment is Successful!</h3>
+        <h4 align="center">Receipt</h4>
+        <div class="container-fluid">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        if (cart_list != null) {
+                            for (Cart c : cartProduct) {%>
+                    <tr>
+                        <th scope="row"><%= c.getId()%></th>
+                        <td><%= c.getName()%></td>
+                        <td>$<%= dcf.format(c.getPrice())%></td>
+                        <td><%=c.getQuantity()%></td>
+                    </tr>
+                    <%}
+                        }
+                    %>
+                    
+                </tbody>
+            </table>
+        </div>
+        <h4 align="right">Total Price: $ ${(total>0)?dcf.format(total):0} </h4>
     </body>
 </html>
