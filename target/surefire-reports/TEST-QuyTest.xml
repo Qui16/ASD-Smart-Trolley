@@ -60,7 +60,7 @@
     <property name="library.jansi.path" value="D:\Download\NetBeans-12.0\netbeans\java\maven\bin\..\lib\jansi-native"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="TestStaffLogin" classname="QuyTest" time="0.004"/>
-  <testcase name="TestCustomerLogin" classname="QuyTest" time="0.005"/>
+  <testcase name="TestStaffLogin" classname="QuyTest" time="0.005"/>
+  <testcase name="TestCustomerLogin" classname="QuyTest" time="0.004"/>
   <testcase name="TestValidate" classname="QuyTest" time="0.003"/>
 </testsuite>
