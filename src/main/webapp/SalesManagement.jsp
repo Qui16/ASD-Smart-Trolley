@@ -27,7 +27,8 @@
     %>
 
     <header>
-            <jsp:include page="./navBar.jsp" flush="true"/>
+            <%@include file="./header.jsp"%>
+            <jsp:include page="./navBar2.jsp" flush="true"/>
     </header>
 
     <body>
