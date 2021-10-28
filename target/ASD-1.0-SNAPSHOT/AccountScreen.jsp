@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.jsp"><h3>Home</h3></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="hardware.jsp"><h3>Hardware Details</h3></a>
+                        </li>
                         <li>
                             <div class="position-absolute top-0 end-0">
                                 <form action="AccountLogoutServlet">

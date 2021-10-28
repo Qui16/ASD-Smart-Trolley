@@ -23,7 +23,7 @@
         cartProduct = pDao.getCartProducts(cart_list);
         double total = pDao.getTotalCartPrice(cart_list);
         request.setAttribute("cart_list", cart_list);
-        request.setAttribute("total", total);
+        request.setAttribute("total", dcf.format(total));
     }
 %>
 
@@ -44,7 +44,7 @@
         <%@include file="./navBar2.jsp"%>
 
         <div class="container-fluid">
-            <div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="Payment.jsp">Check Out</a></div>
+            <div class="d-flex py-3"><h3>Total Price: $ ${total} </h3> <a class="mx-3 btn btn-primary" href="Payment.jsp">Check Out</a></div>
             <table class="table">
                 <thead>
                     <tr>
