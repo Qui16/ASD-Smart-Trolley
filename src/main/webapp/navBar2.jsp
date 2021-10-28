@@ -52,6 +52,7 @@
                         <li><a class="nav-link active" aria-current="page" href="./StaffRegisterScreen.jsp">Staff Register</a></li>
                         <li><a class="nav-link active" aria-current="page" href="./ItemManagement.jsp">Item Management</a></li>
                         <li><a class="nav-link active" aria-current="page" href="./SalesManagement.jsp">Sales Management</a></li>
+                        <li><a class="nav-link active" aria-current="page" href="./homeScreen.jsp">DashBoard</a></li>
                         <li><a class="nav-link active" aria-current="page" href="./login.jsp">Login</a></li>
                             <%
                                 }
