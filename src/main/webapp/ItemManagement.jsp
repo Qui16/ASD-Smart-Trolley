@@ -19,22 +19,15 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <title>Item management</title>
     </head>
-    <%
-      System.out.println("1");
+    <%   
       String existErr = (String) session.getAttribute("existErr");
-      System.out.println("2");
       DBManager manager = (DBManager) session.getAttribute("manager");
-      System.out.println("3");
       ArrayList<Item> items = (ArrayList<Item>) manager.GetItems();
-      System.out.println("4");
-      System.out.println("!!!!!!! items is: " + items);
-      
-      
-      
     %>
 
     <header>
-            <jsp:include page="./navBar.jsp" flush="true"/>
+        <%@include file="./header.jsp"%>    
+        <jsp:include page="./navBar2.jsp" flush="true"/>
     </header>
 
     <body>
