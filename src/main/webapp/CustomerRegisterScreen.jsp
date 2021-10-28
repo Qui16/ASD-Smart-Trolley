@@ -79,7 +79,7 @@
                         <%} else {%>  
                 <tr><td>DOB:</td><td><input type="date" name="DOB"></td><td> If null, current date will be assumed</td></tr>
                         <%}%> 
-                <tr><td><a href="navBar.jsp" class="btn btn-secondary">Cancel</a></td><td><button type="submit" name="register" class="btn btn-success">Sign Up</button></td></tr>
+                <tr><td><a href="index.jsp" class="btn btn-secondary">Cancel</a></td><td><button type="submit" name="register" class="btn btn-success">Sign Up</button></td></tr>
             </table> 
                  <!-- indicate the account type is customer -->
                 <%
