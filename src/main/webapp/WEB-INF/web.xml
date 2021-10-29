@@ -76,10 +76,6 @@
         <servlet-name>PaymentServlet</servlet-name>
         <servlet-class>uts.asd.controller.PaymentServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ScanItemServlet</servlet-name>
-        <servlet-class>uts.asd.controller.ScanItemServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>PaymentServlet</servlet-name>
         <url-pattern>/PaymentServlet</url-pattern>
