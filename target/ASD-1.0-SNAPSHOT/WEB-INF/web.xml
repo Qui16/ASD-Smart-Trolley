@@ -124,10 +124,6 @@
         <servlet-name>ScanItemServlet</servlet-name>
         <url-pattern>/ScanItemServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ScanItemServlet</servlet-name>
-        <url-pattern>/ScanItemServlet</url-pattern>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
 
