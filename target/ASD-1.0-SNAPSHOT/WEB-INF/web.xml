@@ -40,6 +40,10 @@
         <servlet-name>homeMainServlet</servlet-name>
         <servlet-class>uts.asd.controller.homeMainServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ScanItemServlet</servlet-name>
+        <servlet-class>uts.asd.controller.ScanItemServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -71,6 +75,10 @@
     <servlet>
         <servlet-name>PaymentServlet</servlet-name>
         <servlet-class>uts.asd.controller.PaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ScanItemServlet</servlet-name>
+        <servlet-class>uts.asd.controller.ScanItemServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PaymentServlet</servlet-name>
@@ -113,8 +121,12 @@
         <url-pattern>/SearchItemListServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>homeMainServlet</servlet-name>
-        <url-pattern>/homeMainServlet</url-pattern>
+        <servlet-name>ScanItemServlet</servlet-name>
+        <url-pattern>/ScanItemServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScanItemServlet</servlet-name>
+        <url-pattern>/ScanItemServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
