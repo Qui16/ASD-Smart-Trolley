@@ -4,6 +4,7 @@
     Author     : Jack Hennessy
 --%>
 
+<%@page import="uts.asd.controller.Validator"%>
 <%@page import="uts.asd.model.dao.DBManager"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,9 +21,11 @@
         <title>Item management</title>
     </head>
     <%   
-      String existErr = (String) session.getAttribute("existErr");
       DBManager manager = (DBManager) session.getAttribute("manager");
       ArrayList<Item> items = (ArrayList<Item>) manager.GetItems();
+      String itemError = (String) session.getAttribute("itemError");
+      Validator validate = new Validator();
+      validate.clear(session);
     %>
 
     <header>
@@ -31,6 +34,8 @@
     </header>
 
     <body>
+       
+
         <div class="title">
             <h1 style="position: relative; left: 40%; padding-bottom: 2%;">Item management</h1>
         </div>
@@ -112,37 +117,45 @@
                         </script>
                     </div>
                 </div>
+                            
+                           
+                            
 
                 <div class="col-sm">
                     <form action="ItemServlet" method="post">
+                     <%if (itemError.equals("itemError")) {%> 
+                     <div class="alert alert-danger fade show" role="alert">
+                        <strong>An error has occurred!</strong> Please check you have filled in all fields correctly.
+                      </div>     
+                    <%}%>
                     <h2>Add/update product</h2>
-                    <div class="mb-3">
+                    <div class="mb-3">  
                         <label for="exampleFormControlInput0" class="form-label">ID</label>
-                        <input type="text" class="form-control" name="ID" id="exampleFormControlInput0" placeholder="Enter product ID">
+                        <input type="text" class="form-control" name="ID" id="exampleFormControlInput0" placeholder="Enter product ID" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter product name">
+                        <input type="text" class="form-control" name="name" placeholder="Enter product name" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput4" class="form-label">Price</label>
-                        <input type="text" class="form-control" name="price" id="exampleFormControlInput4" placeholder="Enter product price">
+                        <input type="text" class="form-control" name="price" id="exampleFormControlInput4" placeholder="Enter product price" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput2" class="form-label">Region</label>
-                        <input type="text" class="form-control" name="region" id="exampleFormControlInput2" placeholder="Enter product region">
+                        <input type="text" class="form-control" name="region" id="exampleFormControlInput2" placeholder="Enter product region" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput2" class="form-label">Quantity</label>
-                        <input type="text" class="form-control" name="quantity" id="exampleFormControlInput2" placeholder="Enter product quantity">
+                        <input type="text" class="form-control" name="quantity" id="exampleFormControlInput2" placeholder="Enter product quantity" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput3" class="form-label">Received date</label>
-                        <input type="text" class="form-control" name="date" id="exampleFormControlInput3">
+                        <input type="text" class="form-control" name="date" id="exampleFormControlInput3" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
                 </div>
@@ -152,11 +165,13 @@
                 <div class="col-3">
                     <h2>Remove product</h2>
                     <div class="input-group mb-3">
-                        <input type="text" name="delete" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name">
+                        <input type="text" name="delete" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name" required>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </div>
                 </div>
                 </form>
+                    
+             
                 
                 <jsp:include page="/ConnServlet" flush="true"/>
             </div>

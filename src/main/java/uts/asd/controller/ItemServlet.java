@@ -48,9 +48,7 @@ public class ItemServlet extends HttpServlet {
         
         if (validate.validateName(name) && validate.validateID(ID) && validate.validateDate(date)
             && validate.validateName(region)) {
-         
-        
-            
+
         try {
             // check if item already exists
             if (manager.ItemExist(name)) {
@@ -68,6 +66,7 @@ public class ItemServlet extends HttpServlet {
         
         } else {
             System.out.println("Invalid input");
+            session.setAttribute("itemError", "itemError");
         }
             
             request.getRequestDispatcher("ItemManagement.jsp").forward(request,response);
