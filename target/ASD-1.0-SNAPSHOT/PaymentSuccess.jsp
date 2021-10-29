@@ -31,7 +31,7 @@
 <%
     Validator validate = new Validator();
     validate.clear(session);
-    Customer user = (Customer) session.getAttribute("user");
+    Customer customer = (Customer) session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
@@ -41,7 +41,7 @@
         <title>Payment Success Page</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="navBar.jsp">Smart Trolley</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,7 @@
                         <a class="nav-link" href="navBar.jsp">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link btn btn-primary text-white" type="button" href="AccountScreen.jsp" data-toggle="modal" data-target="#myModal">Profile<span class="sr-only">(current)</a>                  
+                        <a class="nav-link btn btn-primary text-white" type="button" href="AccountScreen.jsp" data-toggle="modal" data-target="#myModal">${customer.customerFName}'s Account<span class="sr-only">(current)</a>                  
                     </li>
                 </ul>
             </div>
