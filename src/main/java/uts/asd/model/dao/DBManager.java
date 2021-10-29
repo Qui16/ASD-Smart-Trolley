@@ -369,6 +369,27 @@ public class DBManager {
         return list;
     }
     
+    public ArrayList<Item> FindItemViaID(int itemID) throws SQLException {//find item via ID
+        //setup the select sql query string     
+        String fetch = "select * from ASD.\"ITEMS\" where  \"ID\"=" + itemID;
+        //execute this query      
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Item> temp = new ArrayList();
+        //add the results to a ResultSet       
+        //search the ResultSet for the Item using the parameters
+        while (rs.next()) {
+            int ID = rs.getInt(1);
+            String itemName = rs.getString(2);
+            float itemPrice = rs.getFloat(3);
+            int itemQuantity = rs.getInt(4);
+            String itemReceivedDate = rs.getString(5);
+            String itemRegion = rs.getString(6);
+            String itemDescription = rs.getString(7);
+            temp.add(new Item(ID, itemName, itemPrice, itemQuantity, itemReceivedDate, itemRegion, itemDescription));
+        }
+        return temp;
+    }
+    
 }
 
         

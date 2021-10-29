@@ -80,7 +80,7 @@ public class Item {
         return description;
     }
     
-    public void setDescription(String descrtiption) {
+    public void setDescription(String description) {
         this.description = description;
     }
 }
