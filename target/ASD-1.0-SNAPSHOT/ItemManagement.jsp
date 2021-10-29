@@ -24,6 +24,7 @@
       DBManager manager = (DBManager) session.getAttribute("manager");
       ArrayList<Item> items = (ArrayList<Item>) manager.GetItems();
       String itemError = (String) session.getAttribute("itemError");
+      String deleteError = (String) session.getAttribute("deleteError");
       Validator validate = new Validator();
       validate.clear(session);
     %>
@@ -41,6 +42,7 @@
         </div>
 
         <div class="container">
+            
             <!-- main content div -->
             <div class="row">
 
@@ -158,11 +160,14 @@
                         <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-success">Submit</button>
-                </div>
+                
                 </form>
+                </div>
                 
                 <form action="DeleteItemServlet" method="post">
+   
                 <div class="col-3">
+                    
                     <h2>Remove product</h2>
                     <div class="input-group mb-3">
                         <input type="text" name="delete" class="form-control" id="exampleFormControlInput1" placeholder="Enter product name" required>
