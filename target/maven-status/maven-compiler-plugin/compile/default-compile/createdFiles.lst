@@ -4,6 +4,7 @@ uts\asd\controller\QuantityServlet.class
 uts\asd\controller\ListItemsServlet.class
 uts\asd\controller\CreatePaymentServlet.class
 uts\asd\model\Payment.class
+uts\asd\controller\ScanItemServlet.class
 uts\asd\controller\DeletePaymentServlet.class
 uts\asd\controller\AccountUpdateServlet.class
 uts\asd\controller\FindCustomerServlet.class
@@ -26,6 +27,7 @@ uts\asd\model\Item.class
 uts\asd\controller\AddToCartServlet.class
 uts\asd\model\dao\DbCon.class
 uts\asd\controller\AccountDeleteServlet.class
+uts\asd\controller\ItemScanedServlet.class
 uts\asd\model\dao\PaymentManager.class
 uts\asd\model\Customer.class
 uts\asd\controller\PaymentServlet.class

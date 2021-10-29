@@ -35,7 +35,7 @@ public class DeleteItemServlet extends HttpServlet {
         
             HttpSession session = request.getSession();
             DBManager manager = (DBManager) session.getAttribute("manager");
-            
+            Validator validate = new Validator();
             String toDelete = request.getParameter("delete");
             
         try {
@@ -45,10 +45,12 @@ public class DeleteItemServlet extends HttpServlet {
                 manager.deleteItem(toDelete);
             } else {
                 // create a new item
-                System.out.println("Item does not exist");         
+                System.out.println("Item does not exist");
+                session.setAttribute("deleteError", "deleteError");
             }
         } catch (SQLException ex) {
             Logger.getLogger(ItemServlet.class.getName()).log(Level.SEVERE, null, ex);
+            session.setAttribute("deleteError", "deleteError");
         }
             
             request.getRequestDispatcher("ItemManagement.jsp").forward(request,response);

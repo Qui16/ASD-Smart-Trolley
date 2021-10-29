@@ -27,7 +27,7 @@
                     <li><a href="./index.jsp">Home</a></li>
                     <li><a href="./listProduct.jsp">Browse</a></li>
                     <li><a href="./Payment.jsp">Checkout</a></li>
-                    <li><a href="./homeScreen.jsp">Checkout</a></li>
+                    <li><a href="./homeScreen.jsp">DashBoard</a></li>
 
                     <div class="search-container">
                         <form action="">

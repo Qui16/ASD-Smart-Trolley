@@ -94,5 +94,6 @@ public class Validator implements Serializable {
         session.setAttribute("cvvErr", "1");
         session.setAttribute("expErr", "1");
         session.setAttribute("itemError", "1");
+        session.setAttribute("deleteError", "1");
     }
 }
