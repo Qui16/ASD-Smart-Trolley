@@ -88,8 +88,8 @@ public class PaymentManager {
            if(user_Id == UserID){
                 String paymentMethod  = rs.getString(2);
                 String cardNumber = rs.getString(3);
-                String cvv = rs.getString(4);
-                String expiryDate = rs.getString(5);
+                String cvv = rs.getString(5);
+                String expiryDate = rs.getString(4);
                 String nameOnCard = rs.getString(6);
                 return new Payment(paymentMethod, cardNumber, expiryDate,  cvv, nameOnCard);
                 }

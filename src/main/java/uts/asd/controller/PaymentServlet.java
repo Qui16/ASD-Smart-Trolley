@@ -44,6 +44,21 @@ public class PaymentServlet extends HttpServlet {
         validator.clear(session);
 
         try {
+            int customerid;
+            if(customer == null){
+                double str1 = Double.parseDouble(totalPrice);
+            paymentManager.addOrder(str1, datePaid);
+            int orderId = paymentManager.getOrderId();
+            paymentManager.addPayment(orderId, paymentMethod, str1, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
+            //add payment to payment and payment history database
+            Payment payment = new Payment(paymentMethod, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
+            int payment_Id = paymentManager.getPaymentId(cardNumber);
+            session.setAttribute("payment", payment);
+            request.getRequestDispatcher("ConfirmPayment.jsp").forward(request, response);
+            }
+            else{
+                customerid = customer.getCustomerID();
+
             double str1 = Double.parseDouble(totalPrice);
             paymentManager.addOrder(str1, datePaid);
             int orderId = paymentManager.getOrderId();
@@ -51,11 +66,11 @@ public class PaymentServlet extends HttpServlet {
             //add payment to payment and payment history database
             Payment payment = new Payment(paymentMethod, cardNumber, expiryDate, cvv, nameOnCard, datePaid);
             int payment_Id = paymentManager.getPaymentId(cardNumber);
-            paymentManager.addHistory(customer.getCustomerID(), payment_Id, orderId, paymentMethod, str1, cardNumber, nameOnCard, datePaid);
+            paymentManager.addHistory(customerid, payment_Id, orderId, paymentMethod, str1, cardNumber, nameOnCard, datePaid);
             session.setAttribute("payment", payment);
 
             request.getRequestDispatcher("ConfirmPayment.jsp").forward(request, response);
-            //}
+            }
         } catch (SQLException | NullPointerException ex) {
             request.getRequestDispatcher("Payment.jsp").include(request, response);
             Logger.getLogger(AccountCreateServlet.class.getName()).log(Level.SEVERE, null, ex);
