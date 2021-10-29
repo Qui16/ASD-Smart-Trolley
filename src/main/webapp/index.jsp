@@ -51,13 +51,13 @@
                         if (!products.isEmpty()) {
                             for (Product p : products) {%>
                     <tr>
-                        <th scope="row"><%= p.getId()%></th>
-                        <td><%= p.getName()%></td>
-                        <td>$<%= p.getPrice()%></td>
-                        <td><%= p.getReceivedDate()%></td>
-                        <td><%= p.getRegion()%></td>
+                        <th scope="row" width="3%"><%= p.getId()%></th>
+                        <td width="15%"><%= p.getName()%></td>
+                        <td width="5%">$<%= p.getPrice()%></td>
+                        <td width="10%"><%= p.getReceivedDate()%></td>
+                        <td width="5%"><%= p.getRegion()%></td>
                         <td><%= p.getDescription()%></td>
-                        <td><a href="add-to-cart?id=<%= p.getId()%>" class="btn btn-primary">Add</a></td>
+                        <td width="7%"><a href="add-to-cart?id=<%= p.getId()%>" class="btn btn-primary">Add</a></td>
                     </tr>
                     <%}
                         }

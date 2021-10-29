@@ -48,11 +48,11 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
+                        <th scope="col" width="3%">ID</th>
+                        <th scope="col" width="15%">Name</th>
+                        <th scope="col" width="5%">Price</th>
                         <th scope="col">Quantity</th>
-                        <th scope="col">Remove</th>
+                        <th scope="col" width="7%">Remove</th>
                     </tr>
                 </thead>
                 <tbody>
